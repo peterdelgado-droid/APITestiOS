@@ -11,7 +11,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
     
     //Constants
     let TEST_URL = "https://httpbin.org/get"
-    //let APP_ID = "34434da02b9d2c06f7194ac16cd8c4f0"
+    let APP_ID = "34434da02b9d2c06f7194ac16cd8c4f0"
   
     
 
@@ -25,6 +25,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
    
     @IBOutlet weak var texTry: UITextView!
     @IBOutlet weak var segControl: UISegmentedControl!
+    @IBOutlet weak var changeCityTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,20 +56,35 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
     
     
     func getData(url: String, parameters: [String : String]) {
-        Alamofire.request(url, method: .get, parameters: parameters).responseJSON { [self]
-            response in
-            if response.result.isSuccess {
-                print("Success")
-                
-                let weatherJSON : JSON = JSON(response.result.value!)
-                self.texTry.text = weatherJSON.rawString()
-                
-            }
-            else {
-                print("Error \(String(describing: response.result.error))")
-             //   self.cityLabel.text = "Issue in connection"
-            }
+        var cityName = changeCityTextField.text!
+
+        if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "GET" {
+            cityName.insert(contentsOf: "get", at: cityName.endIndex)
+
+            Alamofire.request(url, method: .get, parameters: parameters).responseJSON { [self]
+                        response in
+                        if response.result.isSuccess {
+                            print("Success")
+                            
+                            let weatherJSON : JSON = JSON(response.result.value!)
+                            self.texTry.text = weatherJSON.rawString()
+                            
+                        }
+                        else {
+                            print("Error \(String(describing: response.result.error))")
+                         //   self.cityLabel.text = "Issue in connection"
+                        }
+                    }
+
+        
+        }else if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "POST" {
+        
+        
         }
+        
+        
+        
+        
     }
     
     
@@ -119,11 +135,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
     /***************************************************************/
     
     
-    @IBOutlet weak var changeCityTextField: UITextField!
-
+    
+        //1
     @IBAction func getPressed(_ sender: AnyObject) {
-        
-        
         
         //1 Get the city name the user entered in the text field
         var cityName = changeCityTextField.text!
@@ -184,7 +198,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
         //2 If we have a delegate set, call the method userEnteredANewCityName
         getData(url: cityName, parameters: params)
         
-        //3 dismiss the Change City View Controller to go back to the WeatherViewController
+        //3 dismiss the Change City View Controller to go back to the ViewController
         self.dismiss(animated: true, completion: nil)
         
     }
