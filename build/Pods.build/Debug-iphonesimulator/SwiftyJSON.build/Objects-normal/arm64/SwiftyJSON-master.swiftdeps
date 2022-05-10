@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)"
+options: "2b5c7d5dac5b456402253794bcaaf54e42576a13e1bf7c28b42ff227eeae4e7b"
+build_start_time: [1652083135, 30838966]
+build_end_time: [1652083137, 513372898]
+inputs:
+  "/Users/peterdelgado/Desktop/Clima-master 2/Pods/SwiftyJSON/Source/SwiftyJSON.swift": [1542882423, 0]
