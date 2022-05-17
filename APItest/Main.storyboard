@@ -29,7 +29,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                         <state key="normal" title="SEND">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" systemColor="systemTealColor"/>
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -59,6 +59,7 @@
                                             <segment title="DELETE"/>
                                             <segment title="PUT"/>
                                         </segments>
+                                        <color key="selectedSegmentTintColor" systemColor="systemTealColor"/>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aYi-HI-WZ4">
                                         <rect key="frame" x="133" y="264" width="109" height="32"/>
@@ -68,8 +69,14 @@
                                             <segment title="JSON"/>
                                         </segments>
                                     </segmentedControl>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Parameter" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cqE-ux-0Ct" userLabel="Parameters">
-                                        <rect key="frame" x="41" y="160" width="293" height="34"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Key" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cqE-ux-0Ct" userLabel="KeyParam">
+                                        <rect key="frame" x="41" y="160" width="114" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VHs-8s-mMu" userLabel="ValueParam">
+                                        <rect key="frame" x="192" y="160" width="142" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -77,12 +84,14 @@
                                 </subviews>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="changeCityTextField" destination="0F0-ob-gbM" id="hUn-4b-HeC"/>
                         <outlet property="segControl" destination="NB3-iP-xBt" id="yxv-eD-Rpy"/>
+                        <outlet property="sendParamsKeyTextField" destination="cqE-ux-0Ct" id="Ju1-rE-no1"/>
+                        <outlet property="sendParamsValueTextField" destination="VHs-8s-mMu" id="oi8-mf-BbM"/>
                         <outlet property="texTry" destination="4Gd-ay-Pq5" id="CSR-gI-Odb"/>
                     </connections>
                 </viewController>
@@ -97,6 +106,12 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

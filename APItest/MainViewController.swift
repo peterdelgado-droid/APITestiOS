@@ -26,6 +26,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var texTry: UITextView!
     @IBOutlet weak var segControl: UISegmentedControl!
     @IBOutlet weak var changeCityTextField: UITextField!
+    @IBOutlet weak var sendParamsKeyTextField: UITextField!
+    @IBOutlet weak var sendParamsValueTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,14 +56,14 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
     /***************************************************************/
     
     
-    
-    func getData(url: String, parameters: [String : String]) {
+    //2
+    func getData(url: String) {
         var cityName = changeCityTextField.text!
 
         if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "GET" {
             cityName.insert(contentsOf: "get", at: cityName.endIndex)
 
-            Alamofire.request(url, method: .get, parameters: parameters).responseJSON { [self]
+            Alamofire.request(url, method: .get, parameters: nil).responseJSON { [self]
                         response in
                         if response.result.isSuccess {
                             print("Success")
@@ -79,85 +81,13 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
         
         }else if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "POST" {
         
-        
-        }
-        
-        
-        
-        
-    }
-    
-    
-    
-    
-    
-    //MARK: - JSON Parsing
-    /***************************************************************/
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    //MARK: - Location Manager Delegate Methods
-    /***************************************************************/
-    
-    
-    //Write the didUpdateLocations method here:
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations[locations.count - 1]
-        if location.horizontalAccuracy > 0 {
-            locationManager.stopUpdatingLocation()
-            locationManager.delegate = nil
-            
-            let latitude = String(location.coordinate.latitude)
-            let longitude = String(location.coordinate.longitude)
-            
-            let params : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : APP_ID]
-            getData(url: TEST_URL, parameters: params)
-        }
-    }
-    
-    
-    //Write the didFailWithError method here:
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-     //   cityLabel.text = "Location Unavailable"
-    }
-    
-    
-
-    
-    //MARK: - Change City Delegate methods
-    /***************************************************************/
-    
-    
-    
-        //1
-    @IBAction func getPressed(_ sender: AnyObject) {
-        
-        //1 Get the city name the user entered in the text field
-        var cityName = changeCityTextField.text!
-        
-        if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "GET" {
-            cityName.insert(contentsOf: "get", at: cityName.endIndex)
-            
-        }else if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "POST" || segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "PUT" {
-  
             /*
              If the server uses consumer key and consumer secret, uncomment the follow lines
              */
-            
-            let params: Parameters = [
-    //            "consumer_key": "MY_CONSUMER_KEY",
-    //            "consumer_secret": "MY_CONSUMER_SECRET",
-                "name": "Jack",
-                "salary": "3540",
-                "age": "23"
-            ]
+            cityName.insert(contentsOf: "post", at: cityName.endIndex)
+            let keyParam = sendParamsKeyTextField.text!
+            let valueParam = sendParamsValueTextField.text!
+            let params : [String: String] = [keyParam: valueParam]
             
             /*
              If you are using Basic Authentication uncomment the follow line and add your base64 string
@@ -168,50 +98,104 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
     //            "Authorization": "Basic MY_BASIC_AUTH_STRING"
     //        ]
             
-            Alamofire.request("http://dummy.restapiexample.com/api/v1/create", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 200 ..< 299).responseJSON { AFdata in
-                do {
-                    guard let jsonObject = try JSONSerialization.jsonObject(with: AFdata.data!) as? [String: Any] else {
-                        print("Error: Cannot convert data to JSON object")
-                        return
-                    }
-                    guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
-                        print("Error: Cannot convert JSON object to Pretty JSON data")
-                        return
-                    }
-                    guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
-                        print("Error: Could print JSON in String")
-                        return
-                    }
-                    
-                    //self.openDetailsVC(jsonString: prettyPrintedJson, title: "POST METHOD")
-                } catch {
-                    print("Error: Trying to convert JSON data to string")
-                    return
+            
+            Alamofire.request(url, method: .post, parameters: params).responseJSON { [self]
+                        response in
+                        if response.result.isSuccess {
+                            print("Success")
+                            
+                            let weatherJSON : JSON = JSON(response.result.value!)
+                            self.texTry.text = weatherJSON.rawString()
+                            
+                        }
+                        else {
+                           
+                            print("Error \(String(describing: response.result.error))")
+                         //   self.cityLabel.text = "Issue in connection"
+                        }
                 }
-            }
+        }else if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "DELETE"{
+            cityName.insert(contentsOf: "delete", at: cityName.endIndex)
+        Alamofire.request(url, method: .delete, parameters: nil).responseJSON { [self]
+                    response in
+                    if response.result.isSuccess {
+                        print("Success")
+                        
+                        let weatherJSON : JSON = JSON(response.result.value!)
+                        self.texTry.text = weatherJSON.rawString()
+                        
+                    }
+                    else {
+                       
+                        print("Error \(String(describing: response.result.error))")
+                     //   self.cityLabel.text = "Issue in connection"
+                    }
+        
+        
+        }
+   
+        }
+        else if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "PUT"{
+            cityName.insert(contentsOf: "post", at: cityName.endIndex)
+            let keyParam = sendParamsKeyTextField.text!
+            let valueParam = sendParamsValueTextField.text!
+            let params : [String: String] = [keyParam: valueParam]
+            
+            
+            Alamofire.request(url, method: .put, parameters: params).responseJSON { [self]
+                    response in
+                    if response.result.isSuccess {
+                        print("Success")
+                        
+                        let weatherJSON : JSON = JSON(response.result.value!)
+                        self.texTry.text = weatherJSON.rawString()
+                        
+                    }
+                    else {
+                       
+                        print("Error \(String(describing: response.result.error))")
+                     //   self.cityLabel.text = "Issue in connection"
+                    }
+        
+        
+        }
+   
+        }
+    
+    
+    }
+    
+    
+    
+   
+    //1
+@IBAction func getPressed(_ sender: AnyObject) {
+        
+        //1 Get the city name the user entered in the text field
+        var cityName = changeCityTextField.text!
+       
+        
+        if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "GET" {
+            cityName.insert(contentsOf: "get", at: cityName.endIndex)
+            
+        }else if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "POST" || segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "PUT" {
+  
+           
             
         
         }
         
        
-        let params : [String: String] = ["q" : APP_ID, "appid" : APP_ID]
+       
         //2 If we have a delegate set, call the method userEnteredANewCityName
-        getData(url: cityName, parameters: params)
+        getData(url: cityName)
         
-        //3 dismiss the Change City View Controller to go back to the ViewController
+        //3 dismiss the Change City View Controller to go back to the WeatherViewController
         self.dismiss(animated: true, completion: nil)
         
     }
     
-    //Write the userEnteredANewCityName Delegate method here:
-    func userEnteredANewCityName(city: String) {
-        
-let params : [String: String] = ["q" : city, "appid" : APP_ID]
-        let cityName = changeCityTextField.text!
-
-        getData(url: cityName, parameters: params)
-        
-    }
+   
 
     
     //Write the PrepareForSegue Method here
