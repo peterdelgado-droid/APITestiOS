@@ -29,13 +29,11 @@
 		63E28AF31B99C36100FBF6E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		63E28AF51B99C36100FBF6E0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		7FC761B6144FD67D89D6E27A /* Pods-Clima.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clima.release.xcconfig"; path = "Target Support Files/Pods-Clima/Pods-Clima.release.xcconfig"; sourceTree = "<group>"; };
 		8220722A27F31DD100C05E6D /* newSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newSwift.swift; sourceTree = "<group>"; usesTabs = 0; };
 		822D930327F5AD4000CA32CB /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		822D930527F5AD7A00CA32CB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		822D930727F5ADE400CA32CB /* TabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		82ECEFA7282A5D6800A2916F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		E71631D5EFF417361D1219EA /* Pods-Clima.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clima.debug.xcconfig"; path = "Target Support Files/Pods-Clima/Pods-Clima.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +126,6 @@
 		AC80D6732CC41304E0680FB2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E71631D5EFF417361D1219EA /* Pods-Clima.debug.xcconfig */,
-				7FC761B6144FD67D89D6E27A /* Pods-Clima.release.xcconfig */,
 				00A32D7FF364831B001CBA2D /* Pods-APItest.debug.xcconfig */,
 				5C62D3FA02F5A8F2936A2FEF /* Pods-APItest.release.xcconfig */,
 			);
@@ -384,7 +380,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SGL398CCG;
 				INFOPLIST_FILE = APItest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rest.peter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -403,7 +399,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SGL398CCG;
 				INFOPLIST_FILE = APItest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rest.peter;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -6,8 +6,10 @@ import Alamofire
 import SwiftyJSON
 import SwiftUI
 
-@available(iOS 13.0, *)
-class MainViewController: UIViewController, CLLocationManagerDelegate{
+
+@available(iOS 15.0, *)
+class MainViewController: UIViewController, UIAdaptivePresentationControllerDelegate{
+    
     
     //Constants
     let TEST_URL = "https://httpbin.org/get"
@@ -18,7 +20,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
     let contentView = UIHostingController(rootView:newSwift())
     
     //TODO: Declare instance variables here
-    let locationManager = CLLocationManager()
+    //let locationManager = CLLocationManager()
     
     
     //Pre-linked IBOutlets
@@ -28,29 +30,30 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var changeCityTextField: UITextField!
     @IBOutlet weak var sendParamsKeyTextField: UITextField!
     @IBOutlet weak var sendParamsValueTextField: UITextField!
-    
+   
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        addChild(contentView)
-        view.addSubview(contentView.view)
-        setupConstraints()
         
-        //TODO:Set up the location manager here.
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+
+       addChild(contentView)
+       view.addSubview(contentView.view)
+      //  setupConstraints()
+        
+        
+        
+        
         
     }
     
-    fileprivate func setupConstraints(){
-        contentView.view.translatesAutoresizingMaskIntoConstraints = false;        contentView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = false
-        contentView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        contentView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        contentView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+ //   fileprivate func setupConstraints(){
+ //       contentView.view.translatesAutoresizingMaskIntoConstraints = false;        contentView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = false
+//        contentView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//7        contentView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+ //7       contentView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
 
-    }
+//    }
     
     //MARK: - Networking
     /***************************************************************/
@@ -165,7 +168,51 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
     
     }
     
-    
+    @IBAction func presentModal() {
+        let detailViewController = MainViewController()
+        let nav = UINavigationController(rootViewController: detailViewController)
+        // 1
+        nav.modalPresentationStyle = .pageSheet
+       
+        
+        // 2
+        if let sheet = nav.sheetPresentationController {
+                
+                // 3
+            
+                sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+            sheet.largestUndimmedDetentIdentifier = .medium
+            
+            
+            
+            // MARK: - Presentation Delegate
+               func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+                   self.view.alpha = 1.0
+               }
+            
+        }else {
+            // Fallback on earlier versions
+        }
+        // 4
+        present(nav, animated: true, completion: nil)
+
+        
+        
+        let medium = UIBarButtonItem(title: "Medium", primaryAction: .init(handler: { _ in
+            if let sheet = nav.sheetPresentationController {
+                // 2
+                sheet.animateChanges {
+
+                    // 3
+                    sheet.selectedDetentIdentifier = .medium
+
+                }
+            }
+        }))
+        detailViewController.navigationItem.leftBarButtonItem = medium
+        
+        }
     
    
     //1

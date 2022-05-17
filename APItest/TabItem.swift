@@ -5,7 +5,7 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 enum TabItem: String, CaseIterable {
     case home = "home"
     case calender = "calender"
