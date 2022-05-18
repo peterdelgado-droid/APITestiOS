@@ -11,6 +11,10 @@
 		63E28AF71B99C36100FBF6E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AF31B99C36100FBF6E0 /* Images.xcassets */; };
 		63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E28AF51B99C36100FBF6E0 /* MainViewController.swift */; };
 		63E28AFF1B99C3B300FBF6E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */; };
+		82158C1C2834FB9600FBCAB3 /* RequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82158C1B2834FB9600FBCAB3 /* RequestViewModel.swift */; };
+		82158C202834FEDB00FBCAB3 /* ControlEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82158C1F2834FEDB00FBCAB3 /* ControlEvent.swift */; };
+		82158C242834FFE600FBCAB3 /* Observable+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82158C232834FFE500FBCAB3 /* Observable+Bind.swift */; };
+		82158C262835001100FBCAB3 /* RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82158C252835001100FBCAB3 /* RxCocoa.swift */; };
 		822D930627F5AD7A00CA32CB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D930527F5AD7A00CA32CB /* NavigationController.swift */; };
 		822D930827F5ADE400CA32CB /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D930727F5ADE400CA32CB /* TabItem.swift */; };
 		82C95E7628340DF70076EF17 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C95E7528340DF70076EF17 /* SwiftUIView.swift */; };
@@ -28,6 +32,10 @@
 		63E28AF31B99C36100FBF6E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		63E28AF51B99C36100FBF6E0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		82158C1B2834FB9600FBCAB3 /* RequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewModel.swift; sourceTree = "<group>"; };
+		82158C1F2834FEDB00FBCAB3 /* ControlEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlEvent.swift; sourceTree = "<group>"; };
+		82158C232834FFE500FBCAB3 /* Observable+Bind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Bind.swift"; sourceTree = "<group>"; };
+		82158C252835001100FBCAB3 /* RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxCocoa.swift; sourceTree = "<group>"; };
 		822D930527F5AD7A00CA32CB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		822D930727F5ADE400CA32CB /* TabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		82C95E7528340DF70076EF17 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
@@ -103,11 +111,15 @@
 		63E28AFB1B99C37500FBF6E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				82158C252835001100FBCAB3 /* RxCocoa.swift */,
+				82158C232834FFE500FBCAB3 /* Observable+Bind.swift */,
+				82158C1F2834FEDB00FBCAB3 /* ControlEvent.swift */,
 				822D930727F5ADE400CA32CB /* TabItem.swift */,
 				63E28AF51B99C36100FBF6E0 /* MainViewController.swift */,
 				63E28AD01B99C32400FBF6E0 /* AppDelegate.swift */,
 				822D930527F5AD7A00CA32CB /* NavigationController.swift */,
 				82C95E7528340DF70076EF17 /* SwiftUIView.swift */,
+				82158C1B2834FB9600FBCAB3 /* RequestViewModel.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -235,6 +247,9 @@
 				"${BUILT_PRODUCTS_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework",
 				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
 				"${BUILT_PRODUCTS_DIR}/MGSelector/MGSelector.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -245,6 +260,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BottomSheetSwiftUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSelector.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -261,11 +279,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82158C262835001100FBCAB3 /* RxCocoa.swift in Sources */,
+				82158C202834FEDB00FBCAB3 /* ControlEvent.swift in Sources */,
+				82158C1C2834FB9600FBCAB3 /* RequestViewModel.swift in Sources */,
 				63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */,
 				82C95E7628340DF70076EF17 /* SwiftUIView.swift in Sources */,
 				63E28AD11B99C32400FBF6E0 /* AppDelegate.swift in Sources */,
 				822D930627F5AD7A00CA32CB /* NavigationController.swift in Sources */,
 				822D930827F5ADE400CA32CB /* TabItem.swift in Sources */,
+				82158C242834FFE600FBCAB3 /* Observable+Bind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

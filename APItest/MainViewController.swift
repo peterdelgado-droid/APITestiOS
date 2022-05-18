@@ -7,6 +7,7 @@ import SwiftyJSON
 import SwiftUI
 import FloatingPanel
 import MGSelector
+import RxSwift
 
 
 fileprivate struct HeaderKeys: MGSelectorOption {
@@ -18,13 +19,14 @@ fileprivate struct Const {
     static let keys = ["GET", "POST", "PUT", "DELETE"]
 }
 
+
 @available(iOS 15.0, *)
 class MainViewController: UIViewController, MGSelectable {
     
     
     func didSelect(option: MGSelectorOption) {
         
-        self.openSelector(title: "Header Keys", options: Const.keys.map { HeaderKeys(title: $0, detail: NSLocalizedString($0, comment: "")) }, theme: .dark)
+        title = option.title
         
     }
     
@@ -54,7 +56,7 @@ class MainViewController: UIViewController, MGSelectable {
     @IBOutlet weak var changeCityTextField: UITextField!
     @IBOutlet weak var sendParamsKeyTextField: UITextField!
     @IBOutlet weak var sendParamsValueTextField: UITextField!
-   
+    @IBOutlet weak var buttonG: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +89,18 @@ class MainViewController: UIViewController, MGSelectable {
     
     
     @IBAction func open(_ sender: UIButton) {
-        self.openSelector(title: "", options: Const.keys.map { HeaderKeys(title: $0, detail: NSLocalizedString($0, comment: "")) }, theme: .light)
+        
+        
+     self.openSelector(title: "", options: Const.keys.map { HeaderKeys(title: $0, detail: NSLocalizedString($0, comment: "")) }, theme: .light)
+       
+        
+        
+        
+     /*   let titleB: () =  self.openSelector(title: "", options: Const.keys.map { HeaderKeys(title: $0, detail: NSLocalizedString($0, comment: "")) }, theme: .light)
+       
+        buttonG.setTitle(titleB as! String?, for: .normal)
+        */
+        
        
         
         

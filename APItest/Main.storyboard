@@ -91,6 +91,7 @@
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buttonG" destination="rTe-eD-9AA" id="JdW-HZ-Cx0"/>
                         <outlet property="changeCityTextField" destination="0F0-ob-gbM" id="hUn-4b-HeC"/>
                         <outlet property="sendParamsKeyTextField" destination="cqE-ux-0Ct" id="Ju1-rE-no1"/>
                         <outlet property="sendParamsValueTextField" destination="VHs-8s-mMu" id="oi8-mf-BbM"/>

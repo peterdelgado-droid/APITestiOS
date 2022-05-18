@@ -12,4 +12,6 @@ target 'APItest' do
     pod 'FloatingPanel'
     pod 'BottomSheetSwiftUI'
     pod 'MGSelector'
+    pod 'RxSwift'
+    pod 'RxCocoa'
 end

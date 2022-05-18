@@ -4,6 +4,12 @@ PODS:
   - FloatingPanel (2.5.2)
   - MGSelector (0.2):
     - SnapKit (~> 5)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
   - SnapKit (5.0.1)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (5.0.1)
@@ -13,6 +19,8 @@ DEPENDENCIES:
   - BottomSheetSwiftUI
   - FloatingPanel
   - MGSelector
+  - RxCocoa
+  - RxSwift
   - SVProgressHUD
   - SwiftyJSON
 
@@ -22,6 +30,9 @@ SPEC REPOS:
     - BottomSheetSwiftUI
     - FloatingPanel
     - MGSelector
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SnapKit
     - SVProgressHUD
     - SwiftyJSON
@@ -31,10 +42,13 @@ SPEC CHECKSUMS:
   BottomSheetSwiftUI: 57c6e635baeeae878508883b6985051556172515
   FloatingPanel: 935712d7a8076630135fbbd47f717700913efef9
   MGSelector: e6dd39fb0dac1a577d9644f7766579cf9b9b18ad
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 9c473d53cdba13d4d57e9039e60319f5ab400b85
+PODFILE CHECKSUM: e702ddd94c6b0b5084da855c7aaed0a789b9c5c5
 
 COCOAPODS: 1.11.3
