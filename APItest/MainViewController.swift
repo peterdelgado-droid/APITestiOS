@@ -5,19 +5,43 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 import SwiftUI
+import FloatingPanel
+import MGSelector
 
+
+fileprivate struct HeaderKeys: MGSelectorOption {
+    var title: String
+    var detail: String?
+}
+
+fileprivate struct Const {
+    static let keys = ["GET", "POST", "PUT", "DELETE"]
+}
 
 @available(iOS 15.0, *)
-class MainViewController: UIViewController, UIAdaptivePresentationControllerDelegate{
+class MainViewController: UIViewController, MGSelectable {
     
+    
+    func didSelect(option: MGSelectorOption) {
+        
+        self.openSelector(title: "Header Keys", options: Const.keys.map { HeaderKeys(title: $0, detail: NSLocalizedString($0, comment: "")) }, theme: .dark)
+        
+    }
+    
+    var fpc: FloatingPanelController!
     
     //Constants
     let TEST_URL = "https://httpbin.org/get"
     let APP_ID = "34434da02b9d2c06f7194ac16cd8c4f0"
   
-    
+    struct Option: MGSelectorOption {
+        var title: String
+        var detail: String?
+    }
+    let options: [Option] = []
 
-    let contentView = UIHostingController(rootView:newSwift())
+  //  let contentView = UIHostingController
+       
     
     //TODO: Declare instance variables here
     //let locationManager = CLLocationManager()
@@ -35,11 +59,10 @@ class MainViewController: UIViewController, UIAdaptivePresentationControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-       addChild(contentView)
-       view.addSubview(contentView.view)
+//UIHostingController(rootView: SwiftUIView())
+//      addChild(contentView)
+ //   view.addSubview(contentView.view)
       //  setupConstraints()
-        
         
         
         
@@ -60,6 +83,17 @@ class MainViewController: UIViewController, UIAdaptivePresentationControllerDele
     
     
     //2
+    
+    
+    
+    @IBAction func open(_ sender: UIButton) {
+        self.openSelector(title: "", options: Const.keys.map { HeaderKeys(title: $0, detail: NSLocalizedString($0, comment: "")) }, theme: .light)
+       
+        
+        
+        }
+    
+    
     func getData(url: String) {
         var cityName = changeCityTextField.text!
 
@@ -168,7 +202,7 @@ class MainViewController: UIViewController, UIAdaptivePresentationControllerDele
     
     }
     
-    @IBAction func presentModal() {
+  /*  @IBAction func presentModal() {
         let detailViewController = MainViewController()
         let nav = UINavigationController(rootViewController: detailViewController)
         // 1
@@ -214,9 +248,9 @@ class MainViewController: UIViewController, UIAdaptivePresentationControllerDele
         
         }
     
-   
+   */
     //1
-@IBAction func getPressed(_ sender: AnyObject) {
+    @IBAction func getPressed(_ sender: UIButton) {
         
         //1 Get the city name the user entered in the text field
         var cityName = changeCityTextField.text!
@@ -258,5 +292,6 @@ class MainViewController: UIViewController, UIAdaptivePresentationControllerDele
     
     
 }
+
 
 

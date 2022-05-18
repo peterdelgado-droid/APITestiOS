@@ -11,10 +11,9 @@
 		63E28AF71B99C36100FBF6E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AF31B99C36100FBF6E0 /* Images.xcassets */; };
 		63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E28AF51B99C36100FBF6E0 /* MainViewController.swift */; };
 		63E28AFF1B99C3B300FBF6E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */; };
-		8220722B27F31DD100C05E6D /* newSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8220722A27F31DD100C05E6D /* newSwift.swift */; };
-		822D930427F5AD4000CA32CB /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D930327F5AD4000CA32CB /* TabController.swift */; };
 		822D930627F5AD7A00CA32CB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D930527F5AD7A00CA32CB /* NavigationController.swift */; };
 		822D930827F5ADE400CA32CB /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D930727F5ADE400CA32CB /* TabItem.swift */; };
+		82C95E7628340DF70076EF17 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C95E7528340DF70076EF17 /* SwiftUIView.swift */; };
 		82ECEFA8282A5D6800A2916F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82ECEFA7282A5D6800A2916F /* Main.storyboard */; };
 		FC42EAA260F97F759425B852 /* Pods_APItest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CA9FEF3644598C743D7061 /* Pods_APItest.framework */; };
 /* End PBXBuildFile section */
@@ -29,10 +28,9 @@
 		63E28AF31B99C36100FBF6E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		63E28AF51B99C36100FBF6E0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		8220722A27F31DD100C05E6D /* newSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newSwift.swift; sourceTree = "<group>"; usesTabs = 0; };
-		822D930327F5AD4000CA32CB /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		822D930527F5AD7A00CA32CB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		822D930727F5ADE400CA32CB /* TabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		82C95E7528340DF70076EF17 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		82ECEFA7282A5D6800A2916F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,9 +106,8 @@
 				822D930727F5ADE400CA32CB /* TabItem.swift */,
 				63E28AF51B99C36100FBF6E0 /* MainViewController.swift */,
 				63E28AD01B99C32400FBF6E0 /* AppDelegate.swift */,
-				8220722A27F31DD100C05E6D /* newSwift.swift */,
-				822D930327F5AD4000CA32CB /* TabController.swift */,
 				822D930527F5AD7A00CA32CB /* NavigationController.swift */,
+				82C95E7528340DF70076EF17 /* SwiftUIView.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -235,13 +232,21 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-APItest/Pods-APItest-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework",
+				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
+				"${BUILT_PRODUCTS_DIR}/MGSelector/MGSelector.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BottomSheetSwiftUI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSelector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,9 +261,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8220722B27F31DD100C05E6D /* newSwift.swift in Sources */,
-				822D930427F5AD4000CA32CB /* TabController.swift in Sources */,
 				63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */,
+				82C95E7628340DF70076EF17 /* SwiftUIView.swift in Sources */,
 				63E28AD11B99C32400FBF6E0 /* AppDelegate.swift in Sources */,
 				822D930627F5AD7A00CA32CB /* NavigationController.swift in Sources */,
 				822D930827F5ADE400CA32CB /* TabItem.swift in Sources */,
@@ -380,7 +384,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SGL398CCG;
 				INFOPLIST_FILE = APItest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rest.peter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -399,7 +403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SGL398CCG;
 				INFOPLIST_FILE = APItest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rest.peter;
 				PRODUCT_NAME = "$(TARGET_NAME)";

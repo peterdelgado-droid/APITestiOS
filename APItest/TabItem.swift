@@ -13,19 +13,7 @@ enum TabItem: String, CaseIterable {
     case profile = "profile"
     
     
-    var viewController: UIViewController {
-        switch self {
-        case .home:
-            return MainViewController()
-        
-        case .friends:
-            return MainViewController()
-        case .profile:
-            return MainViewController()
-        case .calender:
-            return MainViewController()
-        }
-    }
+    
     
     var icon: UIImage? {
         switch self {
