@@ -8,6 +8,9 @@ import SwiftUI
 import FloatingPanel
 import MGSelector
 import RxSwift
+import RxCocoa
+import RxController
+import MapKit
 
 
 fileprivate struct HeaderKeys: MGSelectorOption {
@@ -22,15 +25,14 @@ fileprivate struct Const {
 
 @available(iOS 15.0, *)
 class MainViewController: UIViewController, MGSelectable {
-    
-    
     func didSelect(option: MGSelectorOption) {
-        
-        title = option.title
-        
-    }
+       }
     
-    var fpc: FloatingPanelController!
+    
+   
+    
+    
+   
     
     //Constants
     let TEST_URL = "https://httpbin.org/get"
@@ -57,43 +59,110 @@ class MainViewController: UIViewController, MGSelectable {
     @IBOutlet weak var sendParamsKeyTextField: UITextField!
     @IBOutlet weak var sendParamsValueTextField: UITextField!
     @IBOutlet weak var buttonG: UIButton!
-
+    @IBOutlet weak var tabG: UITabBar!
+    
+//    let contentView = UIHostingController(rootView: BottomSheetView(isOpen: true, maxHeight: 600){
+//        Rectangle().fill(Color.red)
+//    }) .content: self())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//UIHostingController(rootView: SwiftUIView())
-//      addChild(contentView)
- //   view.addSubview(contentView.view)
-      //  setupConstraints()
+        let button = UIButton(configuration: .filled(), primaryAction:.init(handler:{ _ in
+            
+            let storyboard = UIStoryboard(name: "Sheet", bundle:nil)
+            let sheetPresentationController =
+            storyboard.instantiateViewController(withIdentifier: "SheetViewController")
+            as! SheetViewController
+            self.present(sheetPresentationController,animated:true, completion:nil)
+            
+        }))
         
+        button.setTitle("Present Sheet", for: .normal)
+        button.configuration?.cornerStyle = .capsule
+        view.addSubview(button)
+    
+        //      setupContraints()
+//
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        button.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        button.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        button.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
+      
+//        let fpc = FloatingPanelController()
+//        let contentVC = MainViewController()
+//       
+//        fpc.set(contentViewController: contentVC)
+//        fpc.isRemovalInteractionEnabled = true
+//        fpc.addPanel(toParent: self)
+        
+       
+       
+
         
         
     }
     
- //   fileprivate func setupConstraints(){
- //       contentView.view.translatesAutoresizingMaskIntoConstraints = false;        contentView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = false
-//        contentView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-//7        contentView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
- //7       contentView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        
+//    fileprivate func setupContraints(){
+//            contentView.view.translatesAutoresizingMaskIntoConstraints = false
+//            contentView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//            contentView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//            contentView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+//            contentView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+//
+//        }
+    
+    
+//    private lazy var requestMethodButton: UIButton = {
+//        let button = UIButton()
+//        button.contentHorizontalAlignment = .right
+//        button.setTitle("GET", for: .normal)
+//
+//        button.setTitleColor(.white, for: .normal)
+//        button.setTitleColor(.lightGray, for: .highlighted)
+//        button.rx.tap.bind { [unowned self] in
+//            let options = RequestConst.methods.map { DetailOption(key: $0) }
+//         //   self.openSelector(title:"test", options: options, theme: .dark)
+//        }
+//        return button
+//    }()
+//
+    var contentViewControllers: [UIViewController] = []
 
-//    }
-    
-    //MARK: - Networking
-    /***************************************************************/
+   
     
     
-    //2
-    
-    
+   
     
     @IBAction func open(_ sender: UIButton) {
         
         
-     self.openSelector(title: "", options: Const.keys.map { HeaderKeys(title: $0, detail: NSLocalizedString($0, comment: "")) }, theme: .light)
+         
+
+           
+//            buttonG.rx.tap.bind { [unowned self] in
+//                let options = Const.keys.map { DetailOption(key: $0) }
+//                self.openSelector(title: "test", options: options, theme: .dark)
+//            }.dispose()
+            
+        
+       
        
         
+        
+    self.openSelector(title: "Request Method", options: Const.keys.map { HeaderKeys(title: $0, detail: NSLocalizedString($0, comment: "")) }, theme: .light)
+
+       
+        
+        
+        
+        
+          
+            
+            
+            
         
         
      /*   let titleB: () =  self.openSelector(title: "", options: Const.keys.map { HeaderKeys(title: $0, detail: NSLocalizedString($0, comment: "")) }, theme: .light)
@@ -215,53 +284,7 @@ class MainViewController: UIViewController, MGSelectable {
     
     }
     
-  /*  @IBAction func presentModal() {
-        let detailViewController = MainViewController()
-        let nav = UINavigationController(rootViewController: detailViewController)
-        // 1
-        nav.modalPresentationStyle = .pageSheet
-       
-        
-        // 2
-        if let sheet = nav.sheetPresentationController {
-                
-                // 3
-            
-                sheet.detents = [.medium(), .large()]
-            sheet.prefersGrabberVisible = true
-            sheet.largestUndimmedDetentIdentifier = .medium
-            
-            
-            
-            // MARK: - Presentation Delegate
-               func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-                   self.view.alpha = 1.0
-               }
-            
-        }else {
-            // Fallback on earlier versions
-        }
-        // 4
-        present(nav, animated: true, completion: nil)
 
-        
-        
-        let medium = UIBarButtonItem(title: "Medium", primaryAction: .init(handler: { _ in
-            if let sheet = nav.sheetPresentationController {
-                // 2
-                sheet.animateChanges {
-
-                    // 3
-                    sheet.selectedDetentIdentifier = .medium
-
-                }
-            }
-        }))
-        detailViewController.navigationItem.leftBarButtonItem = medium
-        
-        }
-    
-   */
     //1
     @IBAction func getPressed(_ sender: UIButton) {
         

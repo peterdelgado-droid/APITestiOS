@@ -14,4 +14,13 @@ target 'APItest' do
     pod 'MGSelector'
     pod 'RxSwift'
     pod 'RxCocoa'
+    pod 'RxAlertViewable'
+    pod  'RxController'
+    pod 'RxDataSourcesSingleSection'
+    pod 'RxBinding'
+    pod 'RxFlow'
+    pod 'RxKeyboard'
+    pod 'PagingKit'
+	pod 'MGKeyboardAccessory'
+
 end

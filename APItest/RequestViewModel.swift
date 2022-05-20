@@ -9,6 +9,16 @@
 import RxSwift
 import MGSelector
 import Alamofire
+import RxFlow
+import RxKeyboard
+import RxCocoa
+
+
+
+struct RequestConst {
+    static let protocols = ["http", "https"]
+    static let methods = ["GET", "POST", "HEAD", "PUT", "DELETE"]
+}
 
 
 struct DetailOption {
@@ -32,3 +42,25 @@ extension DetailOption: MGSelectorOption {
         }
     }
 }
+class RequestViewModel: BaseViewModel {
+    
+    private let request: Request? = nil
+    
+    
+    
+    
+    let requestMethod = BehaviorRelay<String>(value: RequestConst.methods[0])
+   
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+
