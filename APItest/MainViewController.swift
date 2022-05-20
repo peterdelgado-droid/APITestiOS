@@ -85,10 +85,10 @@ class MainViewController: UIViewController, MGSelectable {
         //      setupContraints()
 //
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        button.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        button.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        button.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 45).isActive = true
         
       
 //        let fpc = FloatingPanelController()
