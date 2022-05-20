@@ -9,7 +9,7 @@
 import UIKit
 
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 class TabController: UITabBarController, UITabBarControllerDelegate {
     
     var customTabBar: NavigationController!
@@ -83,7 +83,7 @@ class TabController: UITabBarController, UITabBarControllerDelegate {
 // code for animations with custon tab bar controller from https://stackoverflow.com/a/54774397/2166424
 
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 extension TabController: UITabBarControllerDelegate {
 
     func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {

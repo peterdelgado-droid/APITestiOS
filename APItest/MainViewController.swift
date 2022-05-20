@@ -5,20 +5,50 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 import SwiftUI
+import FloatingPanel
+import MGSelector
+import RxSwift
+import RxCocoa
+import RxController
+import MapKit
 
-@available(iOS 13.0, *)
-class MainViewController: UIViewController, CLLocationManagerDelegate{
+
+fileprivate struct HeaderKeys: MGSelectorOption {
+    var title: String
+    var detail: String?
+}
+
+fileprivate struct Const {
+    static let keys = ["GET", "POST", "PUT", "DELETE"]
+}
+
+
+@available(iOS 15.0, *)
+class MainViewController: UIViewController, MGSelectable {
+    func didSelect(option: MGSelectorOption) {
+       }
+    
+    
+   
+    
+    
+   
     
     //Constants
     let TEST_URL = "https://httpbin.org/get"
     let APP_ID = "34434da02b9d2c06f7194ac16cd8c4f0"
   
-    
+    struct Option: MGSelectorOption {
+        var title: String
+        var detail: String?
+    }
+    let options: [Option] = []
 
-    let contentView = UIHostingController(rootView:newSwift())
+  //  let contentView = UIHostingController
+       
     
     //TODO: Declare instance variables here
-    let locationManager = CLLocationManager()
+    //let locationManager = CLLocationManager()
     
     
     //Pre-linked IBOutlets
@@ -28,35 +58,124 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var changeCityTextField: UITextField!
     @IBOutlet weak var sendParamsKeyTextField: UITextField!
     @IBOutlet weak var sendParamsValueTextField: UITextField!
+    @IBOutlet weak var buttonG: UIButton!
+    @IBOutlet weak var tabG: UITabBar!
+    
+//    let contentView = UIHostingController(rootView: BottomSheetView(isOpen: true, maxHeight: 600){
+//        Rectangle().fill(Color.red)
+//    }) .content: self())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addChild(contentView)
-        view.addSubview(contentView.view)
-        setupConstraints()
         
-        //TODO:Set up the location manager here.
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        let button = UIButton(configuration: .filled(), primaryAction:.init(handler:{ _ in
+            
+            let storyboard = UIStoryboard(name: "Sheet", bundle:nil)
+            let sheetPresentationController =
+            storyboard.instantiateViewController(withIdentifier: "SheetViewController")
+            as! SheetViewController
+            self.present(sheetPresentationController,animated:true, completion:nil)
+            
+        }))
         
-    }
+        button.setTitle("Present Sheet", for: .normal)
+        button.configuration?.cornerStyle = .capsule
+        view.addSubview(button)
     
-    fileprivate func setupConstraints(){
-        contentView.view.translatesAutoresizingMaskIntoConstraints = false;        contentView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = false
-        contentView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        contentView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        contentView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        //      setupContraints()
+//
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        button.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        button.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        button.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
+      
+//        let fpc = FloatingPanelController()
+//        let contentVC = MainViewController()
+//       
+//        fpc.set(contentViewController: contentVC)
+//        fpc.isRemovalInteractionEnabled = true
+//        fpc.addPanel(toParent: self)
+        
+       
+       
 
+        
+        
     }
     
-    //MARK: - Networking
-    /***************************************************************/
+//    fileprivate func setupContraints(){
+//            contentView.view.translatesAutoresizingMaskIntoConstraints = false
+//            contentView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//            contentView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//            contentView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+//            contentView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+//
+//        }
     
     
-    //2
+//    private lazy var requestMethodButton: UIButton = {
+//        let button = UIButton()
+//        button.contentHorizontalAlignment = .right
+//        button.setTitle("GET", for: .normal)
+//
+//        button.setTitleColor(.white, for: .normal)
+//        button.setTitleColor(.lightGray, for: .highlighted)
+//        button.rx.tap.bind { [unowned self] in
+//            let options = RequestConst.methods.map { DetailOption(key: $0) }
+//         //   self.openSelector(title:"test", options: options, theme: .dark)
+//        }
+//        return button
+//    }()
+//
+    var contentViewControllers: [UIViewController] = []
+
+   
+    
+    
+   
+    
+    @IBAction func open(_ sender: UIButton) {
+        
+        
+         
+
+           
+//            buttonG.rx.tap.bind { [unowned self] in
+//                let options = Const.keys.map { DetailOption(key: $0) }
+//                self.openSelector(title: "test", options: options, theme: .dark)
+//            }.dispose()
+            
+        
+       
+       
+        
+        
+    self.openSelector(title: "Request Method", options: Const.keys.map { HeaderKeys(title: $0, detail: NSLocalizedString($0, comment: "")) }, theme: .light)
+
+       
+        
+        
+        
+        
+          
+            
+            
+            
+        
+        
+     /*   let titleB: () =  self.openSelector(title: "", options: Const.keys.map { HeaderKeys(title: $0, detail: NSLocalizedString($0, comment: "")) }, theme: .light)
+       
+        buttonG.setTitle(titleB as! String?, for: .normal)
+        */
+        
+       
+        
+        
+        }
+    
+    
     func getData(url: String) {
         var cityName = changeCityTextField.text!
 
@@ -165,11 +284,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
     
     }
     
-    
-    
-   
+
     //1
-@IBAction func getPressed(_ sender: AnyObject) {
+    @IBAction func getPressed(_ sender: UIButton) {
         
         //1 Get the city name the user entered in the text field
         var cityName = changeCityTextField.text!
@@ -211,5 +328,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate{
     
     
 }
+
 
 

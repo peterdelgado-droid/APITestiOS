@@ -5,7 +5,7 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 enum TabItem: String, CaseIterable {
     case home = "home"
     case calender = "calender"
@@ -13,19 +13,7 @@ enum TabItem: String, CaseIterable {
     case profile = "profile"
     
     
-    var viewController: UIViewController {
-        switch self {
-        case .home:
-            return MainViewController()
-        
-        case .friends:
-            return MainViewController()
-        case .profile:
-            return MainViewController()
-        case .calender:
-            return MainViewController()
-        }
-    }
+    
     
     var icon: UIImage? {
         switch self {

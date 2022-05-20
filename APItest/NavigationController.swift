@@ -14,7 +14,7 @@ class NavigationController: UIImageView {
         super.init(coder: aDecoder)
     }
     
-    @available(iOS 13.0, *)
+    @available(iOS 15.0, *)
     convenience init(menuItems: [TabItem], frame: CGRect) {
         self.init(frame: frame)
         
@@ -61,7 +61,7 @@ class NavigationController: UIImageView {
         self.activateTab(tab: 0)
     }
     
-    @available(iOS 13.0, *)
+    @available(iOS 15.0, *)
     func createTabItem(item: TabItem) -> UIView {
         let tabBarItem = UIView(frame: CGRect.zero)
         let itemTitleLabel = UILabel(frame: CGRect.zero)
