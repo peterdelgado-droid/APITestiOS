@@ -12,28 +12,40 @@ import RxCocoa
 import RxController
 import MapKit
 
+@available(iOS 13.0, *)
+public protocol MainViewControllerDelegate : NSObjectProtocol {
 
-fileprivate struct HeaderKeys: MGSelectorOption {
-    var title: String
-    var detail: String?
+    
+    @available(iOS 15.0, *)
+    func requestMethodViewController(_ viewController: MainViewController)
+
+    
+    
 }
 
-fileprivate struct Const {
-    static let keys = ["GET", "POST", "PUT", "DELETE"]
-}
 
 
 @available(iOS 15.0, *)
-class MainViewController: UIViewController, MGSelectable {
-    func didSelect(option: MGSelectorOption) {
-       }
+open class MainViewController: UIViewController {
+    weak open var delegate: MainViewControllerDelegate?
+    open var selectedFontDescriptor: String?
+//    @Binding var isShown: Bool
+//
+//       init(isShown: Binding<Bool>) {
+//           _isShown = isShown
+//           super.init(nibName: nil, bundle: nil)
+//
+//       }
     
+    
+//    required init?(coder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        }
+//
     
    
     
-    
-   
-    
+
     //Constants
     let TEST_URL = "https://httpbin.org/get"
     let APP_ID = "34434da02b9d2c06f7194ac16cd8c4f0"
@@ -58,52 +70,88 @@ class MainViewController: UIViewController, MGSelectable {
     @IBOutlet weak var changeCityTextField: UITextField!
     @IBOutlet weak var sendParamsKeyTextField: UITextField!
     @IBOutlet weak var sendParamsValueTextField: UITextField!
-    @IBOutlet weak var buttonG: UIButton!
+    
     @IBOutlet weak var tabG: UITabBar!
     
-//    let contentView = UIHostingController(rootView: BottomSheetView(isOpen: true, maxHeight: 600){
-//        Rectangle().fill(Color.red)
-//    }) .content: self())
+     var StringTest: String!
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
+        let content = UIHostingController(rootView: SheetView())
+        addChild(content)
+        view.addSubview(content.view)
         
-        let button = UIButton(configuration: .filled(), primaryAction:.init(handler:{ _ in
-            
-            let storyboard = UIStoryboard(name: "Sheet", bundle:nil)
-            let sheetPresentationController =
-            storyboard.instantiateViewController(withIdentifier: "SheetViewController")
-            as! SheetViewController
-            self.present(sheetPresentationController,animated:true, completion:nil)
-            
-        }))
         
-        button.setTitle("Present Sheet", for: .normal)
-        button.configuration?.cornerStyle = .capsule
-        view.addSubview(button)
+        content.view.translatesAutoresizingMaskIntoConstraints = false
+        content.view.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -100).isActive = true
+        content.view.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 200).isActive = true
+        content.view.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        content.view.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        
+       // updateButton()
+      //  updateButton2()
     
-        //      setupContraints()
-//
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        button.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        button.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        button.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        
-      
-//        let fpc = FloatingPanelController()
-//        let contentVC = MainViewController()
-//       
-//        fpc.set(contentViewController: contentVC)
-//        fpc.isRemovalInteractionEnabled = true
-//        fpc.addPanel(toParent: self)
-        
-       
-       
-
-        
-        
     }
+    
+    func updateButton(){
+    let buttonNow = UIButton(configuration: .filled(), primaryAction:.init(handler:{ _ in
+        
+        let storyboard = UIStoryboard(name: "Sheet", bundle:nil)
+        let sheetPresentationController =
+        storyboard.instantiateViewController(withIdentifier: "SheetViewController")
+        as! SheetViewController
+       self.present(sheetPresentationController,animated:true, completion:nil)
+        
+    }))
+        buttonNow.setTitle(selectedFontDescriptor, for: .normal)
+    buttonNow.configuration?.cornerStyle = .capsule
+     view.addSubview(buttonNow)
+    
+    
+
+    //      setupContraints()
+//
+    buttonNow.translatesAutoresizingMaskIntoConstraints = false
+    buttonNow.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 150).isActive = true
+    buttonNow.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 10).isActive = true
+    buttonNow.heightAnchor.constraint(equalToConstant: 100).isActive = true
+    buttonNow.widthAnchor.constraint(equalToConstant: 100).isActive = true
+    
+        buttonNow.setTitle(selectedFontDescriptor, for: .normal)
+    }
+    
+    func updateButton2(){
+    let buttonNow = UIButton(configuration: .filled(), primaryAction:.init(handler:{ _ in
+        
+//        let storyboard = UIStoryboard(name: "Sheet", bundle:nil)
+//        let sheetPresentationController =
+//        storyboard.instantiateViewController(withIdentifier: "SheetViewController")
+//        as! SheetViewController
+//       self.present(sheetPresentationController,animated:true, completion:nil)
+        
+    }))
+    buttonNow.setTitle(selectedFontDescriptor, for: .normal)
+    buttonNow.configuration?.cornerStyle = .capsule
+     view.addSubview(buttonNow)
+    
+    
+
+    //      setupContraints()
+//
+    buttonNow.translatesAutoresizingMaskIntoConstraints = false
+    buttonNow.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 150).isActive = true
+    buttonNow.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 10).isActive = true
+    buttonNow.heightAnchor.constraint(equalToConstant: 100).isActive = true
+    buttonNow.widthAnchor.constraint(equalToConstant: 100).isActive = true
+    
+    
+    }
+    
+   
+
+
+   
     
 //    fileprivate func setupContraints(){
 //            contentView.view.translatesAutoresizingMaskIntoConstraints = false
@@ -114,66 +162,10 @@ class MainViewController: UIViewController, MGSelectable {
 //
 //        }
     
-    
-//    private lazy var requestMethodButton: UIButton = {
-//        let button = UIButton()
-//        button.contentHorizontalAlignment = .right
-//        button.setTitle("GET", for: .normal)
-//
-//        button.setTitleColor(.white, for: .normal)
-//        button.setTitleColor(.lightGray, for: .highlighted)
-//        button.rx.tap.bind { [unowned self] in
-//            let options = RequestConst.methods.map { DetailOption(key: $0) }
-//         //   self.openSelector(title:"test", options: options, theme: .dark)
-//        }
-//        return button
-//    }()
-//
-    var contentViewControllers: [UIViewController] = []
-
-   
-    
-    
-   
-    
     @IBAction func open(_ sender: UIButton) {
         
-        
-         
 
-           
-//            buttonG.rx.tap.bind { [unowned self] in
-//                let options = Const.keys.map { DetailOption(key: $0) }
-//                self.openSelector(title: "test", options: options, theme: .dark)
-//            }.dispose()
-            
-        
-       
-       
-        
-        
-    self.openSelector(title: "Request Method", options: Const.keys.map { HeaderKeys(title: $0, detail: NSLocalizedString($0, comment: "")) }, theme: .light)
-
-       
-        
-        
-        
-        
-          
-            
-            
-            
-        
-        
-     /*   let titleB: () =  self.openSelector(title: "", options: Const.keys.map { HeaderKeys(title: $0, detail: NSLocalizedString($0, comment: "")) }, theme: .light)
-       
-        buttonG.setTitle(titleB as! String?, for: .normal)
-        */
-        
-       
-        
-        
-        }
+    }
     
     
     func getData(url: String) {
@@ -316,7 +308,7 @@ class MainViewController: UIViewController, MGSelectable {
 
     
     //Write the PrepareForSegue Method here
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "changeCityName" {
           //  let destinationVC = segue.destination as! ChangeCityViewController
          //   destinationVC.delegate = self
