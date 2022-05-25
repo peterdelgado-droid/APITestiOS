@@ -22,5 +22,6 @@ target 'APItest' do
     pod 'RxKeyboard'
     pod 'PagingKit'
 	pod 'MGKeyboardAccessory'
+pod 'MightyTabBar'
 
 end

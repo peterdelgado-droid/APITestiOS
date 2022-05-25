@@ -27,23 +27,9 @@ public protocol MainViewControllerDelegate : NSObjectProtocol {
 
 @available(iOS 15.0, *)
 open class MainViewController: UIViewController {
-    weak open var delegate: MainViewControllerDelegate?
-    open var selectedFontDescriptor: String?
-//    @Binding var isShown: Bool
-//
-//       init(isShown: Binding<Bool>) {
-//           _isShown = isShown
-//           super.init(nibName: nil, bundle: nil)
-//
-//       }
+
     
-    
-//    required init?(coder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        }
-//
-    
-   
+   var petitions = [String]()
     
 
     //Constants
@@ -75,54 +61,50 @@ open class MainViewController: UIViewController {
     
      var StringTest: String!
     
+    
+    @IBOutlet weak var BottomViewContainer: UIView!
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         let content = UIHostingController(rootView: SheetView())
         addChild(content)
+
         view.addSubview(content.view)
-        
-        
         content.view.translatesAutoresizingMaskIntoConstraints = false
-        content.view.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -100).isActive = true
-        content.view.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 200).isActive = true
-        content.view.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        content.view.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        
-       // updateButton()
+        content.view.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 150).isActive = true
+        content.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 166).isActive = true
+        content.view.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        content.view.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        content.view.backgroundColor = .systemTeal
+        content.view.layer.cornerRadius = 5
+
+//	updateButton()
       //  updateButton2()
     
     }
     
+    
     func updateButton(){
-    let buttonNow = UIButton(configuration: .filled(), primaryAction:.init(handler:{ _ in
-        
-        let storyboard = UIStoryboard(name: "Sheet", bundle:nil)
-        let sheetPresentationController =
-        storyboard.instantiateViewController(withIdentifier: "SheetViewController")
-        as! SheetViewController
-       self.present(sheetPresentationController,animated:true, completion:nil)
-        
-    }))
-        buttonNow.setTitle(selectedFontDescriptor, for: .normal)
-    buttonNow.configuration?.cornerStyle = .capsule
-     view.addSubview(buttonNow)
-    
-    
 
-    //      setupContraints()
-//
-    buttonNow.translatesAutoresizingMaskIntoConstraints = false
-    buttonNow.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 150).isActive = true
-    buttonNow.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 10).isActive = true
-    buttonNow.heightAnchor.constraint(equalToConstant: 100).isActive = true
-    buttonNow.widthAnchor.constraint(equalToConstant: 100).isActive = true
-    
-        buttonNow.setTitle(selectedFontDescriptor, for: .normal)
-    }
-    
-    func updateButton2(){
-    let buttonNow = UIButton(configuration: .filled(), primaryAction:.init(handler:{ _ in
+
+
+
+
+		
+		let tabbarVC = UITabBarController()
+		let vc1 = FirstViewController()
+		let vc2 = SecondVC()
+		tabbarVC.setViewControllers([vc1,vc2], animated: false)
+
+
+		present(tabbarVC,animated: true)
+
+
+
+	//	tabbarVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 50).isActive = true
+
+
+		let buttonNow = UIButton(configuration: .filled(), primaryAction:.init(handler:{ _ in
         
 //        let storyboard = UIStoryboard(name: "Sheet", bundle:nil)
 //        let sheetPresentationController =
@@ -131,36 +113,42 @@ open class MainViewController: UIViewController {
 //       self.present(sheetPresentationController,animated:true, completion:nil)
         
     }))
-    buttonNow.setTitle(selectedFontDescriptor, for: .normal)
-    buttonNow.configuration?.cornerStyle = .capsule
-     view.addSubview(buttonNow)
+
+		//view.addSubview(buttonNow)
     
     
 
     //      setupContraints()
 //
-    buttonNow.translatesAutoresizingMaskIntoConstraints = false
-    buttonNow.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 150).isActive = true
-    buttonNow.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 10).isActive = true
-    buttonNow.heightAnchor.constraint(equalToConstant: 100).isActive = true
-    buttonNow.widthAnchor.constraint(equalToConstant: 100).isActive = true
-    
+//    buttonNow.translatesAutoresizingMaskIntoConstraints = false
+//    buttonNow.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 150).isActive = true
+//    buttonNow.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 10).isActive = true
+//    buttonNow.heightAnchor.constraint(equalToConstant: 0).isActive = true
+//    buttonNow.widthAnchor.constraint(equalToConstant: 0).isActive = true
+//
     
     }
     
    
-
-
-   
-    
-//    fileprivate func setupContraints(){
-//            contentView.view.translatesAutoresizingMaskIntoConstraints = false
-//            contentView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-//            contentView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-//            contentView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-//            contentView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+//	class SecondVC: UIViewController{
+//		override func viewDidLoad(){
+//			super.viewDidLoad()
+//			view.backgroundColor = .clear
+//			title = "Home"
+//		}
 //
-//        }
+//	}
+//
+//
+//	class ThirdVC: UIViewController{
+//		override func viewDidLoad(){
+//			super.viewDidLoad()
+//			view.backgroundColor = .clear
+//			title = "GraphQL"
+//		}
+//
+//	}
+
     
     @IBAction func open(_ sender: UIButton) {
         
