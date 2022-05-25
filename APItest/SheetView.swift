@@ -14,62 +14,69 @@ struct SheetView: View {
     @State private var isPresented = false
     @State var reqMethod: String?
     @State var buttonText = "GET"
+    @State private var showSheet = false
+    
+
+
+
     var body: some View {
-        
-        
-        
-        Button(self.buttonText) {
-               //do action
-        }.sheet(isPresented: $isPresented) { {
-            Text("SIGN IN")
-                .frame(width: 130 , height: 50, alignment: .center)
-                //You need to change height & width as per your requirement
-        }()
-         .background(Color.blue)
-         .foregroundColor(Color.white)
-         .clipShape(Capsule())
-        
-        }
-        
-        
-        
-        
-        
-        Button(self.buttonText) {
+		Image("custom.cross.circle")
+			.resizable()
+			.frame(width: 40.0, height: 40.0)
+			.padding(.top, -60)
+			.padding(.horizontal, -150)
+
+
+
+		VStack(spacing: 0)
+		{
+Button(self.buttonText) {
                         self.isPresented = true
-                    }.foregroundColor(.white).background(Color.teal).buttonStyle(PlainButtonStyle()).sheet(isPresented: $isPresented) {
+                    }.foregroundColor(.white) .clipShape(Capsule()).background(Color.teal).sheet(isPresented: $isPresented) {
                     Color.teal
                                 .overlay(
                             VStack(spacing: 0)
                             {
-                                Text("GET").onTapGesture { print("One") }.padding(.top, 50).font(.largeTitle)
+                                Text("GET").onTapGesture {
+
+									self.buttonText = "GET"
+									self.isPresented = false
+
+								}.padding(.top, 50).font(.largeTitle)
                                 
                                 Text("POST").onTapGesture {
                                     self.buttonText = "POST"
                                     self.isPresented = false
                                     }.font(.largeTitle)
-                                Text("PUT").onTapGesture { print("One") }
-                                .font(.largeTitle)
+                                Text("PUT").onTapGesture {
+									self.buttonText = "PUT"
+									self.isPresented = false
+
+								}.font(.largeTitle)
                                 
-                                Text("DELETE").onTapGesture { print("One") }
-                                .font(.largeTitle)
-                                Text("PATCH").onTapGesture { print("One") }
-                                .font(.largeTitle)
+                                Text("DELETE").onTapGesture { print("One")
+									self.buttonText = "DELETE"
+									self.isPresented = false
+
+
+								}.font(.largeTitle)
+                                Text("PATCH").onTapGesture {
+									self.buttonText = "PATCH"
+									self.isPresented = false
+
+									 }.font(.largeTitle)
                                 Spacer()
                                 
                                 
-                            })
-                            
-                            
-                            
-                            
-                        
-                        
-                        
-                    }
+							})}
+                            }
 
                
     }
+
+
+
+
 }
 
 

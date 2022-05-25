@@ -8,6 +8,7 @@ PODS:
   - MGKeyboardAccessory/Core (0.6.1)
   - MGSelector (0.2):
     - SnapKit (~> 5)
+  - MightyTabBar (1.0.0)
   - PagingKit (1.18.1)
   - Reusable (4.1.2):
     - Reusable/Storyboard (= 4.1.2)
@@ -55,6 +56,7 @@ DEPENDENCIES:
   - FloatingPanel
   - MGKeyboardAccessory
   - MGSelector
+  - MightyTabBar
   - PagingKit
   - RxAlertViewable
   - RxBinding
@@ -75,6 +77,7 @@ SPEC REPOS:
     - FloatingPanel
     - MGKeyboardAccessory
     - MGSelector
+    - MightyTabBar
     - PagingKit
     - Reusable
     - RxAlertViewable
@@ -98,6 +101,7 @@ SPEC CHECKSUMS:
   FloatingPanel: 935712d7a8076630135fbbd47f717700913efef9
   MGKeyboardAccessory: 9b3a5ace073f772809bf88e900729aef86901047
   MGSelector: e6dd39fb0dac1a577d9644f7766579cf9b9b18ad
+  MightyTabBar: 0e09d624e6d2379dac5c8448ef2884eddcd81b6a
   PagingKit: 0e7ec4e3791ab55887e129b27f7486a91b761129
   Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
   RxAlertViewable: 8b8b82e6c22b974813e67a79b0c3d500bb08b676
@@ -114,6 +118,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: c3142176fe11995d811e0ab8823731ff608ba4ae
+PODFILE CHECKSUM: 7308d5e5aca82ee2589081025481b9c76ea163f2
 
 COCOAPODS: 1.11.3
