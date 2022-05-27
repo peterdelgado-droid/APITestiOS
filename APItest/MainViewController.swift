@@ -12,35 +12,24 @@ import RxCocoa
 import RxController
 import MapKit
 
-@available(iOS 13.0, *)
-public protocol MainViewControllerDelegate : NSObjectProtocol {
-
-    
-    @available(iOS 15.0, *)
-    func requestMethodViewController(_ viewController: MainViewController)
-
-    
-    
-}
-
 
 
 @available(iOS 15.0, *)
-open class MainViewController: UIViewController {
+open class MainViewController: UIViewController, ObservableObject {
 
-    
-   var petitions = [String]()
-    
+
+
+
+	@IBOutlet var reqLabel: UILabel!
+
+	
+
 
     //Constants
     let TEST_URL = "https://httpbin.org/get"
     let APP_ID = "34434da02b9d2c06f7194ac16cd8c4f0"
   
-    struct Option: MGSelectorOption {
-        var title: String
-        var detail: String?
-    }
-    let options: [Option] = []
+
 
   //  let contentView = UIHostingController
        
@@ -66,8 +55,12 @@ open class MainViewController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        let content = UIHostingController(rootView: SheetView())
-        addChild(content)
+
+		let swiftUIToggler = SheetView(externalSwitch: reqLabel)
+
+		let content = UIHostingController(rootView:swiftUIToggler)
+
+		addChild(content)
 
         view.addSubview(content.view)
         content.view.translatesAutoresizingMaskIntoConstraints = false
@@ -75,7 +68,7 @@ open class MainViewController: UIViewController {
         content.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 166).isActive = true
         content.view.heightAnchor.constraint(equalToConstant: 30).isActive = true
         content.view.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        content.view.backgroundColor = .systemTeal
+//        content.view.backgroundColor = .systemTeal
         content.view.layer.cornerRadius = 5
 
 //	updateButton()
@@ -86,11 +79,6 @@ open class MainViewController: UIViewController {
     
     func updateButton(){
 
-
-
-
-
-		
 		let tabbarVC = UITabBarController()
 		let vc1 = FirstViewController()
 		let vc2 = SecondVC()
@@ -104,15 +92,15 @@ open class MainViewController: UIViewController {
 	//	tabbarVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 50).isActive = true
 
 
-		let buttonNow = UIButton(configuration: .filled(), primaryAction:.init(handler:{ _ in
-        
-//        let storyboard = UIStoryboard(name: "Sheet", bundle:nil)
-//        let sheetPresentationController =
-//        storyboard.instantiateViewController(withIdentifier: "SheetViewController")
-//        as! SheetViewController
-//       self.present(sheetPresentationController,animated:true, completion:nil)
-        
-    }))
+//		let buttonNow = UIButton(configuration: .filled(), primaryAction:.init(handler:{ _ in
+//
+////        let storyboard = UIStoryboard(name: "Sheet", bundle:nil)
+////        let sheetPresentationController =
+////        storyboard.instantiateViewController(withIdentifier: "SheetViewController")
+////        as! SheetViewController
+////       self.present(sheetPresentationController,animated:true, completion:nil)
+//
+//    }))
 
 		//view.addSubview(buttonNow)
     

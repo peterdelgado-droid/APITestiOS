@@ -5,40 +5,55 @@
 //  Created by Peter Delgado on 20/5/22.
 //  Copyright © 2022 London App Brewery. All rights reserved.
 //
+import Combine
+class ContentViewDelegate: ObservableObject {
+
+	var didChange = PassthroughSubject<ContentViewDelegate, Never>()
+
+	var name: String = "" {
+		didSet {
+			self.didChange.send(self)
+		}
+	}
+}
+
 
 import SwiftUI
 @available(iOS 15.0, *)
 struct SheetView: View {
-    
-    
+
+	var externalSwitch: UILabel
+
+
     @State private var isPresented = false
     @State var reqMethod: String?
     @State var buttonText = "GET"
     @State private var showSheet = false
     
 
+var body: some View {
 
-
-    var body: some View {
-		Image("custom.cross.circle")
-			.resizable()
-			.frame(width: 40.0, height: 40.0)
-			.padding(.top, -60)
-			.padding(.horizontal, -150)
-
-
-
-		VStack(spacing: 0)
+	VStack(spacing: 0)
 		{
-Button(self.buttonText) {
-                        self.isPresented = true
-                    }.foregroundColor(.white) .clipShape(Capsule()).background(Color.teal).sheet(isPresented: $isPresented) {
-                    Color.teal
+			Button() {
+
+				self.isPresented = true
+			}label: {
+				ZStack {
+					Image("custom.plus")
+					Text("")
+				}
+			}
+
+			.foregroundColor(.white) .background(Color.teal).padding(.top, -5).padding(.horizontal, 170).sheet(isPresented: $isPresented) {
+
+						Color.teal
                                 .overlay(
                             VStack(spacing: 0)
                             {
                                 Text("GET").onTapGesture {
 
+									externalSwitch.text = "GET"
 									self.buttonText = "GET"
 									self.isPresented = false
 
@@ -88,14 +103,14 @@ Button(self.buttonText) {
 
 
 
-struct SheetView_Previews: PreviewProvider {
-    
-    @available(iOS 13.0, *)
-    static var previews: some View {
-        if #available(iOS 15.0, *) {
-            SheetView()
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-}
+//struct SheetView_Previews: PreviewProvider {
+//    
+//    @available(iOS 13.0, *)
+//    static var previews: some View {
+//        if #available(iOS 15.0, *) {
+//            SheetView(e)
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//    }
+//}
