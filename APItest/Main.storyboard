@@ -104,6 +104,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="POST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFw-Nn-XLo">
+                                        <rect key="frame" x="78" y="22" width="44" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="APITEST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVZ-yn-M1C">
@@ -120,6 +127,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="changeCityTextField" destination="0F0-ob-gbM" id="hUn-4b-HeC"/>
+                        <outlet property="reqLabel" destination="jFw-Nn-XLo" id="Ta5-n4-38d"/>
                         <outlet property="sendParamsKeyTextField" destination="cqE-ux-0Ct" id="Ju1-rE-no1"/>
                         <outlet property="sendParamsValueTextField" destination="VHs-8s-mMu" id="oi8-mf-BbM"/>
                         <outlet property="texTry" destination="4Gd-ay-Pq5" id="CSR-gI-Odb"/>
