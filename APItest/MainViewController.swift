@@ -22,7 +22,12 @@ open class MainViewController: UIViewController, ObservableObject {
 
 	@IBOutlet var reqLabel: UILabel!
 
-	
+	let xPos : CGFloat = 0
+	var yPos : CGFloat = 0
+
+	let xPos2 : CGFloat = 0
+	var yPos2 : CGFloat = 0
+
 
 
     //Constants
@@ -31,30 +36,23 @@ open class MainViewController: UIViewController, ObservableObject {
   
 
 
-  //  let contentView = UIHostingController
-       
-    
-    //TODO: Declare instance variables here
-    //let locationManager = CLLocationManager()
-    
-    
-    //Pre-linked IBOutlets
-   
-    @IBOutlet weak var texTry: UITextView!
+
     @IBOutlet weak var segControl: UISegmentedControl!
     @IBOutlet weak var changeCityTextField: UITextField!
     @IBOutlet weak var sendParamsKeyTextField: UITextField!
     @IBOutlet weak var sendParamsValueTextField: UITextField!
-    
-    @IBOutlet weak var tabG: UITabBar!
+	@IBOutlet weak var addParams: UIButton!
+	@IBOutlet weak var addHeaders: UIButton!
+
     
      var StringTest: String!
+	 let ResponseVC = ResponseViewController()
     
-    
-    @IBOutlet weak var BottomViewContainer: UIView!
-    
+
     open override func viewDidLoad() {
         super.viewDidLoad()
+
+
 
 		let swiftUIToggler = SheetView(externalSwitch: reqLabel)
 
@@ -64,100 +62,144 @@ open class MainViewController: UIViewController, ObservableObject {
 
         view.addSubview(content.view)
         content.view.translatesAutoresizingMaskIntoConstraints = false
-        content.view.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 150).isActive = true
-        content.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 166).isActive = true
-        content.view.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        content.view.widthAnchor.constraint(equalToConstant: 50).isActive = true
-//        content.view.backgroundColor = .systemTeal
+        content.view.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -10).isActive = true
+        content.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        content.view.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        content.view.widthAnchor.constraint(equalToConstant: 110).isActive = true
+        content.view.backgroundColor = .systemTeal
         content.view.layer.cornerRadius = 5
 
-//	updateButton()
-      //  updateButton2()
+
     
     }
     
-    
-    func updateButton(){
-
-		let tabbarVC = UITabBarController()
-		let vc1 = FirstViewController()
-		let vc2 = SecondVC()
-		tabbarVC.setViewControllers([vc1,vc2], animated: false)
+    @IBAction func addParams(_ sender: UIButton) {
 
 
-		present(tabbarVC,animated: true)
+		if yPos == 0{
+
+			yPos = 300
+
+		}
+
+
+		yPos += 50
+
+		print(yPos)
+		let pf = UISwitch()
+
+		let tf = UITextField()
+		tf.frame = CGRect(x: 15, y: yPos, width: 120, height: 30)
+		tf.backgroundColor = UIColor.white
+		tf.layer.cornerRadius = 5
+		tf.text = "Key"
+		tf.textColor = UIColor.lightGray
+		tf.textAlignment = .center
+		self.view.addSubview(tf)
+		pf.backgroundColor = UIColor.systemTeal
+		pf.layer.cornerRadius = 5
+		pf.layer.borderWidth = 1
+		pf.frame = CGRect(x: 320, y: yPos, width: 50, height: 30)
+		self.view.addSubview(pf)
+
+            addSecondTV()
 
 
 
-	//	tabbarVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 50).isActive = true
-
-
-//		let buttonNow = UIButton(configuration: .filled(), primaryAction:.init(handler:{ _ in
-//
-////        let storyboard = UIStoryboard(name: "Sheet", bundle:nil)
-////        let sheetPresentationController =
-////        storyboard.instantiateViewController(withIdentifier: "SheetViewController")
-////        as! SheetViewController
-////       self.present(sheetPresentationController,animated:true, completion:nil)
-//
-//    }))
-
-		//view.addSubview(buttonNow)
-    
-    
-
-    //      setupContraints()
-//
-//    buttonNow.translatesAutoresizingMaskIntoConstraints = false
-//    buttonNow.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 150).isActive = true
-//    buttonNow.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 10).isActive = true
-//    buttonNow.heightAnchor.constraint(equalToConstant: 0).isActive = true
-//    buttonNow.widthAnchor.constraint(equalToConstant: 0).isActive = true
-//
-    
-    }
-    
-   
-//	class SecondVC: UIViewController{
-//		override func viewDidLoad(){
-//			super.viewDidLoad()
-//			view.backgroundColor = .clear
-//			title = "Home"
-//		}
-//
-//	}
-//
-//
-//	class ThirdVC: UIViewController{
-//		override func viewDidLoad(){
-//			super.viewDidLoad()
-//			view.backgroundColor = .clear
-//			title = "GraphQL"
-//		}
-//
-//	}
-
-    
-    @IBAction func open(_ sender: UIButton) {
-        
 
     }
-    
+
+	func addSecondTV() {
+
+		if yPos2 == 0{
+
+			yPos2 = 300
+
+		}
+
+		yPos2 += 50
+
+		print(yPos2)
+		let tf2 = UITextField()
+		tf2.frame = CGRect(x: 180, y: yPos, width: 120, height: 30)
+		tf2.backgroundColor = UIColor.white
+		tf2.layer.cornerRadius = 5
+		tf2.text = "Value"
+		tf2.textColor = UIColor.lightGray
+		tf2.textAlignment = .center
+		self.view.addSubview(tf2)
+
+	}
+
+
+	@IBAction func addHeaders(_ sender: UIButton) {
+
+
+		if yPos == 0{
+
+			yPos = 350
+
+		}
+
+
+		yPos += 50
+
+		print(yPos)
+		let pf = UISwitch()
+
+		let tf = UITextField()
+		tf.frame = CGRect(x: 15, y: yPos, width: 120, height: 30)
+		tf.backgroundColor = UIColor.white
+		tf.layer.cornerRadius = 5
+		tf.text = "Key"
+		tf.textColor = UIColor.lightGray
+		tf.textAlignment = .center
+		self.view.addSubview(tf)
+		pf.backgroundColor = UIColor.systemTeal
+		pf.layer.cornerRadius = 5
+		pf.layer.borderWidth = 1
+		pf.frame = CGRect(x: 320, y: yPos, width: 50, height: 30)
+		self.view.addSubview(pf)
+
+		addSecondTV()
+
+
+
+
+	}
     
     func getData(url: String) {
         var cityName = changeCityTextField.text!
 
-        if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "GET" {
-            cityName.insert(contentsOf: "get", at: cityName.endIndex)
+		if reqLabel.text == "GET"{
+			cityName.insert(contentsOf: "get", at: cityName.endIndex)
 
             Alamofire.request(url, method: .get, parameters: nil).responseJSON { [self]
                         response in
                         if response.result.isSuccess {
                             print("Success")
-                            
-                            let weatherJSON : JSON = JSON(response.result.value!)
-                            self.texTry.text = weatherJSON.rawString()
-                            
+							let weatherJSON : JSON = JSON(response.result.value!)
+
+							let viewControllerB = ResponseViewController()
+							viewControllerB.texTry?.text = weatherJSON.rawString()
+							navigationController?.pushViewController(viewControllerB, animated: true)
+
+
+
+						//	self.performSegue(withIdentifier: "SegueID", sender: AnyObject.self)
+
+//							let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//							let destVC = storyboard.instantiateViewController(withIdentifier: "modu") as! ResponseViewController
+//
+//							destVC.texTry?.text = weatherJSON.rawString()
+
+							//self.performSegue(withIdentifier: "SegueID", sender: AnyObject.self)
+						Manager.messageText.append(weatherJSON.rawString() ?? "ete")
+
+
+
+
+							//self.texTry.text = weatherJSON.rawString()
                         }
                         else {
                             print("Error \(String(describing: response.result.error))")
@@ -166,7 +208,7 @@ open class MainViewController: UIViewController, ObservableObject {
                     }
 
         
-        }else if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "POST" {
+        }else if reqLabel.text == "POST" {
         
             /*
              If the server uses consumer key and consumer secret, uncomment the follow lines
@@ -190,9 +232,10 @@ open class MainViewController: UIViewController, ObservableObject {
                         response in
                         if response.result.isSuccess {
                             print("Success")
-                            
-                            let weatherJSON : JSON = JSON(response.result.value!)
-                            self.texTry.text = weatherJSON.rawString()
+
+
+							let weatherJSON : JSON = JSON(response.result.value!)
+                          //  self.texTry.text = weatherJSON.rawString()
                             
                         }
                         else {
@@ -201,7 +244,7 @@ open class MainViewController: UIViewController, ObservableObject {
                          //   self.cityLabel.text = "Issue in connection"
                         }
                 }
-        }else if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "DELETE"{
+        }else if reqLabel.text == "DELETE"{
             cityName.insert(contentsOf: "delete", at: cityName.endIndex)
         Alamofire.request(url, method: .delete, parameters: nil).responseJSON { [self]
                     response in
@@ -209,7 +252,7 @@ open class MainViewController: UIViewController, ObservableObject {
                         print("Success")
                         
                         let weatherJSON : JSON = JSON(response.result.value!)
-                        self.texTry.text = weatherJSON.rawString()
+                     //   self.texTry.text = weatherJSON.rawString()
                         
                     }
                     else {
@@ -222,7 +265,7 @@ open class MainViewController: UIViewController, ObservableObject {
         }
    
         }
-        else if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "PUT"{
+        else if reqLabel.text == "PUT"{
             cityName.insert(contentsOf: "post", at: cityName.endIndex)
             let keyParam = sendParamsKeyTextField.text!
             let valueParam = sendParamsValueTextField.text!
@@ -235,7 +278,7 @@ open class MainViewController: UIViewController, ObservableObject {
                         print("Success")
                         
                         let weatherJSON : JSON = JSON(response.result.value!)
-                        self.texTry.text = weatherJSON.rawString()
+                    //    self.texTry.text = weatherJSON.rawString()
                         
                     }
                     else {
@@ -255,22 +298,12 @@ open class MainViewController: UIViewController, ObservableObject {
 
     //1
     @IBAction func getPressed(_ sender: UIButton) {
-        
+
+		
+
         //1 Get the city name the user entered in the text field
-        var cityName = changeCityTextField.text!
-       
-        
-        if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "GET" {
-            cityName.insert(contentsOf: "get", at: cityName.endIndex)
-            
-        }else if segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "POST" || segControl.titleForSegment(at: segControl.selectedSegmentIndex) == "PUT" {
-  
-           
-            
-        
-        }
-        
-       
+		let cityName = changeCityTextField.text!
+		
        
         //2 If we have a delegate set, call the method userEnteredANewCityName
         getData(url: cityName)
@@ -285,15 +318,17 @@ open class MainViewController: UIViewController, ObservableObject {
     
     //Write the PrepareForSegue Method here
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "changeCityName" {
-          //  let destinationVC = segue.destination as! ChangeCityViewController
-         //   destinationVC.delegate = self
+        if segue.identifier == "SegueID" {
+          let destinationVC = segue.destination as! ResponseViewController
+			//destinationVC.texTry.text =
             
         }
     }
     
-    
-    
+	struct ResponseP {
+		let rep: JSON
+
+	}
     
 }
 

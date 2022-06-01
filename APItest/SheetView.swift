@@ -6,16 +6,7 @@
 //  Copyright © 2022 London App Brewery. All rights reserved.
 //
 import Combine
-class ContentViewDelegate: ObservableObject {
 
-	var didChange = PassthroughSubject<ContentViewDelegate, Never>()
-
-	var name: String = "" {
-		didSet {
-			self.didChange.send(self)
-		}
-	}
-}
 
 
 import SwiftUI
@@ -41,6 +32,8 @@ var body: some View {
 			}label: {
 				ZStack {
 					Image("custom.plus")
+						.resizable()
+						.frame(width: 35.0, height: 35.0)
 					Text("")
 				}
 			}
