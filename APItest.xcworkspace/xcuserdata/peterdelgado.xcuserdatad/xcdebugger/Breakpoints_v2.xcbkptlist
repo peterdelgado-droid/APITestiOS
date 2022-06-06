@@ -7,49 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C3E68DFF-2DB5-419B-AE73-75F8670E878E"
+            uuid = "1FDECE7A-DA42-4054-B6C8-98D2E2CDDBC4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "APItest/ResponseViewController.swift"
+            filePath = "APItest/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "ResponseViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "C3E68DFF-2DB5-419B-AE73-75F8670E878E - 930dd20a1ee54ede"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "APItest.ResponseViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; APItest.ResponseViewController"
-                  moduleName = "APItest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/peterdelgado/Desktop/APItest/APItest/ResponseViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "80">
-               </Location>
-               <Location
-                  uuid = "C3E68DFF-2DB5-419B-AE73-75F8670E878E - f773bada608b8bd5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "APItest.ResponseViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;APItest.ResponseViewController&gt;"
-                  moduleName = "APItest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/peterdelgado/Desktop/APItest/APItest/ResponseViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "56">
-               </Location>
-            </Locations>
+            startingLineNumber = "405"
+            endingLineNumber = "405"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B1A0C8F-F21C-4DDC-9ECE-B6D4EE053FBE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "APItest/History.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "fetchedResultsController"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

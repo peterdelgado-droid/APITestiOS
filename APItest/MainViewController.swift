@@ -11,12 +11,12 @@ import RxSwift
 import RxCocoa
 import RxController
 import MapKit
+import CoreData
 
 
 
 @available(iOS 15.0, *)
-open class MainViewController: UIViewController, ObservableObject {
-
+open class MainViewController: UIViewController {
 
 
 
@@ -27,6 +27,13 @@ open class MainViewController: UIViewController, ObservableObject {
 
 	let xPos2 : CGFloat = 0
 	var yPos2 : CGFloat = 0
+
+
+	let xPos3 : CGFloat = 0
+	var yPos3 : CGFloat = 0
+
+	let xPos4 : CGFloat = 0
+	var yPos4 : CGFloat = 0
 
 
 
@@ -43,14 +50,35 @@ open class MainViewController: UIViewController, ObservableObject {
     @IBOutlet weak var sendParamsValueTextField: UITextField!
 	@IBOutlet weak var addParams: UIButton!
 	@IBOutlet weak var addHeaders: UIButton!
+	@IBOutlet weak var Headers: UILabel!
 
     
      var StringTest: String!
 	 let ResponseVC = ResponseViewController()
-    
+
+
+	private lazy var persistentContainer: NSPersistentContainer = {
+		NSPersistentContainer(name: "ModelHis")
+	}()
+
 
     open override func viewDidLoad() {
         super.viewDidLoad()
+
+		persistentContainer.loadPersistentStores { [weak self] persistentStoreDescription, error in
+			if let error = error {
+				print("Unable to Add Persistent Store")
+				print("\(error), \(error.localizedDescription)")
+
+			} else {
+				print(persistentStoreDescription.url)
+				self?.fetchBooks()
+				
+			}
+		}
+
+
+
 
 
 
@@ -72,37 +100,80 @@ open class MainViewController: UIViewController, ObservableObject {
 
     
     }
+
+	private func fetchBooks() {
+
+
+		// Create Fetch Request
+		let fetchRequest: NSFetchRequest<Entity> = Entity.fetchRequest()
+		//fetchRequest.predicate = NSPredicate(format: "reqMethod == %@", query)
+
+		// Perform Fetch Request
+		persistentContainer.viewContext.perform {
+			do {
+				// Execute Fetch Request
+				let result = try fetchRequest.execute()
+
+				for data in result as [NSManagedObject] {
+					print(data.value(forKey: "url") as? String)
+					print(data.value(forKey: "reqMethod") as? String)
+				}
+
+				// Update Books Label
+			//	print(result)
+
+
+			} catch {
+				print("Unable to Execute Fetch Request, \(error)")
+			}
+		}
+	}
+
+
+
+	func moveDown() {
+		UIView.animate(withDuration: 0.5, delay: 0.0, options:[], animations: {
+			let screenSize = UIScreen.main.bounds.size
+			self.Headers.transform = CGAffineTransform(translationX: 0, y: screenSize.height * 0.1)
+
+			self.addHeaders.transform = CGAffineTransform(translationX: 0, y: screenSize.height * 0.1)
+		}, completion: nil)
+	}
     
     @IBAction func addParams(_ sender: UIButton) {
 
+		moveDown()
 
 		if yPos == 0{
 
 			yPos = 300
 
+			yPos += 50
+
+			print(yPos)
+			let pf = UISwitch()
+
+			let tf = UITextField()
+			tf.frame = CGRect(x: 15, y: yPos, width: 120, height: 30)
+			tf.backgroundColor = UIColor.white
+			tf.layer.cornerRadius = 5
+			tf.text = "Key"
+			tf.textColor = UIColor.lightGray
+			tf.textAlignment = .center
+			self.view.addSubview(tf)
+			pf.backgroundColor = UIColor.systemTeal
+			pf.layer.cornerRadius = 5
+			pf.layer.borderWidth = 1
+			pf.frame = CGRect(x: 320, y: yPos, width: 50, height: 30)
+			self.view.addSubview(pf)
+
+			addSecondTV()
+			
+
 		}
 
 
-		yPos += 50
 
-		print(yPos)
-		let pf = UISwitch()
-
-		let tf = UITextField()
-		tf.frame = CGRect(x: 15, y: yPos, width: 120, height: 30)
-		tf.backgroundColor = UIColor.white
-		tf.layer.cornerRadius = 5
-		tf.text = "Key"
-		tf.textColor = UIColor.lightGray
-		tf.textAlignment = .center
-		self.view.addSubview(tf)
-		pf.backgroundColor = UIColor.systemTeal
-		pf.layer.cornerRadius = 5
-		pf.layer.borderWidth = 1
-		pf.frame = CGRect(x: 320, y: yPos, width: 50, height: 30)
-		self.view.addSubview(pf)
-
-            addSecondTV()
 
 
 
@@ -131,46 +202,64 @@ open class MainViewController: UIViewController, ObservableObject {
 
 	}
 
+	func addSecondTV1() {
+
+		if yPos4 == 0{
+
+			yPos4 = 400
+
+		}
+
+		yPos4 += 50
+
+		print(yPos2)
+		let tf2 = UITextField()
+		tf2.frame = CGRect(x: 180, y: yPos4, width: 120, height: 30)
+		tf2.backgroundColor = UIColor.white
+		tf2.layer.cornerRadius = 5
+		tf2.text = "Value"
+		tf2.textColor = UIColor.lightGray
+		tf2.textAlignment = .center
+		self.view.addSubview(tf2)
+
+	}
+
 
 	@IBAction func addHeaders(_ sender: UIButton) {
 
 
-		if yPos == 0{
+		if yPos3 == 0{
 
-			yPos = 350
+			yPos3 = 400
+
+			yPos3 += 50
+
+			print(yPos)
+			let pf = UISwitch()
+
+			let tf = UITextField()
+			tf.frame = CGRect(x: 15, y: yPos3, width: 120, height: 30)
+			tf.backgroundColor = UIColor.white
+			tf.layer.cornerRadius = 5
+			tf.text = "Key"
+			tf.textColor = UIColor.lightGray
+			tf.textAlignment = .center
+			self.view.addSubview(tf)
+			pf.backgroundColor = UIColor.systemTeal
+			pf.layer.cornerRadius = 5
+			pf.layer.borderWidth = 1
+			pf.frame = CGRect(x: 320, y: yPos3, width: 50, height: 30)
+			self.view.addSubview(pf)
+
+			addSecondTV1()
 
 		}
-
-
-		yPos += 50
-
-		print(yPos)
-		let pf = UISwitch()
-
-		let tf = UITextField()
-		tf.frame = CGRect(x: 15, y: yPos, width: 120, height: 30)
-		tf.backgroundColor = UIColor.white
-		tf.layer.cornerRadius = 5
-		tf.text = "Key"
-		tf.textColor = UIColor.lightGray
-		tf.textAlignment = .center
-		self.view.addSubview(tf)
-		pf.backgroundColor = UIColor.systemTeal
-		pf.layer.cornerRadius = 5
-		pf.layer.borderWidth = 1
-		pf.frame = CGRect(x: 320, y: yPos, width: 50, height: 30)
-		self.view.addSubview(pf)
-
-		addSecondTV()
-
-
-
 
 	}
     
     func getData(url: String) {
         var cityName = changeCityTextField.text!
-
+		let reqName = reqLabel.text!
 		if reqLabel.text == "GET"{
 			cityName.insert(contentsOf: "get", at: cityName.endIndex)
 
@@ -180,26 +269,19 @@ open class MainViewController: UIViewController, ObservableObject {
                             print("Success")
 							let weatherJSON : JSON = JSON(response.result.value!)
 
-							let viewControllerB = ResponseViewController()
-							viewControllerB.texTry?.text = weatherJSON.rawString()
-							navigationController?.pushViewController(viewControllerB, animated: true)
+						   Manager.messageText.append(weatherJSON.rawString() ?? "ete")
 
 
+							let storyboard = UIStoryboard(name: "Main", bundle: nil)
+							let destVC = storyboard.instantiateViewController(withIdentifier: "modu") as! ResponseViewController
+							destVC.managedObjectContext = persistentContainer.viewContext
+							destVC.changeCityTextField?.text = cityName
+							destVC.reqLabel?.text = reqName
+							Manager.messageText.append(reqName)
+							Manager.messageText.append(cityName)
+							self.present(destVC, animated: true, completion: nil)
 
-						//	self.performSegue(withIdentifier: "SegueID", sender: AnyObject.self)
-
-//							let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//							let destVC = storyboard.instantiateViewController(withIdentifier: "modu") as! ResponseViewController
-//
-//							destVC.texTry?.text = weatherJSON.rawString()
-
-							//self.performSegue(withIdentifier: "SegueID", sender: AnyObject.self)
-						Manager.messageText.append(weatherJSON.rawString() ?? "ete")
-
-
-
-
-							//self.texTry.text = weatherJSON.rawString()
+							
                         }
                         else {
                             print("Error \(String(describing: response.result.error))")
@@ -316,20 +398,23 @@ open class MainViewController: UIViewController, ObservableObject {
    
 
     
-    //Write the PrepareForSegue Method here
+
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SegueID" {
-          let destinationVC = segue.destination as! ResponseViewController
-			//destinationVC.texTry.text =
-            
-        }
+		if let viewController = segue.destination as? ResponseViewController {
+			viewController.managedObjectContext = persistentContainer.viewContext
+			viewController.changeCityTextField.text = changeCityTextField.text
+			viewController.reqLabel.text = reqLabel.text
+		}
     }
     
 	struct ResponseP {
 		let rep: JSON
 
 	}
-    
+
+	
+
+
 }
 
 
