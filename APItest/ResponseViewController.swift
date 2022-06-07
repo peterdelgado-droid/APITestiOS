@@ -67,6 +67,7 @@ class ResponseViewController: UIViewController{
 	override func viewDidLoad(){
 		super.viewDidLoad()
 
+		Manager.messageText.append("now")
 		texTry?.text = Manager.messageText[0]
 
 //		self.texTry?.text = Manager.messageText[0]

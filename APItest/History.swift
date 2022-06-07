@@ -10,30 +10,36 @@ import Foundation
 import UIKit
 import CoreData
 
-class History: UIViewController{
+class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
+
 
 
 	@IBOutlet var messageLabel: UILabel!
 	@IBOutlet var tableView: UITableView!
 	@IBOutlet var activityIndicatorView: UIActivityIndicatorView!
+	@IBOutlet var dynamicHeight: NSLayoutConstraint!
+	@IBOutlet var delete: UIButton!
 
 	var quotes = [Entity]()
+	var basicBitch = String?.self
+	var myArray : Array? = []
+	var myArray2 : Array? = []
 
 
-
-	fileprivate func updateView() {
-		var hasQuotes = false
-
-		if let quotes = fetchedResultsController.fetchedObjects {
-			hasQuotes = quotes.count > 0
-		}
-
-		tableView.isHidden = !hasQuotes
-		messageLabel.isHidden = hasQuotes
-
-		activityIndicatorView.stopAnimating()
-	}
+//	fileprivate func updateView() {
+//		var hasQuotes = false
+//
+//		if let quotes = fetchedResultsController.fetchedObjects {
+//			hasQuotes = quotes.count > 0
+//		}
+//
+//		tableView.isHidden = !hasQuotes
+//		messageLabel.isHidden = hasQuotes
+//
+//		activityIndicatorView.stopAnimating()
+//	}
 	
+
 	private lazy var persistentContainer: NSPersistentContainer = {
 		NSPersistentContainer(name: "ModelHis")
 	}()
@@ -43,29 +49,126 @@ class History: UIViewController{
 
 override func viewDidLoad(){
 		super.viewDidLoad()
-	setupView()
 
-	persistentContainer.loadPersistentStores { (persistentStoreDescription, error) in
-		if let error = error {
-			print("Unable to Load Persistent Store")
-			print("\(error), \(error.localizedDescription)")
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
+	let context = appDelegate.persistentContainer.viewContext
 
-		} else {
-			self.setupView()
 
-			do {
-				try self.fetchedResultsController.performFetch()
-			} catch {
-				let fetchError = error as NSError
-				print("Unable to Perform Fetch Request")
-				print("\(fetchError), \(fetchError.localizedDescription)")
+	let request = NSFetchRequest <NSFetchRequestResult> (entityName: "Entity")
+	request.returnsObjectsAsFaults = false
+
+
+	do {
+
+		let results = try context.fetch(request)
+
+
+		// check data existance
+		if results.count>0 {
+			print(results.count)
+
+			for resultGot in results as! [NSManagedObject]{
+
+				if let expName = resultGot.value(forKey:"url") as? String{
+
+					myArray?.append(expName)
+					tableView.reloadData()
+
+					print("my array is : \(myArray)")
+				}
+
+				if let expName2 = resultGot.value(forKey:"reqMethod") as? String{
+
+					myArray2?.append(expName2)
+					tableView.reloadData()
+
+					print("my array is : \(myArray)")
+				}
+
+
 			}
 
-			self.updateView()
 		}
+
+	}catch{
+
+
+		print("No Data to load")
 	}
 
 
+
+}
+
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+
+
+
+	}
+
+
+
+
+	var valueToPass:String!
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let sb = UIStoryboard.init(name: "Main", bundle:     nil)
+		if #available(iOS 15.0, *) {
+			let destinationVC = sb.instantiateViewController(
+				withIdentifier: "Request") as? MainViewController
+
+			destinationVC?.closeIcon?.isHidden = false
+			destinationVC?.passedValue = myArray? [indexPath.row] as! String?
+			destinationVC?.passedValue2 = myArray2? [indexPath.row] as! String?
+
+
+
+			self.present(destinationVC!, animated: true, completion: nil)
+		} else {
+			// Fallback on earlier versions
+		}
+
+
+
+
+
+
+
+
+	}
+
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+
+		dynamicHeight.constant = tableView.contentSize.height
+
+
+		print(myArray?.count)
+		return myArray!.count
+
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: HistTableViewCell.reuseIdentifier, for: indexPath) as? HistTableViewCell else {
+			fatalError("Unexpected Index Path")
+		}
+
+
+
+		// Fetch Quote
+		//let quotes = fetchedResultsControllerNew.object(at: indexPath)
+
+		// Configure Cell
+		cell.authorLabel.text = myArray? [indexPath.row] as! String?
+		cell.contentsLabel.text = myArray2? [indexPath.row] as! String?
+
+
+
+
+
+		return cell
 	}
 
 
@@ -80,7 +183,7 @@ override func viewDidLoad(){
 	}
 
 
-	private func fetchBooks() {
+	public func fetchBooks() {
 
 
 		// Create Fetch Request
@@ -95,8 +198,7 @@ override func viewDidLoad(){
 
 				for data in result as [NSManagedObject] {
 
-
-					print("hello")
+					print("BasicBitch")
 					print(data.value(forKey: "url") as? String)
 					print(data.value(forKey: "reqMethod") as? String)
 				}
@@ -126,34 +228,77 @@ override func viewDidLoad(){
 
 		return fetchedResultsController
 	}()
+
+
+	lazy var fetchedResultsControllerNew: NSFetchedResultsController<Entity> = {
+		// Create Fetch Request
+		let fetchRequest: NSFetchRequest<Entity> = Entity.fetchRequest()
+
+		// Configure Fetch Request
+		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "url", ascending: false)]
+
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		let managerContext = appDelegate.persistentContainer.viewContext
+
+		// Create Fetched Results Controller
+		let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managerContext, sectionNameKeyPath: nil, cacheName: nil)
+
+		// Configure Fetched Results Controller
+		fetchedResultsController.delegate = self
+
+		return fetchedResultsController
+	}()
+
+
+
+
+
+	@IBAction func deleteHistory(_ sender: Any) {
+
+		
+
+
+		myArray?.removeAll()
+		myArray2?.removeAll()
+		tableView.reloadData()
+
+
+	}
+
+
+
 }
 
 
 
-extension History: UITableViewDataSource {
-
-
-
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return quotes.count
-	}
-
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: HistTableViewCell.reuseIdentifier, for: indexPath) as? HistTableViewCell else {
-			fatalError("Unexpected Index Path")
-		}
-
-		// Fetch Quote
-		let quote = fetchedResultsController.object(at: indexPath)
-
-		// Configure Cell
-		cell.authorLabel.text = quote.url
-		cell.contentsLabel.text = quote.reqMethod
-
-		return cell
-	}
-
-}
+//extension History: UITableViewDataSource {
+//
+//
+//
+//
+//	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//
+//
+//		return quotes.count
+//	}
+//
+//	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//		guard let cell = tableView.dequeueReusableCell(withIdentifier: HistTableViewCell.reuseIdentifier, for: indexPath) as? HistTableViewCell else {
+//			fatalError("Unexpected Index Path")
+//		}
+//
+//
+//
+//		// Fetch Quote
+//		let quotes = fetchedResultsControllerNew.object(at: indexPath)
+//
+//		// Configure Cell
+//		cell.authorLabel.text = quotes.reqMethod
+//		cell.contentsLabel.text = quotes.url
+//		return cell
+//	}
+//
+//}
 
 extension History: NSFetchedResultsControllerDelegate {
 
@@ -177,7 +322,7 @@ extension History: NSFetchedResultsControllerDelegate {
 	func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 		tableView.endUpdates()
 
-		updateView()
+		//updateView()
 	}
 
 

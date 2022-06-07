@@ -16,9 +16,10 @@ import CoreData
 
 
 @available(iOS 15.0, *)
-open class MainViewController: UIViewController {
+open class MainViewController: UIViewController{
 
-
+	var passedValue:String!
+	var passedValue2:String!
 
 	@IBOutlet var reqLabel: UILabel!
 
@@ -35,15 +36,6 @@ open class MainViewController: UIViewController {
 	let xPos4 : CGFloat = 0
 	var yPos4 : CGFloat = 0
 
-
-
-    //Constants
-    let TEST_URL = "https://httpbin.org/get"
-    let APP_ID = "34434da02b9d2c06f7194ac16cd8c4f0"
-  
-
-
-
     @IBOutlet weak var segControl: UISegmentedControl!
     @IBOutlet weak var changeCityTextField: UITextField!
     @IBOutlet weak var sendParamsKeyTextField: UITextField!
@@ -51,6 +43,7 @@ open class MainViewController: UIViewController {
 	@IBOutlet weak var addParams: UIButton!
 	@IBOutlet weak var addHeaders: UIButton!
 	@IBOutlet weak var Headers: UILabel!
+	@IBOutlet weak var closeIcon: UIButton!
 
     
      var StringTest: String!
@@ -64,6 +57,12 @@ open class MainViewController: UIViewController {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
+		if(passedValue == nil){
+			closeIcon?.isHidden = true
+
+		}
+		changeCityTextField?.text = passedValue
+
 
 		persistentContainer.loadPersistentStores { [weak self] persistentStoreDescription, error in
 			if let error = error {
@@ -76,7 +75,6 @@ open class MainViewController: UIViewController {
 				
 			}
 		}
-
 
 
 
@@ -97,6 +95,12 @@ open class MainViewController: UIViewController {
         content.view.backgroundColor = .systemTeal
         content.view.layer.cornerRadius = 5
 
+//		if(passedValue2 == nil){
+//			reqLabel?.text = "GET"
+//
+//		}else{
+//			reqLabel?.text = passedValue2
+//		}
 
     
     }
@@ -115,8 +119,8 @@ open class MainViewController: UIViewController {
 				let result = try fetchRequest.execute()
 
 				for data in result as [NSManagedObject] {
-					print(data.value(forKey: "url") as? String)
-					print(data.value(forKey: "reqMethod") as? String)
+//					print(data.value(forKey: "url") as? String)
+//					print(data.value(forKey: "reqMethod") as? String)
 				}
 
 				// Update Books Label
@@ -309,21 +313,28 @@ open class MainViewController: UIViewController {
     //            "Authorization": "Basic MY_BASIC_AUTH_STRING"
     //        ]
             
-            
             Alamofire.request(url, method: .post, parameters: params).responseJSON { [self]
                         response in
                         if response.result.isSuccess {
                             print("Success")
-
-
 							let weatherJSON : JSON = JSON(response.result.value!)
-                          //  self.texTry.text = weatherJSON.rawString()
+							Manager.messageText.append(weatherJSON.rawString() ?? "ete")
+
+
+							let storyboard = UIStoryboard(name: "Main", bundle: nil)
+							let destVC = storyboard.instantiateViewController(withIdentifier: "modu") as! ResponseViewController
+							destVC.managedObjectContext = persistentContainer.viewContext
+							destVC.changeCityTextField?.text = cityName
+							destVC.reqLabel?.text = reqName
+							Manager.messageText.append(reqName)
+							Manager.messageText.append(cityName)
+							self.present(destVC, animated: true, completion: nil)
                             
                         }
                         else {
                            
                             print("Error \(String(describing: response.result.error))")
-                         //   self.cityLabel.text = "Issue in connection"
+
                         }
                 }
         }else if reqLabel.text == "DELETE"{
@@ -407,10 +418,10 @@ open class MainViewController: UIViewController {
 		}
     }
     
-	struct ResponseP {
-		let rep: JSON
-
+	@IBAction func CloseModal(_ sender: Any) {
+		self.dismiss(animated: true, completion: nil)
 	}
+
 
 	
 

@@ -7,11 +7,32 @@
 //
 
 import UIKit
+import SwiftUI
 
-class AddRequestViewController: UIViewController {
+
+class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
+		let content = UIHostingController(rootView:SettingsSwiftUIView())
+
+		addChild(content)
+
+		view.addSubview(content.view)
+
+		content.view.translatesAutoresizingMaskIntoConstraints = false
+		content.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		content.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+		content.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+		content.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+
+
+
+
+		content.view.backgroundColor = .systemTeal
+
 
         // Do any additional setup after loading the view.
     }

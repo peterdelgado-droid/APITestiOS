@@ -47,29 +47,29 @@ var body: some View {
                                 Text("GET").onTapGesture {
 
 									externalSwitch.text = "GET"
-									self.buttonText = "GET"
 									self.isPresented = false
 
 								}.padding(.top, 50).font(.largeTitle)
                                 
                                 Text("POST").onTapGesture {
-                                    self.buttonText = "POST"
+									externalSwitch.text = "POST"
                                     self.isPresented = false
                                     }.font(.largeTitle)
                                 Text("PUT").onTapGesture {
-									self.buttonText = "PUT"
+									externalSwitch.text = "PUT"
+
 									self.isPresented = false
 
 								}.font(.largeTitle)
                                 
                                 Text("DELETE").onTapGesture { print("One")
-									self.buttonText = "DELETE"
+									externalSwitch.text = "DELETE"
 									self.isPresented = false
 
 
 								}.font(.largeTitle)
                                 Text("PATCH").onTapGesture {
-									self.buttonText = "PATCH"
+									externalSwitch.text = "PATCH"
 									self.isPresented = false
 
 									 }.font(.largeTitle)
