@@ -300,10 +300,10 @@
             </objects>
             <point key="canvasLocation" x="7970" y="-2376"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Wave Tab Bar Controller-->
         <scene sceneID="cSS-iS-hpH">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rlg-rE-IL4" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rlg-rE-IL4" customClass="WaveTabBarController" customModule="APItest" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fec-Ro-eUm">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

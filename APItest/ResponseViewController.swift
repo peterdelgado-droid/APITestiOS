@@ -58,7 +58,7 @@ class ResponseViewController: UIViewController{
 
 	}
 
-
+//https://gorest.co.in/public/v2/users?email=test&name=peter&gender=male&status=active&email=asdfasdfasdf@gmail.com
 	@IBOutlet weak var texTry: UITextView?
 
 	var verificationId = String()
@@ -67,8 +67,16 @@ class ResponseViewController: UIViewController{
 	override func viewDidLoad(){
 		super.viewDidLoad()
 
-		Manager.messageText.append("now")
-		texTry?.text = Manager.messageText[0]
+		//Manager.messageText.append("now")
+		if Manager.messageText.indices.contains(0){
+			print(Manager.messageText[0])
+			texTry?.text = Manager.messageText[0]
+
+		}
+
+
+		//Manager.messageText.append("now")
+
 
 //		self.texTry?.text = Manager.messageText[0]
 //		self.reqLabel?.text = Manager.messageText[1]

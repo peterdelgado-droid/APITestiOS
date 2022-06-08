@@ -23,5 +23,5 @@ target 'APItest' do
     pod 'PagingKit'
 	pod 'MGKeyboardAccessory'
 pod 'MightyTabBar'
-
+pod 'WaveTab'
 end

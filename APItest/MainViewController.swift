@@ -309,11 +309,12 @@ open class MainViewController: UIViewController{
              Replace 'nil' with 'httpHeaders' in headers
              */
             
-    //        let httpHeaders: HTTPHeaders = [
-    //            "Authorization": "Basic MY_BASIC_AUTH_STRING"
-    //        ]
-            
-            Alamofire.request(url, method: .post, parameters: params).responseJSON { [self]
+            let httpHeaders: HTTPHeaders = [
+                "Authorization": "Bearer d003a27408f777983ced2aefc523239924b3f6d52f0e93b8d9a03412270e3ef3"
+            ]
+
+
+			Alamofire.request(url, method: .post,  parameters: params, headers: httpHeaders).responseJSON { [self]
                         response in
                         if response.result.isSuccess {
                             print("Success")
