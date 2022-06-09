@@ -8,18 +8,21 @@
 import Combine
 
 
-
 import SwiftUI
 @available(iOS 15.0, *)
 struct SheetView: View {
 
 	var externalSwitch: UILabel
+	var reqLabel: UILabel!
 
+	
 
     @State private var isPresented = false
     @State var reqMethod: String?
     @State var buttonText = "GET"
     @State private var showSheet = false
+	@State private var settingsDetent = PresentationDetent.medium
+
     
 
 var body: some View {
@@ -38,13 +41,14 @@ var body: some View {
 				}
 			}
 
-			.foregroundColor(.white) .background(Color.teal).padding(.top, -5).padding(.horizontal, 170).sheet(isPresented: $isPresented) {
+			.sheet(isPresented: $isPresented){
+				Spacer().presentationDetents([.medium, .large], selection: $settingsDetent)
 
-						Color.teal
+				Color.clear
                                 .overlay(
                             VStack(spacing: 0)
                             {
-                                Text("GET").onTapGesture {
+								Text("GET").foregroundColor(.green).onTapGesture {
 
 									externalSwitch.text = "GET"
 									self.isPresented = false
@@ -55,27 +59,39 @@ var body: some View {
 									externalSwitch.text = "POST"
                                     self.isPresented = false
                                     }.font(.largeTitle)
-                                Text("PUT").onTapGesture {
+								Text("PUT").foregroundColor(.orange).onTapGesture {
 									externalSwitch.text = "PUT"
 
 									self.isPresented = false
 
 								}.font(.largeTitle)
                                 
-                                Text("DELETE").onTapGesture { print("One")
+								Text("DELETE").foregroundColor(.red).onTapGesture { print("One")
 									externalSwitch.text = "DELETE"
 									self.isPresented = false
 
 
 								}.font(.largeTitle)
-                                Text("PATCH").onTapGesture {
+								Text("PATCH").foregroundColor(.brown).onTapGesture {
 									externalSwitch.text = "PATCH"
 									self.isPresented = false
 
 									 }.font(.largeTitle)
                                 Spacer()
-                                
-                                
+								Text("").foregroundColor(.pink).onTapGesture {
+									externalSwitch.text = "PATCH"
+									self.isPresented = false
+
+								}.font(.largeTitle)
+									ZStack {
+										Image("graphql-icon")
+											.resizable()
+											.frame(width: 35.0, height: 35.0)
+
+
+									}
+
+								Text("GraphQL")
 							})}
                             }
 
@@ -97,11 +113,12 @@ var body: some View {
 
 
 //struct SheetView_Previews: PreviewProvider {
-//    
+//	var reqLabel: UILabel?
 //    @available(iOS 13.0, *)
 //    static var previews: some View {
 //        if #available(iOS 15.0, *) {
-//            SheetView(e)
+//
+//			SheetView(externalSwitch:reqLabel ?? "test")
 //        } else {
 //            // Fallback on earlier versions
 //        }

@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController {
 
 
 
-		content.view.backgroundColor = .systemTeal
+		content.view.backgroundColor = .clear
 
 
         // Do any additional setup after loading the view.

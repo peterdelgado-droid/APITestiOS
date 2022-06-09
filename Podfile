@@ -9,7 +9,6 @@ target 'APItest' do
     pod 'SwiftyJSON'
     pod ‘Alamofire’, ‘4.7.3’
     pod 'SVProgressHUD'
-    pod 'FloatingPanel'
     pod 'BottomSheetSwiftUI'
     pod 'MGSelector'
     pod 'RxSwift'
@@ -20,8 +19,7 @@ target 'APItest' do
     pod 'RxBinding'
     pod 'RxFlow'
     pod 'RxKeyboard'
-    pod 'PagingKit'
-	pod 'MGKeyboardAccessory'
-pod 'MightyTabBar'
+   
+
 pod 'WaveTab'
 end

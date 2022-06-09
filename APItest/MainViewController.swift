@@ -5,14 +5,12 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 import SwiftUI
-import FloatingPanel
 import MGSelector
 import RxSwift
 import RxCocoa
 import RxController
 import MapKit
 import CoreData
-
 
 
 @available(iOS 15.0, *)
@@ -70,7 +68,6 @@ open class MainViewController: UIViewController{
 				print("\(error), \(error.localizedDescription)")
 
 			} else {
-				print(persistentStoreDescription.url)
 				self?.fetchBooks()
 				
 			}
@@ -81,18 +78,17 @@ open class MainViewController: UIViewController{
 
 
 		let swiftUIToggler = SheetView(externalSwitch: reqLabel)
-
 		let content = UIHostingController(rootView:swiftUIToggler)
 
 		addChild(content)
 
-        view.addSubview(content.view)
+		view.addSubview(content.view)
         content.view.translatesAutoresizingMaskIntoConstraints = false
         content.view.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -10).isActive = true
         content.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
-        content.view.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        content.view.heightAnchor.constraint(equalToConstant: 100).isActive = true
         content.view.widthAnchor.constraint(equalToConstant: 110).isActive = true
-        content.view.backgroundColor = .systemTeal
+		content.view.backgroundColor = .clear
         content.view.layer.cornerRadius = 5
 
 //		if(passedValue2 == nil){
@@ -406,7 +402,7 @@ open class MainViewController: UIViewController{
         self.dismiss(animated: true, completion: nil)
         
     }
-    
+
    
 
     

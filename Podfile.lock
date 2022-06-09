@@ -2,14 +2,8 @@ PODS:
   - Alamofire (4.7.3)
   - BottomSheetSwiftUI (2.7.0)
   - Differentiator (5.0.0)
-  - FloatingPanel (2.5.2)
-  - MGKeyboardAccessory (0.6.1):
-    - MGKeyboardAccessory/Core (= 0.6.1)
-  - MGKeyboardAccessory/Core (0.6.1)
   - MGSelector (0.2):
     - SnapKit (~> 5)
-  - MightyTabBar (1.0.0)
-  - PagingKit (1.18.1)
   - Reusable (4.1.2):
     - Reusable/Storyboard (= 4.1.2)
     - Reusable/View (= 4.1.2)
@@ -54,11 +48,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (= 4.7.3)
   - BottomSheetSwiftUI
-  - FloatingPanel
-  - MGKeyboardAccessory
   - MGSelector
-  - MightyTabBar
-  - PagingKit
   - RxAlertViewable
   - RxBinding
   - RxCocoa
@@ -76,11 +66,7 @@ SPEC REPOS:
     - Alamofire
     - BottomSheetSwiftUI
     - Differentiator
-    - FloatingPanel
-    - MGKeyboardAccessory
     - MGSelector
-    - MightyTabBar
-    - PagingKit
     - Reusable
     - RxAlertViewable
     - RxBinding
@@ -101,11 +87,7 @@ SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   BottomSheetSwiftUI: 57c6e635baeeae878508883b6985051556172515
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
-  FloatingPanel: 935712d7a8076630135fbbd47f717700913efef9
-  MGKeyboardAccessory: 9b3a5ace073f772809bf88e900729aef86901047
   MGSelector: e6dd39fb0dac1a577d9644f7766579cf9b9b18ad
-  MightyTabBar: 0e09d624e6d2379dac5c8448ef2884eddcd81b6a
-  PagingKit: 0e7ec4e3791ab55887e129b27f7486a91b761129
   Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
   RxAlertViewable: 8b8b82e6c22b974813e67a79b0c3d500bb08b676
   RxBinding: e3c76d02d0ee3f1a306a0fb8e8ef6f2eda65a375
@@ -122,6 +104,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   WaveTab: ae1db4f50d09513107bfb223cdd06131eb9befd7
 
-PODFILE CHECKSUM: 24f20d494575d707839ade0bbed73c431558bf28
+PODFILE CHECKSUM: e6f966da0a1e7c1aa5e3ed87ce6421ede9104397
 
 COCOAPODS: 1.11.3

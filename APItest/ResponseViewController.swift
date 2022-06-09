@@ -11,7 +11,6 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 import SwiftUI
-import FloatingPanel
 import MGSelector
 import RxSwift
 import RxCocoa
