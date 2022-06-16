@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Manager {
+struct Manager: Decodable {
 
 	static var messageText = [String]()
 	

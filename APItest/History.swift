@@ -24,6 +24,7 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 	var basicBitch = String?.self
 	var myArray : Array? = []
 	var myArray2 : Array? = []
+	var url = APIViewModel()
 
 
 //	fileprivate func updateView() {

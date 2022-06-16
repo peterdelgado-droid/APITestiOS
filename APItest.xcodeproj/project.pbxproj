@@ -11,16 +11,20 @@
 		63E28AF71B99C36100FBF6E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AF31B99C36100FBF6E0 /* Images.xcassets */; };
 		63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E28AF51B99C36100FBF6E0 /* MainViewController.swift */; };
 		63E28AFF1B99C3B300FBF6E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */; };
+		822A07B52857349B00FEB90E /* CoreDataNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822A07B42857349B00FEB90E /* CoreDataNow.swift */; };
+		822A07B72857356200FEB90E /* APIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822A07B62857356200FEB90E /* APIViewModel.swift */; };
 		822AB5E3285093EE00E20B78 /* UIBezierPath+createCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AB5E2285093EE00E20B78 /* UIBezierPath+createCurve.swift */; };
 		822AB5E52850963000E20B78 /* WaveTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AB5E42850963000E20B78 /* WaveTabBarController.swift */; };
 		8259C5182848FAEF0045047D /* ModelHis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8259C5162848FAEF0045047D /* ModelHis.xcdatamodeld */; };
 		826A44A42849F61A007C2206 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A44A32849F61A007C2206 /* History.swift */; };
+		826A4B76285B302700C84175 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A4B75285B302700C84175 /* CustomSegmentedControl.swift */; };
 		8291B98E2850B3ED0007E59B /* WaveTabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291B98D2850B3ED0007E59B /* WaveTabBarProtocol.swift */; };
 		8291B9902850B4B20007E59B /* WaveTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291B98F2850B4B20007E59B /* WaveTabBarPresenter.swift */; };
 		8291B9922850B4C30007E59B /* WaveTabBarPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291B9912850B4C30007E59B /* WaveTabBarPresenterBase.swift */; };
 		8291F620284E020F001B9017 /* HistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291F61F284E020F001B9017 /* HistTableViewCell.swift */; };
 		8291F622284E1F97001B9017 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291F621284E1F97001B9017 /* SettingsViewController.swift */; };
 		82944E462837A9F800343116 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82944E452837A9F800343116 /* SheetView.swift */; };
+		82BE05822857773600DA053C /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BE05812857773600DA053C /* ResponseModel.swift */; };
 		82CEBF65283BC97000CC02A5 /* ResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CEBF64283BC97000CC02A5 /* ResponseViewController.swift */; };
 		82D0366D284649FA0083A41E /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D0366C284649FA0083A41E /* Manager.swift */; };
 		82D3DEF6284F8D9800B942D2 /* SettingsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D3DEF5284F8D9800B942D2 /* SettingsSwiftUIView.swift */; };
@@ -38,16 +42,20 @@
 		63E28AF31B99C36100FBF6E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		63E28AF51B99C36100FBF6E0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		822A07B42857349B00FEB90E /* CoreDataNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataNow.swift; sourceTree = "<group>"; };
+		822A07B62857356200FEB90E /* APIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIViewModel.swift; sourceTree = "<group>"; };
 		822AB5E2285093EE00E20B78 /* UIBezierPath+createCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+createCurve.swift"; sourceTree = "<group>"; };
 		822AB5E42850963000E20B78 /* WaveTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarController.swift; sourceTree = "<group>"; };
 		8259C5172848FAEF0045047D /* ModelHis.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelHis.xcdatamodel; sourceTree = "<group>"; };
 		826A44A32849F61A007C2206 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		826A4B75285B302700C84175 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		8291B98D2850B3ED0007E59B /* WaveTabBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarProtocol.swift; sourceTree = "<group>"; };
 		8291B98F2850B4B20007E59B /* WaveTabBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarPresenter.swift; sourceTree = "<group>"; };
 		8291B9912850B4C30007E59B /* WaveTabBarPresenterBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarPresenterBase.swift; sourceTree = "<group>"; };
 		8291F61F284E020F001B9017 /* HistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistTableViewCell.swift; sourceTree = "<group>"; };
 		8291F621284E1F97001B9017 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		82944E452837A9F800343116 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		82BE05812857773600DA053C /* ResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		82CEBF64283BC97000CC02A5 /* ResponseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseViewController.swift; sourceTree = "<group>"; };
 		82D0366C284649FA0083A41E /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		82D3DEF5284F8D9800B942D2 /* SettingsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSwiftUIView.swift; sourceTree = "<group>"; };
@@ -95,6 +103,7 @@
 		63E28ACD1B99C32400FBF6E0 /* APItest */ = {
 			isa = PBXGroup;
 			children = (
+				822A07B32857329B00FEB90E /* ViewModel */,
 				63E28AFD1B99C38100FBF6E0 /* View */,
 				63E28AFA1B99C36D00FBF6E0 /* Model */,
 				63E28AFB1B99C37500FBF6E0 /* Controller */,
@@ -116,7 +125,9 @@
 		63E28AFA1B99C36D00FBF6E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				82BE05812857773600DA053C /* ResponseModel.swift */,
 				8259C5162848FAEF0045047D /* ModelHis.xcdatamodeld */,
+				82D0366C284649FA0083A41E /* Manager.swift */,
 				8291B98F2850B4B20007E59B /* WaveTabBarPresenter.swift */,
 				8291B98D2850B3ED0007E59B /* WaveTabBarProtocol.swift */,
 				822AB5E2285093EE00E20B78 /* UIBezierPath+createCurve.swift */,
@@ -131,9 +142,9 @@
 			children = (
 				63E28AF51B99C36100FBF6E0 /* MainViewController.swift */,
 				82944E452837A9F800343116 /* SheetView.swift */,
+				826A4B75285B302700C84175 /* CustomSegmentedControl.swift */,
 				63E28AD01B99C32400FBF6E0 /* AppDelegate.swift */,
 				82CEBF64283BC97000CC02A5 /* ResponseViewController.swift */,
-				82D0366C284649FA0083A41E /* Manager.swift */,
 				826A44A32849F61A007C2206 /* History.swift */,
 				8291F61F284E020F001B9017 /* HistTableViewCell.swift */,
 				8291F621284E1F97001B9017 /* SettingsViewController.swift */,
@@ -148,6 +159,15 @@
 				82ECEFA7282A5D6800A2916F /* Main.storyboard */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		822A07B32857329B00FEB90E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				822A07B42857349B00FEB90E /* CoreDataNow.swift */,
+				822A07B62857356200FEB90E /* APIViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		AC80D6732CC41304E0680FB2 /* Pods */ = {
@@ -318,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */,
+				826A4B76285B302700C84175 /* CustomSegmentedControl.swift in Sources */,
 				8291F620284E020F001B9017 /* HistTableViewCell.swift in Sources */,
 				82944E462837A9F800343116 /* SheetView.swift in Sources */,
 				822AB5E3285093EE00E20B78 /* UIBezierPath+createCurve.swift in Sources */,
@@ -325,11 +346,14 @@
 				826A44A42849F61A007C2206 /* History.swift in Sources */,
 				82CEBF65283BC97000CC02A5 /* ResponseViewController.swift in Sources */,
 				82D0366D284649FA0083A41E /* Manager.swift in Sources */,
+				822A07B72857356200FEB90E /* APIViewModel.swift in Sources */,
 				8259C5182848FAEF0045047D /* ModelHis.xcdatamodeld in Sources */,
 				822AB5E52850963000E20B78 /* WaveTabBarController.swift in Sources */,
 				8291B9902850B4B20007E59B /* WaveTabBarPresenter.swift in Sources */,
 				8291B98E2850B3ED0007E59B /* WaveTabBarProtocol.swift in Sources */,
 				8291F622284E1F97001B9017 /* SettingsViewController.swift in Sources */,
+				822A07B52857349B00FEB90E /* CoreDataNow.swift in Sources */,
+				82BE05822857773600DA053C /* ResponseModel.swift in Sources */,
 				63E28AD11B99C32400FBF6E0 /* AppDelegate.swift in Sources */,
 				82D3DEF6284F8D9800B942D2 /* SettingsSwiftUIView.swift in Sources */,
 			);

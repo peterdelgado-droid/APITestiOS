@@ -1,22 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "C8038BA5-8FE4-416B-9990-D699B7234D5F"
+   uuid = "BF02D9A5-E265-4264-B6D8-4FD23F7C72A1"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1FDECE7A-DA42-4054-B6C8-98D2E2CDDBC4"
+            uuid = "5C300441-AA30-41F0-89B5-7A25673B71E6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "APItest/APIViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "mapCharactersAndFilterByText(favoritiesEntities:characters:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5C300441-AA30-41F0-89B5-7A25673B71E6 - 8e345558666c28c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (APItest.ResponseModel) -&gt; APItest.ResponseModel in APItest.APIViewModel.mapCharactersAndFilterByText(favoritiesEntities: Swift.Array&lt;APItest.Entity&gt;, characters: Swift.Array&lt;APItest.ResponseModel&gt;) -&gt; Swift.Array&lt;APItest.ResponseModel&gt;"
+                  moduleName = "APItest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peterdelgado/Desktop/APItest/APItest/APIViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "5C300441-AA30-41F0-89B5-7A25673B71E6 - ac759894a1491917"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (APItest.Entity) -&gt; Swift.Bool in closure #1 (APItest.ResponseModel) -&gt; APItest.ResponseModel in APItest.APIViewModel.mapCharactersAndFilterByText(favoritiesEntities: Swift.Array&lt;APItest.Entity&gt;, characters: Swift.Array&lt;APItest.ResponseModel&gt;) -&gt; Swift.Array&lt;APItest.ResponseModel&gt;"
+                  moduleName = "APItest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peterdelgado/Desktop/APItest/APItest/APIViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BE83871-9593-4908-88D2-59E458BAA7E5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APItest/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
+            landmarkName = "change(to:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

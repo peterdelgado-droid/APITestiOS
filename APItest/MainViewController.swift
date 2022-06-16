@@ -16,6 +16,14 @@ import CoreData
 @available(iOS 15.0, *)
 open class MainViewController: UIViewController{
 
+
+	@IBOutlet weak var interfaceSegmented: CustomSegmentedControl!
+
+	@IBOutlet var langTextViews: [UITextView]!
+
+	var segMent:Int?
+
+
 	var passedValue:String!
 	var passedValue2:String!
 
@@ -47,14 +55,37 @@ open class MainViewController: UIViewController{
      var StringTest: String!
 	 let ResponseVC = ResponseViewController()
 
+	weak var delegate:CustomSegmentedControlDelegate?
 
 	private lazy var persistentContainer: NSPersistentContainer = {
 		NSPersistentContainer(name: "ModelHis")
 	}()
 
+	open override func viewDidAppear(_ animated: Bool){
+		super.viewDidAppear(animated)
+
+
+
+	}
+
 
     open override func viewDidLoad() {
         super.viewDidLoad()
+
+		let codeSegmented = CustomSegmentedControl(frame: CGRect(x: 50, y: 50, width: 100, height: 50), buttonTitle: ["Params","Headers","Body"])
+
+
+		codeSegmented.backgroundColor = .clear
+		view.addSubview(codeSegmented)
+		codeSegmented.translatesAutoresizingMaskIntoConstraints = false
+		codeSegmented.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -10).isActive = true
+		codeSegmented.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+		codeSegmented.heightAnchor.constraint(equalToConstant: 100).isActive = true
+		codeSegmented.widthAnchor.constraint(equalToConstant: 210).isActive = true
+
+
+
+
 		if(passedValue == nil){
 			closeIcon?.isHidden = true
 
@@ -426,4 +457,17 @@ open class MainViewController: UIViewController{
 }
 
 
+extension MainViewController: CustomSegmentedControlDelegate {
+	func change(to index: Int) {
+		switch index
+		{
+		case 0: langTextViews[0].isHidden = false
+		case 1: langTextViews[1].isHidden = true
+		case 2: langTextViews[2].isHidden = false
+		default: break
+		}
+
+	}
+
+}
 

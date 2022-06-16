@@ -9,8 +9,42 @@
 import SwiftUI
 
 struct SettingsSwiftUIView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+	@State private var searchText = "Enter GraphQL Endpoint"
+
+	var body: some View {
+
+
+
+
+		VStack {
+			Button() {
+
+
+			}label: {
+				ZStack {
+					Image("play.fill")
+						.resizable()
+						.frame(width: 35.0, height: 35.0)
+					Text("")
+				}
+			}
+
+
+				TextEditor(text: $searchText)
+					.foregroundColor(Color(.tertiaryLabel))
+
+			
+
+
+
+
+		}
+
+
+
+
+
+
     }
 }
 
