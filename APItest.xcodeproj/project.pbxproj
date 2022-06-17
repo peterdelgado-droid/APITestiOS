@@ -11,8 +11,6 @@
 		63E28AF71B99C36100FBF6E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AF31B99C36100FBF6E0 /* Images.xcassets */; };
 		63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E28AF51B99C36100FBF6E0 /* MainViewController.swift */; };
 		63E28AFF1B99C3B300FBF6E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */; };
-		822A07B52857349B00FEB90E /* CoreDataNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822A07B42857349B00FEB90E /* CoreDataNow.swift */; };
-		822A07B72857356200FEB90E /* APIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822A07B62857356200FEB90E /* APIViewModel.swift */; };
 		822AB5E3285093EE00E20B78 /* UIBezierPath+createCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AB5E2285093EE00E20B78 /* UIBezierPath+createCurve.swift */; };
 		822AB5E52850963000E20B78 /* WaveTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AB5E42850963000E20B78 /* WaveTabBarController.swift */; };
 		8259C5182848FAEF0045047D /* ModelHis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8259C5162848FAEF0045047D /* ModelHis.xcdatamodeld */; };
@@ -42,8 +40,6 @@
 		63E28AF31B99C36100FBF6E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		63E28AF51B99C36100FBF6E0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		822A07B42857349B00FEB90E /* CoreDataNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataNow.swift; sourceTree = "<group>"; };
-		822A07B62857356200FEB90E /* APIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIViewModel.swift; sourceTree = "<group>"; };
 		822AB5E2285093EE00E20B78 /* UIBezierPath+createCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+createCurve.swift"; sourceTree = "<group>"; };
 		822AB5E42850963000E20B78 /* WaveTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarController.swift; sourceTree = "<group>"; };
 		8259C5172848FAEF0045047D /* ModelHis.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelHis.xcdatamodel; sourceTree = "<group>"; };
@@ -164,8 +160,6 @@
 		822A07B32857329B00FEB90E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				822A07B42857349B00FEB90E /* CoreDataNow.swift */,
-				822A07B62857356200FEB90E /* APIViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -346,13 +340,11 @@
 				826A44A42849F61A007C2206 /* History.swift in Sources */,
 				82CEBF65283BC97000CC02A5 /* ResponseViewController.swift in Sources */,
 				82D0366D284649FA0083A41E /* Manager.swift in Sources */,
-				822A07B72857356200FEB90E /* APIViewModel.swift in Sources */,
 				8259C5182848FAEF0045047D /* ModelHis.xcdatamodeld in Sources */,
 				822AB5E52850963000E20B78 /* WaveTabBarController.swift in Sources */,
 				8291B9902850B4B20007E59B /* WaveTabBarPresenter.swift in Sources */,
 				8291B98E2850B3ED0007E59B /* WaveTabBarProtocol.swift in Sources */,
 				8291F622284E1F97001B9017 /* SettingsViewController.swift in Sources */,
-				822A07B52857349B00FEB90E /* CoreDataNow.swift in Sources */,
 				82BE05822857773600DA053C /* ResponseModel.swift in Sources */,
 				63E28AD11B99C32400FBF6E0 /* AppDelegate.swift in Sources */,
 				82D3DEF6284F8D9800B942D2 /* SettingsSwiftUIView.swift in Sources */,

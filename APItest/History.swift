@@ -24,7 +24,7 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 	var basicBitch = String?.self
 	var myArray : Array? = []
 	var myArray2 : Array? = []
-	var url = APIViewModel()
+
 
 
 //	fileprivate func updateView() {
@@ -50,7 +50,6 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
 override func viewDidLoad(){
 		super.viewDidLoad()
-
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	let context = appDelegate.persistentContainer.viewContext
 
@@ -75,6 +74,7 @@ override func viewDidLoad(){
 					myArray?.append(expName)
 					tableView.reloadData()
 
+
 					print("my array is : \(myArray)")
 				}
 
@@ -86,7 +86,7 @@ override func viewDidLoad(){
 					print("my array is : \(myArray)")
 				}
 
-
+				break
 			}
 
 		}
@@ -99,14 +99,10 @@ override func viewDidLoad(){
 
 
 
+
 }
 
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
 
-
-
-	}
 
 
 
@@ -184,80 +180,41 @@ override func viewDidLoad(){
 	}
 
 
-	public func fetchBooks() {
-
-
-		// Create Fetch Request
-		let fetchRequest: NSFetchRequest<Entity> = Entity.fetchRequest()
-		//fetchRequest.predicate = NSPredicate(format: "reqMethod == %@", query)
-
-		// Perform Fetch Request
-		persistentContainer.viewContext.perform {
-			do {
-				// Execute Fetch Request
-				let result = try fetchRequest.execute()
-
-				for data in result as [NSManagedObject] {
-
-					print("BasicBitch")
-					print(data.value(forKey: "url") as? String)
-					print(data.value(forKey: "reqMethod") as? String)
-				}
-
-				// Update Books Label
-				//	print(result)
-
-
-			} catch {
-				print("Unable to Execute Fetch Request, \(error)")
-			}
-		}
-	}
-
-	fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Entity> = {
-		// Create Fetch Request
-		let fetchRequest: NSFetchRequest<Entity> = Entity.fetchRequest()
-
-		// Configure Fetch Request
-		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "url", ascending: true)]
-
-		// Create Fetched Results Controller
-		let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-
-		// Configure Fetched Results Controller
-		fetchedResultsController.delegate = self
-
-		return fetchedResultsController
-	}()
-
-
-	lazy var fetchedResultsControllerNew: NSFetchedResultsController<Entity> = {
-		// Create Fetch Request
-		let fetchRequest: NSFetchRequest<Entity> = Entity.fetchRequest()
-
-		// Configure Fetch Request
-		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "url", ascending: false)]
-
-		let appDelegate = UIApplication.shared.delegate as! AppDelegate
-		let managerContext = appDelegate.persistentContainer.viewContext
-
-		// Create Fetched Results Controller
-		let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managerContext, sectionNameKeyPath: nil, cacheName: nil)
-
-		// Configure Fetched Results Controller
-		fetchedResultsController.delegate = self
-
-		return fetchedResultsController
-	}()
+//	public func fetchBooks() {
+//
+//
+//		// Create Fetch Request
+//		let fetchRequest: NSFetchRequest<Entity> = Entity.fetchRequest()
+//		//fetchRequest.predicate = NSPredicate(format: "reqMethod == %@", query)
+//
+//		// Perform Fetch Request
+//		persistentContainer.viewContext.perform {
+//			do {
+//				// Execute Fetch Request
+//				let result = try fetchRequest.execute()
+//
+//				for data in result as [NSManagedObject] {
+//
+//					print("BasicBitch")
+//					print(data.value(forKey: "url") as? String)
+//					print(data.value(forKey: "reqMethod") as? String)
+//				}
+//
+//				// Update Books Label
+//				//	print(result)
+//
+//
+//			} catch {
+//				print("Unable to Execute Fetch Request, \(error)")
+//			}
+//		}
+//	}
 
 
 
 
 
 	@IBAction func deleteHistory(_ sender: Any) {
-
-		
-
 
 		myArray?.removeAll()
 		myArray2?.removeAll()
@@ -301,33 +258,12 @@ override func viewDidLoad(){
 //
 //}
 
-extension History: NSFetchedResultsControllerDelegate {
-
-	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-		switch (type) {
-		case .insert:
-			if let indexPath = newIndexPath {
-				tableView.insertRows(at: [indexPath], with: .fade)
-			}
-			break;
-		default:
-			print("...")
-		}
-	}
-
-
-	func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-		tableView.beginUpdates()
-	}
-
-	func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-		tableView.endUpdates()
-
-		//updateView()
-	}
 
 
 
 
-}
+
+
+
+
 

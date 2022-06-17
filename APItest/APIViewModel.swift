@@ -30,22 +30,22 @@ class APIViewModel: ObservableObject{
 	@Published var searchText: String = ""
 
 	init(){
-		dataResponseSubscribe()
+//		dataResponseSubscribe()
 	}
 
 
 
-	func dataResponseSubscribe(){
-
-		fetchResults.$savedEntities
-			.combineLatest($url)
-			.map(mapCharactersAndFilterByText)
-			.sink { [weak self] (characters) in
-				guard let self = self else { return }
-				self.allCharacters = characters
-			}
-			.store(in: &cancellables)
-	}
+//	func dataResponseSubscribe(){
+//
+//		fetchResults.$savedEntities
+//			.combineLatest($url)
+//			.map(mapCharactersAndFilterByText)
+//			.sink { [weak self] (characters) in
+//				guard let self = self else { return }
+//				self.allCharacters = characters
+//			}
+//			.store(in: &cancellables)
+//	}
 
 
 	private func mapCharactersAndFilterByText(favoritiesEntities: [Entity],  characters: [ResponseModel]) -> [ResponseModel] {

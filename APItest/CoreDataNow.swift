@@ -15,11 +15,11 @@ class CoreDataNow{
 	var reqMetArray : Array? = []
 	var urlArray : Array? = []
 
-	private var container: NSPersistentContainer?
-	private let entityName: String = "Entity"
+//	private var container: NSPersistentContainer?
+//	private let entityName: String = "Entity"
 
 
-	@Published var savedEntities: [Entity] = []
+//	@Published var savedEntities: [Entity] = []
 
 
 //	init() {
@@ -36,44 +36,44 @@ class CoreDataNow{
 //			}
 //		}
 
-	private func getFavorites() {
-		
-
-
-		let request = NSFetchRequest<Entity>(entityName: entityName)
-		request.returnsObjectsAsFaults = false
-
-		do {
-			savedEntities = try container!.viewContext.fetch(request)
-			for resultGot in savedEntities as [NSManagedObject]{
-
-				if let expName = resultGot.value(forKey:"url") as? String{
-
-
-
-					self.urlArray?.append(expName)
-					//tableView.reloadData()
-
-					//print("my array is : \(urlArray)")
-				}
-
-				if let expName2 = resultGot.value(forKey:"reqMethod") as? String{
-
-					self.reqMetArray?.append(expName2)
-					//tableView.reloadData()
-
-					//print("my array is : \(reqMetArray)")
-				}
-
-
-			}
-		} catch let error {
-			print("Error fetching Favorities Entities. \(error)")
-		}
-	}
-
-
-
+//	private func getFavorites() {
+//		
+//
+//
+//		let request = NSFetchRequest<Entity>(entityName: entityName)
+//		request.returnsObjectsAsFaults = false
+//
+//		do {
+//			savedEntities = try container!.viewContext.fetch(request)
+//			for resultGot in savedEntities as [NSManagedObject]{
+//
+//				if let expName = resultGot.value(forKey:"url") as? String{
+//
+//
+//
+//					self.urlArray?.append(expName)
+//					//tableView.reloadData()
+//
+//					//print("my array is : \(urlArray)")
+//				}
+//
+//				if let expName2 = resultGot.value(forKey:"reqMethod") as? String{
+//
+//					self.reqMetArray?.append(expName2)
+//					//tableView.reloadData()
+//
+//					//print("my array is : \(reqMetArray)")
+//				}
+//
+//
+//			}
+//		} catch let error {
+//			print("Error fetching Favorities Entities. \(error)")
+//		}
+//	}
+//
+//
+//
 
 
 

@@ -75,12 +75,7 @@ class ResponseViewController: UIViewController{
 		}
 
 
-		//Manager.messageText.append("now")
-
-
-//		self.texTry?.text = Manager.messageText[0]
-//		self.reqLabel?.text = Manager.messageText[1]
-//
+		
 	}
 
 }
