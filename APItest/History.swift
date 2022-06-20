@@ -20,87 +20,87 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 	@IBOutlet var dynamicHeight: NSLayoutConstraint!
 	@IBOutlet var delete: UIButton!
 
-	var quotes = [Entity]()
+
+	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+
+
+	var request: [Entity]?
+
+
+
 	var basicBitch = String?.self
-	var myArray : Array? = []
-	var myArray2 : Array? = []
-
-
-
-//	fileprivate func updateView() {
-//		var hasQuotes = false
-//
-//		if let quotes = fetchedResultsController.fetchedObjects {
-//			hasQuotes = quotes.count > 0
-//		}
-//
-//		tableView.isHidden = !hasQuotes
-//		messageLabel.isHidden = hasQuotes
-//
-//		activityIndicatorView.stopAnimating()
-//	}
-	
-
-	private lazy var persistentContainer: NSPersistentContainer = {
-		NSPersistentContainer(name: "ModelHis")
-	}()
+	var urlArray : Array? = []
+	var reqMethodArray : Array? = []
 
 
 
 
-override func viewDidLoad(){
+
+	override func viewDidLoad(){
 		super.viewDidLoad()
-	let appDelegate = UIApplication.shared.delegate as! AppDelegate
-	let context = appDelegate.persistentContainer.viewContext
 
+	tableView.dataSource = self
+    tableView.delegate = self
+	
+		
 
-	let request = NSFetchRequest <NSFetchRequestResult> (entityName: "Entity")
-	request.returnsObjectsAsFaults = false
+//		let request = NSFetchRequest <NSFetchRequestResult> (entityName: "Entity")
+//		request.returnsObjectsAsFaults = false
 
+	    
+		fetchRequests()
 
-	do {
-
-		let results = try context.fetch(request)
-
-
-		// check data existance
-		if results.count>0 {
-			print(results.count)
-
-			for resultGot in results as! [NSManagedObject]{
-
-				if let expName = resultGot.value(forKey:"url") as? String{
-
-					myArray?.append(expName)
-					tableView.reloadData()
-
-
-					print("my array is : \(myArray)")
-				}
-
-				if let expName2 = resultGot.value(forKey:"reqMethod") as? String{
-
-					myArray2?.append(expName2)
-					tableView.reloadData()
-
-					print("my array is : \(myArray)")
-				}
-
-				break
-			}
-
-		}
-
-	}catch{
-
-
-		print("No Data to load")
 	}
 
+	func fetchRequests(){
+		do {
+
+			self.request = try context.fetch(Entity.fetchRequest())
+
+
+				self.tableView?.reloadData()
 
 
 
-}
+			// check data existance
+
+//			print(results.count)
+
+//			for resultGot in results as! [NSManagedObject]{
+//
+//				if let expName = resultGot.value(forKey:"url") as? String{
+//
+//					urlArray?.append(expName)
+//					tableView.reloadData()
+//
+//
+//					//		print("my array is : \(myArray)")
+//				}
+//
+//				if let expName2 = resultGot.value(forKey:"reqMethod") as? String{
+//
+//					reqMethodArray?.append(expName2)
+//					tableView.reloadData()
+//
+//					//		print("my array is : \(myArray)")
+//				}
+//
+//
+//			}
+
+
+
+		}catch{
+
+
+			print("No Data to load")
+		}
+
+
+
+	}
+
 
 
 
@@ -116,8 +116,8 @@ override func viewDidLoad(){
 				withIdentifier: "Request") as? MainViewController
 
 			destinationVC?.closeIcon?.isHidden = false
-			destinationVC?.passedValue = myArray? [indexPath.row] as! String?
-			destinationVC?.passedValue2 = myArray2? [indexPath.row] as! String?
+			destinationVC?.passedValue = urlArray? [indexPath.row] as! String?
+			destinationVC?.passedValue2 = reqMethodArray? [indexPath.row] as! String?
 
 
 
@@ -142,8 +142,8 @@ override func viewDidLoad(){
 		dynamicHeight.constant = tableView.contentSize.height
 
 
-		print(myArray?.count)
-		return myArray!.count
+	//	print(myArray?.count)
+		return self.request!.count
 
 	}
 
@@ -154,12 +154,11 @@ override func viewDidLoad(){
 
 
 
-		// Fetch Quote
-		//let quotes = fetchedResultsControllerNew.object(at: indexPath)
+		let requests = self.request![indexPath.row]
 
 		// Configure Cell
-		cell.authorLabel.text = myArray? [indexPath.row] as! String?
-		cell.contentsLabel.text = myArray2? [indexPath.row] as! String?
+		cell.authorLabel.text = requests.url
+		cell.contentsLabel.text = requests.reqMethod
 
 
 
@@ -214,12 +213,22 @@ override func viewDidLoad(){
 
 
 
+
 	@IBAction func deleteHistory(_ sender: Any) {
 
-		myArray?.removeAll()
-		myArray2?.removeAll()
-		tableView.reloadData()
 
+
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		let managedContext = appDelegate.persistentContainer.viewContext
+		let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "Entity"))
+		do {
+			try managedContext.execute(DelAllReqVar)
+		}
+		catch {
+			print(error)
+		}
+
+		self.fetchRequests()
 
 	}
 

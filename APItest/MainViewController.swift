@@ -44,9 +44,12 @@ open class MainViewController: UIViewController{
 	 let customSeg = CustomSegmentedControl()
 
 
-	private lazy var persistentContainer: NSPersistentContainer = {
-		NSPersistentContainer(name: "ModelHis")
-	}()
+	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+
+//	private lazy var persistentContainer: NSPersistentContainer = {
+//		NSPersistentContainer(name: "ModelHis")
+//	}()
 
 	open override func viewDidAppear(_ animated: Bool){
 		super.viewDidAppear(animated)
@@ -67,16 +70,16 @@ if(passedValue == nil){
 		changeCityTextField?.text = passedValue
 
 
-		persistentContainer.loadPersistentStores { [weak self] persistentStoreDescription, error in
-			if let error = error {
-				print("Unable to Add Persistent Store")
-				print("\(error), \(error.localizedDescription)")
-
-			} else {
-				self?.fetchBooks()
-
-			}
-		}
+//		persistentContainer.loadPersistentStores { [weak self] persistentStoreDescription, error in
+//			if let error = error {
+//				print("Unable to Add Persistent Store")
+//				print("\(error), \(error.localizedDescription)")
+//
+//			} else {
+//			//	self?.fetchBooks()
+//
+//			}
+		//}
 
 
 
@@ -111,29 +114,29 @@ if(passedValue == nil){
 
 
 
-	private func fetchBooks() {
-// Create Fetch Request
-		let fetchRequest: NSFetchRequest<Entity> = Entity.fetchRequest()
-		//fetchRequest.predicate = NSPredicate(format: "reqMethod == %@", query)
-
-		// Perform Fetch Request
-		persistentContainer.viewContext.perform {
-			do {
-				// Execute Fetch Request
-				let result = try fetchRequest.execute()
-
-				for data in result as [NSManagedObject] {
-//					print(data.value(forKey: "url") as? String)
-//					print(data.value(forKey: "reqMethod") as? String)
-				}
-
-			
-
-			} catch {
-				print("Unable to Execute Fetch Request, \(error)")
-			}
-		}
-	}
+//	private func fetchBooks() {
+//// Create Fetch Request
+//		let fetchRequest: NSFetchRequest<Entity> = Entity.fetchRequest()
+//		//fetchRequest.predicate = NSPredicate(format: "reqMethod == %@", query)
+//
+//		// Perform Fetch Request
+//		persistentContainer.viewContext.perform {
+//			do {
+//				// Execute Fetch Request
+//				let result = try fetchRequest.execute()
+//
+//				for data in result as [NSManagedObject] {
+////					print(data.value(forKey: "url") as? String)
+////					print(data.value(forKey: "reqMethod") as? String)
+//				}
+//
+//
+//
+//			} catch {
+//				print("Unable to Execute Fetch Request, \(error)")
+//			}
+//		}
+//	}
 
 
 
@@ -278,7 +281,7 @@ if(passedValue == nil){
 
 							let storyboard = UIStoryboard(name: "Main", bundle: nil)
 							let destVC = storyboard.instantiateViewController(withIdentifier: "modu") as! ResponseViewController
-							destVC.managedObjectContext = persistentContainer.viewContext
+							destVC.managedObjectContext =   context
 							destVC.changeCityTextField?.text = cityName
 							destVC.reqLabel?.text = reqName
 							Manager.messageText.append(reqName)
@@ -324,7 +327,7 @@ if(passedValue == nil){
 
 							let storyboard = UIStoryboard(name: "Main", bundle: nil)
 							let destVC = storyboard.instantiateViewController(withIdentifier: "modu") as! ResponseViewController
-							destVC.managedObjectContext = persistentContainer.viewContext
+							destVC.managedObjectContext = context
 							destVC.changeCityTextField?.text = cityName
 							destVC.reqLabel?.text = reqName
 							Manager.messageText.append(reqName)
@@ -412,7 +415,7 @@ if(passedValue == nil){
 
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let viewController = segue.destination as? ResponseViewController {
-			viewController.managedObjectContext = persistentContainer.viewContext
+			viewController.managedObjectContext = context
 			viewController.changeCityTextField.text = changeCityTextField.text
 			viewController.reqLabel.text = reqLabel.text
 		}

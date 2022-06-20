@@ -26,10 +26,13 @@ class ResponseViewController: UIViewController{
 	@IBOutlet var reqLabel: UILabel!
 	@IBOutlet var addButton: UIButton!
 
+	var history = History()
 
 	var receivedString = ""
 	var receivedString2 = ""
+	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
+	
 	@IBAction func addRequest(_ sender: Any) {
 
 
@@ -38,23 +41,25 @@ class ResponseViewController: UIViewController{
 			fatalError("No Managed Object Context Available")
 		}
 
-		let request = Entity(context: managedObjectContextP)
+		let request = Entity(context: self.context)
 
-		request.url = Manager.messageText[2]
+		request.url = Manager.messageText[2] 
 		request.reqMethod = Manager.messageText[1]
 
 
 		do {
 			// Save Book to Persistent Store
-			try managedObjectContextP.save()
+			try self.context.save()
+			
 
 			// Dismiss View Controller
 			dismiss(animated: true)
 		} catch {
-			print("Unable to Save Book, \(error)")
+			print("Unable to Save Request, \(error)")
 		}
 
 
+	history.fetchRequests()
 
 	}
 
@@ -67,6 +72,8 @@ class ResponseViewController: UIViewController{
 	override func viewDidLoad(){
 		super.viewDidLoad()
 
+		
+		
 		//Manager.messageText.append("now")
 		if Manager.messageText.indices.contains(0){
 			print(Manager.messageText[0])

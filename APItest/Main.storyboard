@@ -82,7 +82,7 @@
         <!--History-->
         <scene sceneID="wCq-4Y-Kaj">
             <objects>
-                <viewController title="History" id="kGB-Lj-YNL" customClass="History" customModule="APItest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="History" title="History" id="kGB-Lj-YNL" customClass="History" customModule="APItest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1ZK-id-z9P"/>
                         <viewControllerLayoutGuide type="bottom" id="lDR-Wn-1Y7"/>
@@ -229,7 +229,7 @@
                                     <action selector="CloseModal:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="w8j-BU-4D3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="POST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFw-Nn-XLo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFw-Nn-XLo">
                                 <rect key="frame" x="9" y="112" width="62" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
