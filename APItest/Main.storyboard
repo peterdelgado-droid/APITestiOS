@@ -31,7 +31,7 @@
         <!--Response-->
         <scene sceneID="jn6-f7-hfR">
             <objects>
-                <viewController storyboardIdentifier="modu" title="Response" id="275-0N-UC5" customClass="ResponseViewController" customModule="APItest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Response" title="Response" id="275-0N-UC5" customClass="ResponseViewController" customModule="APItest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="24Q-1O-bOn"/>
                         <viewControllerLayoutGuide type="bottom" id="6T3-vU-fFX"/>
@@ -65,6 +65,14 @@
                                     <action selector="addRequest:" destination="275-0N-UC5" eventType="touchUpInside" id="jUP-Iu-57k"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWL-Z4-ooX">
+                                <rect key="frame" x="31" y="52" width="41" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="CloseModal:" destination="275-0N-UC5" eventType="touchUpInside" id="H3e-2c-keG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.039006564766168594" green="0.056539751589298248" blue="0.10257817059755325" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -72,6 +80,7 @@
                     <navigationItem key="navigationItem" id="urs-nF-NyD"/>
                     <connections>
                         <outlet property="addButton" destination="t7u-sv-Kj4" id="itm-q9-sFr"/>
+                        <outlet property="closeIcon" destination="HWL-Z4-ooX" id="8bj-iR-u06"/>
                         <outlet property="texTry" destination="4Gd-ay-Pq5" id="aUp-c4-OX4"/>
                     </connections>
                 </viewController>

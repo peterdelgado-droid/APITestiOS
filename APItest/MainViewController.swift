@@ -279,16 +279,17 @@ if(passedValue == nil){
 						   Manager.messageText.append(weatherJSON.rawString() ?? "ete")
 
 
+
 							let storyboard = UIStoryboard(name: "Main", bundle: nil)
-							let destVC = storyboard.instantiateViewController(withIdentifier: "modu") as! ResponseViewController
+							let destVC = storyboard.instantiateViewController(withIdentifier: "Response") as! ResponseViewController
 							destVC.managedObjectContext =  context
 							destVC.changeCityTextField?.text = cityName
 							destVC.reqLabel?.text = reqName
 							Manager.messageText.append(reqName)
 							Manager.messageText.append(cityName)
-							self.present(destVC, animated: true, completion: nil)
+						    self.present(destVC, animated: true, completion: nil)
 
-							
+
                         }
                         else {
                             print("Error \(String(describing: response.result.error))")
@@ -422,6 +423,7 @@ if(passedValue == nil){
     }
     
 	@IBAction func CloseModal(_ sender: Any) {
+		
 		self.dismiss(animated: true, completion: nil)
 	}
 

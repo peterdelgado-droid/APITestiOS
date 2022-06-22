@@ -25,6 +25,8 @@ class ResponseViewController: UIViewController{
 	@IBOutlet weak var changeCityTextField: UILabel!
 	@IBOutlet var reqLabel: UILabel!
 	@IBOutlet var addButton: UIButton!
+	@IBOutlet weak var closeIcon: UIButton!
+
 
 	var history = History()
 
@@ -62,17 +64,18 @@ class ResponseViewController: UIViewController{
 
 
 
-
-
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let view = storyboard.instantiateViewController(withIdentifier: "History") as! History
-		let appDelegate = UIApplication.shared.delegate as! AppDelegate
-		//show window
-		appDelegate.window?.rootViewController = view
+		self.dismiss(animated: true, completion: nil)
 
 //		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//		let destVC = storyboard.instantiateViewController(withIdentifier: "History") as! History
-//		self.present(destVC, animated: true, completion: nil)
+//		let view = storyboard.instantiateViewController(withIdentifier: "History") as! History
+//		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//		history.closeIcon?.isHidden = false
+//		//show window
+//		appDelegate.window?.rootViewController = view
+
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let destVC = storyboard.instantiateViewController(withIdentifier: "History") as! History
+		self.present(destVC, animated: true, completion: nil)
 
 
 	history.fetchRequests()
@@ -103,5 +106,13 @@ class ResponseViewController: UIViewController{
 
 		
 	}
+
+
+
+	@IBAction func CloseModal(_ sender: Any) {
+
+		self.dismiss(animated: true, completion: nil)
+	}
+
 
 }

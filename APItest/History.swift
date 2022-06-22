@@ -42,10 +42,10 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 	override func viewDidLoad(){
 		super.viewDidLoad()
 
-		tableView.dataSource = self
-		tableView.delegate = self
+		tableView?.dataSource = self
+		tableView?.delegate = self
 
-		
+		closeIcon?.isHidden = false
 
 		//		let request = NSFetchRequest <NSFetchRequestResult> (entityName: "Entity")
 		//		request.returnsObjectsAsFaults = false
@@ -63,33 +63,6 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
 			self.tableView?.reloadData()
 
-
-
-			// check data existance
-
-			//			print(results.count)
-
-			//			for resultGot in results as! [NSManagedObject]{
-			//
-			//				if let expName = resultGot.value(forKey:"url") as? String{
-			//
-			//					urlArray?.append(expName)
-			//					tableView.reloadData()
-			//
-			//
-			//					//		print("my array is : \(myArray)")
-			//				}
-			//
-			//				if let expName2 = resultGot.value(forKey:"reqMethod") as? String{
-			//
-			//					reqMethodArray?.append(expName2)
-			//					tableView.reloadData()
-			//
-			//					//		print("my array is : \(myArray)")
-			//				}
-			//
-			//
-			//			}
 
 
 
@@ -116,11 +89,10 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 		if #available(iOS 15.0, *) {
 			let destinationVC = sb.instantiateViewController(
 				withIdentifier: "Request") as? MainViewController
-
+			let requests = self.request![indexPath.row]
 			destinationVC?.closeIcon?.isHidden = false
-			destinationVC?.passedValue = urlArray? [indexPath.row] as! String?
-			destinationVC?.passedValue2 = reqMethodArray? [indexPath.row] as! String?
-
+			destinationVC?.passedValue = requests.url
+			destinationVC?.passedValue2 = requests.reqMethod
 
 
 			self.present(destinationVC!, animated: true, completion: nil)
@@ -181,37 +153,6 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 	}
 
 
-	//	public func fetchBooks() {
-	//
-	//
-	//		// Create Fetch Request
-	//		let fetchRequest: NSFetchRequest<Entity> = Entity.fetchRequest()
-	//		//fetchRequest.predicate = NSPredicate(format: "reqMethod == %@", query)
-	//
-	//		// Perform Fetch Request
-	//		persistentContainer.viewContext.perform {
-	//			do {
-	//				// Execute Fetch Request
-	//				let result = try fetchRequest.execute()
-	//
-	//				for data in result as [NSManagedObject] {
-	//
-	//					print("BasicBitch")
-	//					print(data.value(forKey: "url") as? String)
-	//					print(data.value(forKey: "reqMethod") as? String)
-	//				}
-	//
-	//				// Update Books Label
-	//				//	print(result)
-	//
-	//
-	//			} catch {
-	//				print("Unable to Execute Fetch Request, \(error)")
-	//			}
-	//		}
-	//	}
-
-
 
 
 
@@ -236,20 +177,10 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
 	@IBAction func CloseModal(_ sender: Any) {
 
-
-		let sb = UIStoryboard.init(name: "Main", bundle:     nil)
-		if #available(iOS 15.0, *) {
-			let destinationVC = sb.instantiateViewController(
-				withIdentifier: "Wave") as? WaveTabBarController
+		self.dismiss(animated: true, completion: nil)
 
 
-
-
-
-			self.present(destinationVC!, animated: true, completion: nil)
-
-
-
+		
 			//
 			//		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 			//		let view = storyboard.instantiateViewController(withIdentifier: "modu") as! ResponseViewController
@@ -263,38 +194,11 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 		}
 
 
-	}
+
 
 }
 
-//extension History: UITableViewDataSource {
-//
-//
-//
-//
-//	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
-//
-//		return quotes.count
-//	}
-//
-//	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//		guard let cell = tableView.dequeueReusableCell(withIdentifier: HistTableViewCell.reuseIdentifier, for: indexPath) as? HistTableViewCell else {
-//			fatalError("Unexpected Index Path")
-//		}
-//
-//
-//
-//		// Fetch Quote
-//		let quotes = fetchedResultsControllerNew.object(at: indexPath)
-//
-//		// Configure Cell
-//		cell.authorLabel.text = quotes.reqMethod
-//		cell.contentsLabel.text = quotes.url
-//		return cell
-//	}
-//
-//}
+
 
 
 
