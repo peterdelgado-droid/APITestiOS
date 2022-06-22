@@ -36,14 +36,14 @@ class ResponseViewController: UIViewController{
 	@IBAction func addRequest(_ sender: Any) {
 
 
-		guard let managedObjectContextP = managedObjectContext else {
-
-			fatalError("No Managed Object Context Available")
-		}
+//		guard let managedObjectContextP = managedObjectContext else {
+//
+//			fatalError("No Managed Object Context Available")
+//		}
 
 		let request = Entity(context: self.context)
 
-		request.url = Manager.messageText[2] 
+		request.url = Manager.messageText[2]
 		request.reqMethod = Manager.messageText[1]
 
 
@@ -59,7 +59,26 @@ class ResponseViewController: UIViewController{
 		}
 
 
+
+
+
+
+
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let view = storyboard.instantiateViewController(withIdentifier: "History") as! History
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		//show window
+		appDelegate.window?.rootViewController = view
+
+//		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//		let destVC = storyboard.instantiateViewController(withIdentifier: "History") as! History
+//		self.present(destVC, animated: true, completion: nil)
+
+
 	history.fetchRequests()
+
+
+
 
 	}
 

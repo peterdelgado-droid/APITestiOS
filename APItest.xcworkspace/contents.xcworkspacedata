@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Entity+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:APItest.xcodeproj">
    </FileRef>
    <FileRef

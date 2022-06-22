@@ -281,7 +281,7 @@ if(passedValue == nil){
 
 							let storyboard = UIStoryboard(name: "Main", bundle: nil)
 							let destVC = storyboard.instantiateViewController(withIdentifier: "modu") as! ResponseViewController
-							destVC.managedObjectContext =   context
+							destVC.managedObjectContext =  context
 							destVC.changeCityTextField?.text = cityName
 							destVC.reqLabel?.text = reqName
 							Manager.messageText.append(reqName)

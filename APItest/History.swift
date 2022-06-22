@@ -19,6 +19,8 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 	@IBOutlet var activityIndicatorView: UIActivityIndicatorView!
 	@IBOutlet var dynamicHeight: NSLayoutConstraint!
 	@IBOutlet var delete: UIButton!
+	@IBOutlet weak var closeIcon: UIButton!
+
 
 
 	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -40,15 +42,15 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 	override func viewDidLoad(){
 		super.viewDidLoad()
 
-	tableView.dataSource = self
-    tableView.delegate = self
-	
+		tableView.dataSource = self
+		tableView.delegate = self
+
 		
 
-//		let request = NSFetchRequest <NSFetchRequestResult> (entityName: "Entity")
-//		request.returnsObjectsAsFaults = false
+		//		let request = NSFetchRequest <NSFetchRequestResult> (entityName: "Entity")
+		//		request.returnsObjectsAsFaults = false
 
-	    
+
 		fetchRequests()
 
 	}
@@ -59,35 +61,35 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 			self.request = try context.fetch(Entity.fetchRequest())
 
 
-				self.tableView?.reloadData()
+			self.tableView?.reloadData()
 
 
 
 			// check data existance
 
-//			print(results.count)
+			//			print(results.count)
 
-//			for resultGot in results as! [NSManagedObject]{
-//
-//				if let expName = resultGot.value(forKey:"url") as? String{
-//
-//					urlArray?.append(expName)
-//					tableView.reloadData()
-//
-//
-//					//		print("my array is : \(myArray)")
-//				}
-//
-//				if let expName2 = resultGot.value(forKey:"reqMethod") as? String{
-//
-//					reqMethodArray?.append(expName2)
-//					tableView.reloadData()
-//
-//					//		print("my array is : \(myArray)")
-//				}
-//
-//
-//			}
+			//			for resultGot in results as! [NSManagedObject]{
+			//
+			//				if let expName = resultGot.value(forKey:"url") as? String{
+			//
+			//					urlArray?.append(expName)
+			//					tableView.reloadData()
+			//
+			//
+			//					//		print("my array is : \(myArray)")
+			//				}
+			//
+			//				if let expName2 = resultGot.value(forKey:"reqMethod") as? String{
+			//
+			//					reqMethodArray?.append(expName2)
+			//					tableView.reloadData()
+			//
+			//					//		print("my array is : \(myArray)")
+			//				}
+			//
+			//
+			//			}
 
 
 
@@ -142,7 +144,7 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 		dynamicHeight.constant = tableView.contentSize.height
 
 
-	//	print(myArray?.count)
+		//	print(myArray?.count)
 		return self.request!.count
 
 	}
@@ -171,7 +173,7 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 	private func setupView() {
 		setupMessageLabel()
 
-	//	updateView()
+		//	updateView()
 	}
 
 	private func setupMessageLabel() {
@@ -179,35 +181,35 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 	}
 
 
-//	public func fetchBooks() {
-//
-//
-//		// Create Fetch Request
-//		let fetchRequest: NSFetchRequest<Entity> = Entity.fetchRequest()
-//		//fetchRequest.predicate = NSPredicate(format: "reqMethod == %@", query)
-//
-//		// Perform Fetch Request
-//		persistentContainer.viewContext.perform {
-//			do {
-//				// Execute Fetch Request
-//				let result = try fetchRequest.execute()
-//
-//				for data in result as [NSManagedObject] {
-//
-//					print("BasicBitch")
-//					print(data.value(forKey: "url") as? String)
-//					print(data.value(forKey: "reqMethod") as? String)
-//				}
-//
-//				// Update Books Label
-//				//	print(result)
-//
-//
-//			} catch {
-//				print("Unable to Execute Fetch Request, \(error)")
-//			}
-//		}
-//	}
+	//	public func fetchBooks() {
+	//
+	//
+	//		// Create Fetch Request
+	//		let fetchRequest: NSFetchRequest<Entity> = Entity.fetchRequest()
+	//		//fetchRequest.predicate = NSPredicate(format: "reqMethod == %@", query)
+	//
+	//		// Perform Fetch Request
+	//		persistentContainer.viewContext.perform {
+	//			do {
+	//				// Execute Fetch Request
+	//				let result = try fetchRequest.execute()
+	//
+	//				for data in result as [NSManagedObject] {
+	//
+	//					print("BasicBitch")
+	//					print(data.value(forKey: "url") as? String)
+	//					print(data.value(forKey: "reqMethod") as? String)
+	//				}
+	//
+	//				// Update Books Label
+	//				//	print(result)
+	//
+	//
+	//			} catch {
+	//				print("Unable to Execute Fetch Request, \(error)")
+	//			}
+	//		}
+	//	}
 
 
 
@@ -232,11 +234,38 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
 	}
 
+	@IBAction func CloseModal(_ sender: Any) {
 
+
+		let sb = UIStoryboard.init(name: "Main", bundle:     nil)
+		if #available(iOS 15.0, *) {
+			let destinationVC = sb.instantiateViewController(
+				withIdentifier: "Wave") as? WaveTabBarController
+
+
+
+
+
+			self.present(destinationVC!, animated: true, completion: nil)
+
+
+
+			//
+			//		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			//		let view = storyboard.instantiateViewController(withIdentifier: "modu") as! ResponseViewController
+			//		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+			//		//show window
+			//		appDelegate.window?.rootViewController = view
+			//
+			//
+			//
+			//		self.dismiss(animated: true, completion: nil)
+		}
+
+
+	}
 
 }
-
-
 
 //extension History: UITableViewDataSource {
 //
