@@ -12,6 +12,6 @@ import Foundation
 struct Manager: Decodable {
 
 	static var messageText = [String]()
-	
-
+	static var url = [String]()
+	static var reqMessage = [String]()
 	}

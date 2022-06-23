@@ -46,11 +46,6 @@ open class MainViewController: UIViewController{
 
 	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-
-//	private lazy var persistentContainer: NSPersistentContainer = {
-//		NSPersistentContainer(name: "ModelHis")
-//	}()
-
 	open override func viewDidAppear(_ animated: Bool){
 		super.viewDidAppear(animated)
 		
@@ -68,18 +63,6 @@ if(passedValue == nil){
 
 		}
 		changeCityTextField?.text = passedValue
-
-
-//		persistentContainer.loadPersistentStores { [weak self] persistentStoreDescription, error in
-//			if let error = error {
-//				print("Unable to Add Persistent Store")
-//				print("\(error), \(error.localizedDescription)")
-//
-//			} else {
-//			//	self?.fetchBooks()
-//
-//			}
-		//}
 
 
 
@@ -111,32 +94,6 @@ if(passedValue == nil){
 
 
 
-
-
-
-//	private func fetchBooks() {
-//// Create Fetch Request
-//		let fetchRequest: NSFetchRequest<Entity> = Entity.fetchRequest()
-//		//fetchRequest.predicate = NSPredicate(format: "reqMethod == %@", query)
-//
-//		// Perform Fetch Request
-//		persistentContainer.viewContext.perform {
-//			do {
-//				// Execute Fetch Request
-//				let result = try fetchRequest.execute()
-//
-//				for data in result as [NSManagedObject] {
-////					print(data.value(forKey: "url") as? String)
-////					print(data.value(forKey: "reqMethod") as? String)
-//				}
-//
-//
-//
-//			} catch {
-//				print("Unable to Execute Fetch Request, \(error)")
-//			}
-//		}
-//	}
 
 
 
@@ -268,9 +225,17 @@ if(passedValue == nil){
         var cityName = changeCityTextField.text!
 		let reqName = reqLabel.text!
 		if reqLabel.text == "GET"{
-			cityName.insert(contentsOf: "get", at: cityName.endIndex)
+			//cityName.insert(contentsOf: "get", at: cityName.endIndex)
 
-            Alamofire.request(url, method: .get, parameters: nil).responseJSON { [self]
+
+			let keyParam = sendParamsKeyTextField.text!
+			let valueParam = sendParamsValueTextField.text!
+			let params : [String: String] = [keyParam: valueParam]
+
+
+
+
+			Alamofire.request(url, method: .get, parameters: params).responseJSON { [self]
                         response in
                         if response.result.isSuccess {
                             print("Success")
@@ -285,10 +250,10 @@ if(passedValue == nil){
 							destVC.managedObjectContext =  context
 							destVC.changeCityTextField?.text = cityName
 							destVC.reqLabel?.text = reqName
-							Manager.messageText.append(reqName)
-							Manager.messageText.append(cityName)
+							Manager.reqMessage.append(reqName)
+							Manager.url.append(cityName)
 						    self.present(destVC, animated: true, completion: nil)
-
+							
 
                         }
                         else {
@@ -303,7 +268,7 @@ if(passedValue == nil){
             /*
              If the server uses consumer key and consumer secret, uncomment the follow lines
              */
-            cityName.insert(contentsOf: "post", at: cityName.endIndex)
+          //  cityName.insert(contentsOf: "post", at: cityName.endIndex)
             let keyParam = sendParamsKeyTextField.text!
             let valueParam = sendParamsValueTextField.text!
             let params : [String: String] = [keyParam: valueParam]
@@ -397,6 +362,8 @@ if(passedValue == nil){
     //1
     @IBAction func getPressed(_ sender: UIButton) {
 //1 Get the city name the user entered in the text field
+
+		
 		let cityName = changeCityTextField.text!
 		
        
@@ -428,7 +395,9 @@ if(passedValue == nil){
 	}
 
 
-	
+	 func clearValues() {
+		 changeCityTextField?.text = ""
+	}
 
 
 }

@@ -29,6 +29,7 @@ class ResponseViewController: UIViewController{
 
 
 	var history = History()
+	var request = MainViewController()
 
 	var receivedString = ""
 	var receivedString2 = ""
@@ -45,14 +46,14 @@ class ResponseViewController: UIViewController{
 
 		let request = Entity(context: self.context)
 
-		request.url = Manager.messageText[2]
-		request.reqMethod = Manager.messageText[1]
+		request.url = Manager.reqMessage[0]
+		request.reqMethod = Manager.url[0]
 
 
 		do {
 			// Save Book to Persistent Store
 			try self.context.save()
-			
+			history.fetchRequests()
 
 			// Dismiss View Controller
 			dismiss(animated: true)
@@ -78,7 +79,7 @@ class ResponseViewController: UIViewController{
 		self.present(destVC, animated: true, completion: nil)
 
 
-	history.fetchRequests()
+
 
 
 
@@ -99,7 +100,7 @@ class ResponseViewController: UIViewController{
 		//Manager.messageText.append("now")
 		if Manager.messageText.indices.contains(0){
 			print(Manager.messageText[0])
-			texTry?.text = Manager.messageText[0]
+			texTry?.text = Manager.messageText.last
 
 		}
 
@@ -110,7 +111,7 @@ class ResponseViewController: UIViewController{
 
 
 	@IBAction func CloseModal(_ sender: Any) {
-
+		request.clearValues()
 		self.dismiss(animated: true, completion: nil)
 	}
 
