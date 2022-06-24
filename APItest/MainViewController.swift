@@ -37,6 +37,7 @@ open class MainViewController: UIViewController{
 	@IBOutlet weak var addParams: UIButton!
 	@IBOutlet weak var addHeaders: UIButton!
 	@IBOutlet weak var Headers: UILabel!
+	@IBOutlet weak var scrollView: UIScrollView?
 	@IBOutlet weak var closeIcon: UIButton!
 
     
@@ -58,6 +59,7 @@ open class MainViewController: UIViewController{
 
 
 
+
 if(passedValue == nil){
 			closeIcon?.isHidden = true
 
@@ -65,7 +67,7 @@ if(passedValue == nil){
 		changeCityTextField?.text = passedValue
 
 
-
+		scrollView?.contentSize = (CGSize(width: 500, height: 500))
 
 
 		let swiftUIToggler = SheetView(externalSwitch: reqLabel)

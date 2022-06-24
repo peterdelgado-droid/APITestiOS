@@ -177,7 +177,12 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
 	@IBAction func CloseModal(_ sender: Any) {
 
-		self.dismiss(animated: true, completion: nil)
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let view = storyboard.instantiateViewController(withIdentifier: "Wave") as! WaveTabBarController
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+		//show window
+		appDelegate.window?.rootViewController = view
 
 
 		

@@ -13,7 +13,7 @@ import SwiftUI
 struct SheetView: View {
 
 	var externalSwitch: UILabel
-	var reqLabel: UILabel!
+	var reqLabel: UILabel?
 
 	
 

@@ -46,17 +46,18 @@ class ResponseViewController: UIViewController{
 
 		let request = Entity(context: self.context)
 
-		request.url = Manager.reqMessage[0]
-		request.reqMethod = Manager.url[0]
+		request.url = Manager.reqMessage.last
+		request.reqMethod = Manager.url.last
 
 
 		do {
 			// Save Book to Persistent Store
 			try self.context.save()
+			
 			history.fetchRequests()
-
 			// Dismiss View Controller
-			dismiss(animated: true)
+			self.dismiss(animated: true, completion: nil)
+
 		} catch {
 			print("Unable to Save Request, \(error)")
 		}
@@ -65,18 +66,17 @@ class ResponseViewController: UIViewController{
 
 
 
-		self.dismiss(animated: true, completion: nil)
-
-//		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//		let view = storyboard.instantiateViewController(withIdentifier: "History") as! History
-//		let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//		history.closeIcon?.isHidden = false
-//		//show window
-//		appDelegate.window?.rootViewController = view
 
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let destVC = storyboard.instantiateViewController(withIdentifier: "History") as! History
-		self.present(destVC, animated: true, completion: nil)
+		let view = storyboard.instantiateViewController(withIdentifier: "History") as! History
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		history.closeIcon?.isHidden = false
+		//show window
+		appDelegate.window?.rootViewController = view
+
+//		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//		let destVC = storyboard.instantiateViewController(withIdentifier: "History") as! History
+//		self.present(destVC, animated: true, completion: nil)
 
 
 
@@ -111,8 +111,12 @@ class ResponseViewController: UIViewController{
 
 
 	@IBAction func CloseModal(_ sender: Any) {
-		request.clearValues()
-		self.dismiss(animated: true, completion: nil)
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let view = storyboard.instantiateViewController(withIdentifier: "Request") as! MainViewController
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+		//show window
+		appDelegate.window?.rootViewController = view
 	}
 
 

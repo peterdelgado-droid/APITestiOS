@@ -142,9 +142,7 @@
 				63E28AD01B99C32400FBF6E0 /* AppDelegate.swift */,
 				82CEBF64283BC97000CC02A5 /* ResponseViewController.swift */,
 				826A44A32849F61A007C2206 /* History.swift */,
-				8291F61F284E020F001B9017 /* HistTableViewCell.swift */,
 				8291F621284E1F97001B9017 /* SettingsViewController.swift */,
-				82D3DEF5284F8D9800B942D2 /* SettingsSwiftUIView.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -153,6 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				82ECEFA7282A5D6800A2916F /* Main.storyboard */,
+				8291F61F284E020F001B9017 /* HistTableViewCell.swift */,
+				82D3DEF5284F8D9800B942D2 /* SettingsSwiftUIView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
