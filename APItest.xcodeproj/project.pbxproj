@@ -11,17 +11,25 @@
 		63E28AF71B99C36100FBF6E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AF31B99C36100FBF6E0 /* Images.xcassets */; };
 		63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E28AF51B99C36100FBF6E0 /* MainViewController.swift */; };
 		63E28AFF1B99C3B300FBF6E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */; };
+		8201738B2869DBA30014B140 /* StackScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8201738A2869DBA30014B140 /* StackScrollView.framework */; };
+		8201738C2869DBA30014B140 /* StackScrollView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8201738A2869DBA30014B140 /* StackScrollView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		822AB5E3285093EE00E20B78 /* UIBezierPath+createCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AB5E2285093EE00E20B78 /* UIBezierPath+createCurve.swift */; };
 		822AB5E52850963000E20B78 /* WaveTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AB5E42850963000E20B78 /* WaveTabBarController.swift */; };
+		8230A6872869D152008470F9 /* HeaderStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8230A6862869D152008470F9 /* HeaderStackCell.swift */; };
+		8230A6892869D19F008470F9 /* SeparatorStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8230A6882869D19F008470F9 /* SeparatorStackCell.swift */; };
+		824EF9902869CCAD00C92967 /* StackCellBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824EF98F2869CCAD00C92967 /* StackCellBase.swift */; };
 		8259C5182848FAEF0045047D /* ModelHis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8259C5162848FAEF0045047D /* ModelHis.xcdatamodeld */; };
 		826A44A42849F61A007C2206 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A44A32849F61A007C2206 /* History.swift */; };
 		826A4B76285B302700C84175 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A4B75285B302700C84175 /* CustomSegmentedControl.swift */; };
+		82910DF12869C76600B837D9 /* ButtonStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82910DF02869C76600B837D9 /* ButtonStackCell.swift */; };
 		8291B98E2850B3ED0007E59B /* WaveTabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291B98D2850B3ED0007E59B /* WaveTabBarProtocol.swift */; };
 		8291B9902850B4B20007E59B /* WaveTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291B98F2850B4B20007E59B /* WaveTabBarPresenter.swift */; };
 		8291B9922850B4C30007E59B /* WaveTabBarPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291B9912850B4C30007E59B /* WaveTabBarPresenterBase.swift */; };
 		8291F620284E020F001B9017 /* HistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291F61F284E020F001B9017 /* HistTableViewCell.swift */; };
 		8291F622284E1F97001B9017 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291F621284E1F97001B9017 /* SettingsViewController.swift */; };
 		82944E462837A9F800343116 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82944E452837A9F800343116 /* SheetView.swift */; };
+		82B2DA822869B1F7000B1700 /* Child1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B2DA812869B1F7000B1700 /* Child1.swift */; };
+		82B2DA842869B278000B1700 /* Child2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B2DA832869B278000B1700 /* Child2.swift */; };
 		82BE05822857773600DA053C /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BE05812857773600DA053C /* ResponseModel.swift */; };
 		82CEBF65283BC97000CC02A5 /* ResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CEBF64283BC97000CC02A5 /* ResponseViewController.swift */; };
 		82D0366D284649FA0083A41E /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D0366C284649FA0083A41E /* Manager.swift */; };
@@ -29,6 +37,20 @@
 		82ECEFA8282A5D6800A2916F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82ECEFA7282A5D6800A2916F /* Main.storyboard */; };
 		FC42EAA260F97F759425B852 /* Pods_APItest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CA9FEF3644598C743D7061 /* Pods_APItest.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		820173862869DB090014B140 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8201738C2869DBA30014B140 /* StackScrollView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00A32D7FF364831B001CBA2D /* Pods-APItest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APItest.debug.xcconfig"; path = "Target Support Files/Pods-APItest/Pods-APItest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -40,17 +62,25 @@
 		63E28AF31B99C36100FBF6E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		63E28AF51B99C36100FBF6E0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		8201734D2869D9000014B140 /* StackScrollView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StackScrollView; path = ../StackScrollView/StackScrollView; sourceTree = "<group>"; };
+		8201738A2869DBA30014B140 /* StackScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StackScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		822AB5E2285093EE00E20B78 /* UIBezierPath+createCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+createCurve.swift"; sourceTree = "<group>"; };
 		822AB5E42850963000E20B78 /* WaveTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarController.swift; sourceTree = "<group>"; };
+		8230A6862869D152008470F9 /* HeaderStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderStackCell.swift; sourceTree = "<group>"; };
+		8230A6882869D19F008470F9 /* SeparatorStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorStackCell.swift; sourceTree = "<group>"; };
+		824EF98F2869CCAD00C92967 /* StackCellBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCellBase.swift; sourceTree = "<group>"; };
 		8259C5172848FAEF0045047D /* ModelHis.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelHis.xcdatamodel; sourceTree = "<group>"; };
 		826A44A32849F61A007C2206 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		826A4B75285B302700C84175 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		82910DF02869C76600B837D9 /* ButtonStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStackCell.swift; sourceTree = "<group>"; };
 		8291B98D2850B3ED0007E59B /* WaveTabBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarProtocol.swift; sourceTree = "<group>"; };
 		8291B98F2850B4B20007E59B /* WaveTabBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarPresenter.swift; sourceTree = "<group>"; };
 		8291B9912850B4C30007E59B /* WaveTabBarPresenterBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarPresenterBase.swift; sourceTree = "<group>"; };
 		8291F61F284E020F001B9017 /* HistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistTableViewCell.swift; sourceTree = "<group>"; };
 		8291F621284E1F97001B9017 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		82944E452837A9F800343116 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		82B2DA812869B1F7000B1700 /* Child1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child1.swift; sourceTree = "<group>"; };
+		82B2DA832869B278000B1700 /* Child2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child2.swift; sourceTree = "<group>"; };
 		82BE05812857773600DA053C /* ResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		82CEBF64283BC97000CC02A5 /* ResponseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseViewController.swift; sourceTree = "<group>"; };
 		82D0366C284649FA0083A41E /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
@@ -64,6 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC42EAA260F97F759425B852 /* Pods_APItest.framework in Frameworks */,
+				8201738B2869DBA30014B140 /* StackScrollView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +104,8 @@
 		49BE4C2275A2045617FE92D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8201738A2869DBA30014B140 /* StackScrollView.framework */,
+				8201734D2869D9000014B140 /* StackScrollView */,
 				38CA9FEF3644598C743D7061 /* Pods_APItest.framework */,
 			);
 			name = Frameworks;
@@ -137,12 +170,18 @@
 			isa = PBXGroup;
 			children = (
 				63E28AF51B99C36100FBF6E0 /* MainViewController.swift */,
+				8230A6882869D19F008470F9 /* SeparatorStackCell.swift */,
+				8230A6862869D152008470F9 /* HeaderStackCell.swift */,
+				824EF98F2869CCAD00C92967 /* StackCellBase.swift */,
+				82910DF02869C76600B837D9 /* ButtonStackCell.swift */,
 				82944E452837A9F800343116 /* SheetView.swift */,
 				826A4B75285B302700C84175 /* CustomSegmentedControl.swift */,
 				63E28AD01B99C32400FBF6E0 /* AppDelegate.swift */,
 				82CEBF64283BC97000CC02A5 /* ResponseViewController.swift */,
 				826A44A32849F61A007C2206 /* History.swift */,
 				8291F621284E1F97001B9017 /* SettingsViewController.swift */,
+				82B2DA812869B1F7000B1700 /* Child1.swift */,
+				82B2DA832869B278000B1700 /* Child2.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -185,6 +224,7 @@
 				63E28AC81B99C32400FBF6E0 /* Frameworks */,
 				63E28AC91B99C32400FBF6E0 /* Resources */,
 				6F4AEF41625E577BBFEAAFF0 /* [CP] Embed Pods Frameworks */,
+				820173862869DB090014B140 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -223,8 +263,6 @@
 				Base,
 			);
 			mainGroup = 63E28AC21B99C32400FBF6E0;
-			packageReferences = (
-			);
 			productRefGroup = 63E28ACC1B99C32400FBF6E0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -280,6 +318,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/EasyPeasy/EasyPeasy.framework",
 				"${BUILT_PRODUCTS_DIR}/MGSelector/MGSelector.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlertViewable/RxAlertViewable.framework",
@@ -293,15 +332,18 @@
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/ScrollingStackViewController/ScrollingStackViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/WaveTab/WaveTab.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Reveal-SDK/RevealServer.framework/RevealServer",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BottomSheetSwiftUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyPeasy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSelector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlertViewable.framework",
@@ -315,9 +357,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollingStackViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WaveTab.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -333,21 +377,27 @@
 			files = (
 				63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */,
 				826A4B76285B302700C84175 /* CustomSegmentedControl.swift in Sources */,
+				82910DF12869C76600B837D9 /* ButtonStackCell.swift in Sources */,
 				8291F620284E020F001B9017 /* HistTableViewCell.swift in Sources */,
 				82944E462837A9F800343116 /* SheetView.swift in Sources */,
 				822AB5E3285093EE00E20B78 /* UIBezierPath+createCurve.swift in Sources */,
 				8291B9922850B4C30007E59B /* WaveTabBarPresenterBase.swift in Sources */,
 				826A44A42849F61A007C2206 /* History.swift in Sources */,
 				82CEBF65283BC97000CC02A5 /* ResponseViewController.swift in Sources */,
+				824EF9902869CCAD00C92967 /* StackCellBase.swift in Sources */,
+				82B2DA822869B1F7000B1700 /* Child1.swift in Sources */,
 				82D0366D284649FA0083A41E /* Manager.swift in Sources */,
 				8259C5182848FAEF0045047D /* ModelHis.xcdatamodeld in Sources */,
 				822AB5E52850963000E20B78 /* WaveTabBarController.swift in Sources */,
+				82B2DA842869B278000B1700 /* Child2.swift in Sources */,
 				8291B9902850B4B20007E59B /* WaveTabBarPresenter.swift in Sources */,
 				8291B98E2850B3ED0007E59B /* WaveTabBarProtocol.swift in Sources */,
+				8230A6892869D19F008470F9 /* SeparatorStackCell.swift in Sources */,
 				8291F622284E1F97001B9017 /* SettingsViewController.swift in Sources */,
 				82BE05822857773600DA053C /* ResponseModel.swift in Sources */,
 				63E28AD11B99C32400FBF6E0 /* AppDelegate.swift in Sources */,
 				82D3DEF6284F8D9800B942D2 /* SettingsSwiftUIView.swift in Sources */,
+				8230A6872869D152008470F9 /* HeaderStackCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +514,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4SGL398CCG;
 				INFOPLIST_FILE = APItest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -483,6 +534,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4SGL398CCG;
 				INFOPLIST_FILE = APItest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;

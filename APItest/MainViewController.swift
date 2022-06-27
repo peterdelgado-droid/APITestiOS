@@ -11,15 +11,27 @@ import RxCocoa
 import RxController
 import MapKit
 import CoreData
+import ScrollingStackViewController
+import EasyPeasy
+import StackScrollView
 
 @available(iOS 15.0, *)
 open class MainViewController: UIViewController{
+
+	private let stackScrollView = StackScrollView()
+
+	var viewController1: UIViewController!
+	var viewController2: UIViewController!
+
 
 
 	var passedValue:String!
 	var passedValue2:String!
 
 	@IBOutlet var reqLabel: UILabel!
+
+
+//	@IBOutlet weak private var stackView: UIStackView!
 
 	let xPos : CGFloat = 0
 	var yPos : CGFloat = 0
@@ -37,7 +49,9 @@ open class MainViewController: UIViewController{
 	@IBOutlet weak var addParams: UIButton!
 	@IBOutlet weak var addHeaders: UIButton!
 	@IBOutlet weak var Headers: UILabel!
-	@IBOutlet weak var scrollView: UIScrollView?
+
+
+
 	@IBOutlet weak var closeIcon: UIButton!
 
     
@@ -54,22 +68,76 @@ open class MainViewController: UIViewController{
 	}
 
 
+
+
+
     open override func viewDidLoad() {
         super.viewDidLoad()
 
 
 
+		var views: [UIView] = []
 
-if(passedValue == nil){
-			closeIcon?.isHidden = true
 
+		views.append(HeaderStackCell(title: "ButtonStackCell", backgroundColor: UIColor.blue))
+
+
+
+		let makeRemovableButton: () -> [UIView] = {
+
+			let s = self.fullSeparator()
+
+			var views: [UIView] = []
+			views.append(s)
+
+			views.append({
+				let v = ButtonStackCell(buttonTitle: "Remove")
+				v.tapped = { [unowned v] in
+					v.remove()
+					s.remove()
+				}
+				return v
+			}())
+			return views
 		}
-		changeCityTextField?.text = passedValue
 
 
-		scrollView?.contentSize = (CGSize(width: 500, height: 500))
+		views.append(contentsOf: { () -> [UIView] in
+			let s = fullSeparator()
+			let v = ButtonStackCell(buttonTitle: "Insert Before")
+			v.tapped = { [unowned stackScrollView, unowned s] in
+				let views = (0 ... .random(in: 1 ... 2)).flatMap { _ in makeRemovableButton() }
+				stackScrollView.insert(views: views, before: s, animated: true)
+			}
+			return [s, v]
+		}())
 
+		views.append(contentsOf: { () -> [UIView] in
+			let s = fullSeparator()
+			let v = ButtonStackCell(buttonTitle: "Insert After")
+			v.tapped = { [unowned stackScrollView, unowned v] in
+				let views = (0 ... .random(in: 1 ... 2)).flatMap { _ in makeRemovableButton() }
+				stackScrollView.insert(views: views, after: v, animated: true)
+			}
+			return [s, v]
+		}())
 
+		stackScrollView.append(views: views)
+
+		stackScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+		stackScrollView.frame = view.bounds
+		view.addSubview(stackScrollView)
+
+//if(passedValue == nil){
+//			closeIcon?.isHidden = true
+//
+//		}
+//		changeCityTextField?.text = passedValue
+//
+//
+//		scrollView?.contentSize = (CGSize(width: 500, height: 500))
+//
+//
 		let swiftUIToggler = SheetView(externalSwitch: reqLabel)
 		let content = UIHostingController(rootView:swiftUIToggler)
 
@@ -83,19 +151,23 @@ if(passedValue == nil){
         content.view.widthAnchor.constraint(equalToConstant: 110).isActive = true
 		content.view.backgroundColor = .clear
         content.view.layer.cornerRadius = 5
-
-//		if(passedValue2 == nil){
-//			reqLabel?.text = "GET"
 //
-//		}else{
-//			reqLabel?.text = passedValue2
-//		}
-
-    
+////		if(passedValue2 == nil){
+////			reqLabel?.text = "GET"
+////
+////		}else{
+////			reqLabel?.text = passedValue2
+////		}
+//
+//
     }
 
 
+	private func fullSeparator() -> SeparatorStackCell {
+		return SeparatorStackCell(leftMargin: 0, rightMargin: 0, backgroundColor: .clear, separatorColor: UIColor(white: 0.90, alpha: 1))
+	}
 
+	
 
 
 
@@ -404,5 +476,9 @@ if(passedValue == nil){
 
 }
 
+extension MainViewController{
 
+
+
+}
 
