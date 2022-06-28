@@ -18,6 +18,7 @@
 		8230A6872869D152008470F9 /* HeaderStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8230A6862869D152008470F9 /* HeaderStackCell.swift */; };
 		8230A6892869D19F008470F9 /* SeparatorStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8230A6882869D19F008470F9 /* SeparatorStackCell.swift */; };
 		824EF9902869CCAD00C92967 /* StackCellBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824EF98F2869CCAD00C92967 /* StackCellBase.swift */; };
+		8256E975286B07AC0001E2F5 /* TextFieldStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */; };
 		8259C5182848FAEF0045047D /* ModelHis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8259C5162848FAEF0045047D /* ModelHis.xcdatamodeld */; };
 		826A44A42849F61A007C2206 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A44A32849F61A007C2206 /* History.swift */; };
 		826A4B76285B302700C84175 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A4B75285B302700C84175 /* CustomSegmentedControl.swift */; };
@@ -69,6 +70,7 @@
 		8230A6862869D152008470F9 /* HeaderStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderStackCell.swift; sourceTree = "<group>"; };
 		8230A6882869D19F008470F9 /* SeparatorStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorStackCell.swift; sourceTree = "<group>"; };
 		824EF98F2869CCAD00C92967 /* StackCellBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCellBase.swift; sourceTree = "<group>"; };
+		8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldStackCell.swift; path = "../../../Downloads/StackScrollView-master/StackScrollView-Demo/TextFieldStackCell.swift"; sourceTree = "<group>"; };
 		8259C5172848FAEF0045047D /* ModelHis.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelHis.xcdatamodel; sourceTree = "<group>"; };
 		826A44A32849F61A007C2206 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		826A4B75285B302700C84175 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				8230A6862869D152008470F9 /* HeaderStackCell.swift */,
 				824EF98F2869CCAD00C92967 /* StackCellBase.swift */,
 				82910DF02869C76600B837D9 /* ButtonStackCell.swift */,
+				8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */,
 				82944E452837A9F800343116 /* SheetView.swift */,
 				826A4B75285B302700C84175 /* CustomSegmentedControl.swift */,
 				63E28AD01B99C32400FBF6E0 /* AppDelegate.swift */,
@@ -393,6 +396,7 @@
 				8291B9902850B4B20007E59B /* WaveTabBarPresenter.swift in Sources */,
 				8291B98E2850B3ED0007E59B /* WaveTabBarProtocol.swift in Sources */,
 				8230A6892869D19F008470F9 /* SeparatorStackCell.swift in Sources */,
+				8256E975286B07AC0001E2F5 /* TextFieldStackCell.swift in Sources */,
 				8291F622284E1F97001B9017 /* SettingsViewController.swift in Sources */,
 				82BE05822857773600DA053C /* ResponseModel.swift in Sources */,
 				63E28AD11B99C32400FBF6E0 /* AppDelegate.swift in Sources */,

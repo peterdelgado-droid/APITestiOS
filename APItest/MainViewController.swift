@@ -42,6 +42,8 @@ open class MainViewController: UIViewController{
 	let xPos4 : CGFloat = 0
 	var yPos4 : CGFloat = 0
 
+	let rect = CGRect(x: 0, y: 300, width: 400, height: 300)
+
     @IBOutlet weak var segControl: UISegmentedControl!
     @IBOutlet weak var changeCityTextField: UITextField!
     @IBOutlet weak var sendParamsKeyTextField: UITextField!
@@ -79,7 +81,7 @@ open class MainViewController: UIViewController{
 		var views: [UIView] = []
 
 
-		views.append(HeaderStackCell(title: "ButtonStackCell", backgroundColor: UIColor.blue))
+		//views.append(HeaderStackCell(title: "ButtonStackCell", backgroundColor: UIColor.blue))
 
 
 
@@ -92,6 +94,7 @@ open class MainViewController: UIViewController{
 
 			views.append({
 				let v = ButtonStackCell(buttonTitle: "Remove")
+				
 				v.tapped = { [unowned v] in
 					v.remove()
 					s.remove()
@@ -102,31 +105,41 @@ open class MainViewController: UIViewController{
 		}
 
 
-		views.append(contentsOf: { () -> [UIView] in
-			let s = fullSeparator()
-			let v = ButtonStackCell(buttonTitle: "Insert Before")
-			v.tapped = { [unowned stackScrollView, unowned s] in
-				let views = (0 ... .random(in: 1 ... 2)).flatMap { _ in makeRemovableButton() }
-				stackScrollView.insert(views: views, before: s, animated: true)
-			}
-			return [s, v]
-		}())
+//		views.append(contentsOf: { () -> [UIView] in
+//			let s = fullSeparator()
+//			let v = ButtonStackCell(buttonTitle: "Insert Before")
+//			v.tapped = { [unowned stackScrollView, unowned s] in
+//				let views = (0 ... .random(in: 1 ... 2)).flatMap { _ in makeRemovableButton() }
+//				stackScrollView.insert(views: views, before: s, animated: true)
+//			}
+//			return [s, v]
+//		}())
+
+//		views.append({
+//			let v = TextFieldStackCell()
+//			v.set(placeholder: "Detail")
+//			return v
+//		}())
 
 		views.append(contentsOf: { () -> [UIView] in
-			let s = fullSeparator()
-			let v = ButtonStackCell(buttonTitle: "Insert After")
+			let v = ButtonStackCell(buttonTitle: "   ")
 			v.tapped = { [unowned stackScrollView, unowned v] in
-				let views = (0 ... .random(in: 1 ... 2)).flatMap { _ in makeRemovableButton() }
+				let views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
 				stackScrollView.insert(views: views, after: v, animated: true)
 			}
-			return [s, v]
+			return [v]
 		}())
 
 		stackScrollView.append(views: views)
 
 		stackScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-		stackScrollView.frame = view.bounds
+		stackScrollView.frame = rect
+
+
 		view.addSubview(stackScrollView)
+//		stackScrollView.translatesAutoresizingMaskIntoConstraints = false
+//		stackScrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10).isActive = true
+//		stackScrollView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 10).isActive = true
 
 //if(passedValue == nil){
 //			closeIcon?.isHidden = true
@@ -302,8 +315,8 @@ open class MainViewController: UIViewController{
 			//cityName.insert(contentsOf: "get", at: cityName.endIndex)
 
 
-			let keyParam = sendParamsKeyTextField.text!
-			let valueParam = sendParamsValueTextField.text!
+			let keyParam = "sendParamsKeyTextField.text!"
+			let valueParam =  "sendParamsKeyTextField.text!"
 			let params : [String: String] = [keyParam: valueParam]
 
 
@@ -476,9 +489,6 @@ open class MainViewController: UIViewController{
 
 }
 
-extension MainViewController{
-
-
-
+private func fullSeparator() -> SeparatorStackCell {
+	return SeparatorStackCell(leftMargin: 1, rightMargin: 1, backgroundColor: .blue, separatorColor: UIColor(white: 0.90, alpha: 1))
 }
-
