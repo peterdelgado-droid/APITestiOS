@@ -17,7 +17,7 @@ final class ButtonStackCell: StackCellBase {
 
 	  textfieldParamsKey.font = UIFont.preferredFont(forTextStyle: .body)
 	  textfieldParamsKey.attributedPlaceholder = NSAttributedString(
-		string: "Key                            Value",
+		string: "Key",
 		attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
 	  )
 
@@ -25,11 +25,28 @@ final class ButtonStackCell: StackCellBase {
 	  textfieldParamsKey <- Edges(UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16))
 
 	  self <- Height(>=40)
+
+
+
+
+	  textfieldParamsValue.font = UIFont.preferredFont(forTextStyle: .body)
+	  textfieldParamsValue.attributedPlaceholder = NSAttributedString(
+		string: "Value",
+		attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
+	  )
+
+	  addSubview(textfieldParamsValue)
+
+	  textfieldParamsValue <- Edges(UIEdgeInsets(top: 8, left: 150, bottom: 8, right: 16))
+
+	  self <- Height(>=40)
+
+
+
 	  button.setImage(UIImage(named: "custom.plus"), for: .normal)
     backgroundColor = .white
     
     button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-
     addSubview(button)
     button <- [
       Trailing(),
@@ -49,6 +66,6 @@ final class ButtonStackCell: StackCellBase {
   }
 
 	func set(placeholder: String) {
-		textfield.placeholder = "Key,Value"
+	//	textfield.placeholder = "Key,Value"
 	}
 }
