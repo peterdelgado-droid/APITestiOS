@@ -22,7 +22,7 @@ open class MainViewController: UIViewController{
 
 	var viewController1: UIViewController!
 	var viewController2: UIViewController!
-
+	var valueP:String!
 
 
 	var passedValue:String!
@@ -42,7 +42,7 @@ open class MainViewController: UIViewController{
 	let xPos4 : CGFloat = 0
 	var yPos4 : CGFloat = 0
 
-	let rect = CGRect(x: 0, y: 300, width: 400, height: 300)
+	let rect = CGRect(x: 5, y: 300, width: 350, height: 300)
 
     @IBOutlet weak var segControl: UISegmentedControl!
     @IBOutlet weak var changeCityTextField: UITextField!
@@ -122,7 +122,7 @@ open class MainViewController: UIViewController{
 //		}())
 
 		views.append(contentsOf: { () -> [UIView] in
-			let v = ButtonStackCell(buttonTitle: "   ")
+			let v = ButtonStackCell(buttonTitle: "")
 			v.tapped = { [unowned stackScrollView, unowned v] in
 				let views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
 				stackScrollView.insert(views: views, after: v, animated: true)
@@ -314,9 +314,10 @@ open class MainViewController: UIViewController{
 		if reqLabel.text == "GET"{
 			//cityName.insert(contentsOf: "get", at: cityName.endIndex)
 
-
-			let keyParam = "sendParamsKeyTextField.text!"
-			let valueParam =  "sendParamsKeyTextField.text!"
+			let v = ButtonStackCell(buttonTitle: "")
+			view.addSubview(v)
+			let keyParam = v.paramsKey
+			let valueParam = v.textfieldParamsValue.text!
 			let params : [String: String] = [keyParam: valueParam]
 
 
@@ -324,7 +325,7 @@ open class MainViewController: UIViewController{
 
 			Alamofire.request(url, method: .get, parameters: params).responseJSON { [self]
                         response in
-                        if response.result.isSuccess {
+                       if response.result.isSuccess {
                             print("Success")
 							let weatherJSON : JSON = JSON(response.result.value!)
 

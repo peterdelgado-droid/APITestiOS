@@ -11,8 +11,13 @@ final class ButtonStackCell: StackCellBase {
   private let button = UIButton(type: .system)
   let textfieldParamsKey = UITextField()
   let textfieldParamsValue = UITextField()
-  
-  init(buttonTitle: String) {
+	var paramsKey = String()
+
+
+	private var keyValue: KeyValue
+	weak var delegate: KeyValueViewDelegate?
+
+	init(buttonTitle: String) {
     super.init()
 
 	  textfieldParamsKey.font = UIFont.preferredFont(forTextStyle: .body)
@@ -20,6 +25,9 @@ final class ButtonStackCell: StackCellBase {
 		string: "Key",
 		attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
 	  )
+	  textfieldParamsKey.textColor = UIColor.white
+
+		paramsKey.append(textfieldParamsKey.text!)
 
 	  addSubview(textfieldParamsKey)
 	  textfieldParamsKey <- Edges(UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16))
@@ -28,13 +36,12 @@ final class ButtonStackCell: StackCellBase {
 
 
 
-
 	  textfieldParamsValue.font = UIFont.preferredFont(forTextStyle: .body)
+	  textfieldParamsValue.textColor = UIColor.white
 	  textfieldParamsValue.attributedPlaceholder = NSAttributedString(
 		string: "Value",
 		attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
 	  )
-
 	  addSubview(textfieldParamsValue)
 
 	  textfieldParamsValue <- Edges(UIEdgeInsets(top: 8, left: 150, bottom: 8, right: 16))
@@ -44,14 +51,19 @@ final class ButtonStackCell: StackCellBase {
 
 
 	  button.setImage(UIImage(named: "custom.plus"), for: .normal)
-    backgroundColor = .white
+	  button.backgroundColor = .black
+	  //backgroundColor = .white
+	  self.heightAnchor.constraint(equalToConstant: 40).isActive = true
+
     
     button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     addSubview(button)
+	  self.layer.cornerRadius = 3
     button <- [
       Trailing(),
       Top(12),
       Bottom(12),
+	  Height(50)
 	
     ]
 
@@ -59,6 +71,7 @@ final class ButtonStackCell: StackCellBase {
 	 
     
     button.setTitle(buttonTitle, for: .normal)
+		textfieldParamsKey
   }
   
   @objc private func buttonTapped() {
@@ -68,4 +81,35 @@ final class ButtonStackCell: StackCellBase {
 	func set(placeholder: String) {
 	//	textfield.placeholder = "Key,Value"
 	}
+
+	struct KeyValue {
+		let identifier = UUID().uuidString
+		var key: String
+		var value: String
+
+		static var empty: KeyValue {
+			KeyValue(key: "", value: "")
+		}
+
+		var isEmpty: Bool {
+			key.isEmpty && value.isEmpty
+		}
+
+		var isNotEmpty: Bool {
+			!isEmpty
+		}
+	}
+
+	@objc private func textFieldDidChange() {
+		guard let key = textfieldParamsKey.text, let value = textfieldParamsValue.text else {
+			return
+		}
+		keyValue.key = key
+		keyValue.value = value
+		delegate?.keyValueUpdated(keyValue)
+	}
+
+
+
+
 }
