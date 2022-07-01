@@ -11,15 +11,18 @@
 		63E28AF71B99C36100FBF6E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AF31B99C36100FBF6E0 /* Images.xcassets */; };
 		63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E28AF51B99C36100FBF6E0 /* MainViewController.swift */; };
 		63E28AFF1B99C3B300FBF6E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */; };
+		8200B0DA286F4F67003510AB /* KeyValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8200B0D9286F4F67003510AB /* KeyValueViewModel.swift */; };
+		8200B0DC286F4F84003510AB /* KeyValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8200B0DB286F4F84003510AB /* KeyValueViewController.swift */; };
+		8200B0DE286F4F93003510AB /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8200B0DD286F4F93003510AB /* KeyValueView.swift */; };
+		8200B0E2286F54F4003510AB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8200B0E1286F54F4003510AB /* BaseViewController.swift */; };
 		8204A51A286F1A4D00207050 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8204A519286F1A4D00207050 /* BaseViewModel.swift */; };
+		8204A51C286F1E3400207050 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8204A51B286F1E3400207050 /* UserManager.swift */; };
 		822AB5E3285093EE00E20B78 /* UIBezierPath+createCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AB5E2285093EE00E20B78 /* UIBezierPath+createCurve.swift */; };
 		822AB5E52850963000E20B78 /* WaveTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AB5E42850963000E20B78 /* WaveTabBarController.swift */; };
 		8230A6872869D152008470F9 /* HeaderStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8230A6862869D152008470F9 /* HeaderStackCell.swift */; };
 		8230A6892869D19F008470F9 /* SeparatorStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8230A6882869D19F008470F9 /* SeparatorStackCell.swift */; };
 		824EF9902869CCAD00C92967 /* StackCellBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824EF98F2869CCAD00C92967 /* StackCellBase.swift */; };
 		8256E975286B07AC0001E2F5 /* TextFieldStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */; };
-		82580A3C286F08E7007357CC /* KeyValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82580A3B286F08E7007357CC /* KeyValueViewModel.swift */; };
-		82580A3E286F08EE007357CC /* KeyValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82580A3D286F08EE007357CC /* KeyValueViewController.swift */; };
 		8259C5182848FAEF0045047D /* ModelHis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8259C5162848FAEF0045047D /* ModelHis.xcdatamodeld */; };
 		826A44A42849F61A007C2206 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A44A32849F61A007C2206 /* History.swift */; };
 		82910DF12869C76600B837D9 /* ButtonStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82910DF02869C76600B837D9 /* ButtonStackCell.swift */; };
@@ -29,7 +32,6 @@
 		8291F620284E020F001B9017 /* HistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291F61F284E020F001B9017 /* HistTableViewCell.swift */; };
 		8291F622284E1F97001B9017 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291F621284E1F97001B9017 /* SettingsViewController.swift */; };
 		82944E462837A9F800343116 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82944E452837A9F800343116 /* SheetView.swift */; };
-		829D63B0286F121F00A04FD0 /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829D63AF286F121F00A04FD0 /* KeyValueView.swift */; };
 		82B2DA822869B1F7000B1700 /* Child1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B2DA812869B1F7000B1700 /* Child1.swift */; };
 		82B2DA842869B278000B1700 /* Child2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B2DA832869B278000B1700 /* Child2.swift */; };
 		82BE05822857773600DA053C /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BE05812857773600DA053C /* ResponseModel.swift */; };
@@ -50,17 +52,20 @@
 		63E28AF31B99C36100FBF6E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		63E28AF51B99C36100FBF6E0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		8200B0D9286F4F67003510AB /* KeyValueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyValueViewModel.swift; path = ../../../.Trash/KeyValueViewModel.swift; sourceTree = "<group>"; };
+		8200B0DB286F4F84003510AB /* KeyValueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyValueViewController.swift; path = ../../../.Trash/KeyValueViewController.swift; sourceTree = "<group>"; };
+		8200B0DD286F4F93003510AB /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyValueView.swift; path = ../../../.Trash/KeyValueView.swift; sourceTree = "<group>"; };
+		8200B0E1286F54F4003510AB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8201734D2869D9000014B140 /* StackScrollView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StackScrollView; path = ../StackScrollView/StackScrollView; sourceTree = "<group>"; };
 		8201738A2869DBA30014B140 /* StackScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StackScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8204A519286F1A4D00207050 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		8204A51B286F1E3400207050 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = "../../../Downloads/Httper-iOS-master 3/Httper/Manager/UserManager.swift"; sourceTree = "<group>"; };
 		822AB5E2285093EE00E20B78 /* UIBezierPath+createCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+createCurve.swift"; sourceTree = "<group>"; };
 		822AB5E42850963000E20B78 /* WaveTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarController.swift; sourceTree = "<group>"; };
 		8230A6862869D152008470F9 /* HeaderStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderStackCell.swift; sourceTree = "<group>"; };
 		8230A6882869D19F008470F9 /* SeparatorStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorStackCell.swift; sourceTree = "<group>"; };
 		824EF98F2869CCAD00C92967 /* StackCellBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCellBase.swift; sourceTree = "<group>"; };
 		8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldStackCell.swift; path = "../../../Downloads/StackScrollView-master/StackScrollView-Demo/TextFieldStackCell.swift"; sourceTree = "<group>"; };
-		82580A3B286F08E7007357CC /* KeyValueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyValueViewModel.swift; path = "../../../Downloads/Httper-iOS-master 2/Httper/Controller/Request/KeyValueViewModel.swift"; sourceTree = "<group>"; };
-		82580A3D286F08EE007357CC /* KeyValueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyValueViewController.swift; path = "../../../Downloads/Httper-iOS-master 2/Httper/Controller/Request/KeyValueViewController.swift"; sourceTree = "<group>"; };
 		8259C5172848FAEF0045047D /* ModelHis.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelHis.xcdatamodel; sourceTree = "<group>"; };
 		826A44A32849F61A007C2206 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		82910DF02869C76600B837D9 /* ButtonStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStackCell.swift; sourceTree = "<group>"; };
@@ -70,7 +75,6 @@
 		8291F61F284E020F001B9017 /* HistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistTableViewCell.swift; sourceTree = "<group>"; };
 		8291F621284E1F97001B9017 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		82944E452837A9F800343116 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
-		829D63AF286F121F00A04FD0 /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyValueView.swift; path = ../../../.Trash/KeyValueView.swift; sourceTree = "<group>"; };
 		82B2DA812869B1F7000B1700 /* Child1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child1.swift; sourceTree = "<group>"; };
 		82B2DA832869B278000B1700 /* Child2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child2.swift; sourceTree = "<group>"; };
 		82BE05812857773600DA053C /* ResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
@@ -161,22 +165,24 @@
 			isa = PBXGroup;
 			children = (
 				63E28AF51B99C36100FBF6E0 /* MainViewController.swift */,
+				8200B0D9286F4F67003510AB /* KeyValueViewModel.swift */,
+				8200B0DB286F4F84003510AB /* KeyValueViewController.swift */,
+				8200B0DD286F4F93003510AB /* KeyValueView.swift */,
 				8204A519286F1A4D00207050 /* BaseViewModel.swift */,
 				8230A6882869D19F008470F9 /* SeparatorStackCell.swift */,
 				8230A6862869D152008470F9 /* HeaderStackCell.swift */,
 				824EF98F2869CCAD00C92967 /* StackCellBase.swift */,
 				82910DF02869C76600B837D9 /* ButtonStackCell.swift */,
+				8204A51B286F1E3400207050 /* UserManager.swift */,
 				8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */,
 				82944E452837A9F800343116 /* SheetView.swift */,
 				63E28AD01B99C32400FBF6E0 /* AppDelegate.swift */,
 				82CEBF64283BC97000CC02A5 /* ResponseViewController.swift */,
 				826A44A32849F61A007C2206 /* History.swift */,
-				829D63AF286F121F00A04FD0 /* KeyValueView.swift */,
-				82580A3D286F08EE007357CC /* KeyValueViewController.swift */,
-				82580A3B286F08E7007357CC /* KeyValueViewModel.swift */,
 				8291F621284E1F97001B9017 /* SettingsViewController.swift */,
 				82B2DA812869B1F7000B1700 /* Child1.swift */,
 				82B2DA832869B278000B1700 /* Child2.swift */,
+				8200B0E1286F54F4003510AB /* BaseViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -373,16 +379,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82580A3E286F08EE007357CC /* KeyValueViewController.swift in Sources */,
 				63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */,
-				82580A3C286F08E7007357CC /* KeyValueViewModel.swift in Sources */,
+				8204A51C286F1E3400207050 /* UserManager.swift in Sources */,
 				82910DF12869C76600B837D9 /* ButtonStackCell.swift in Sources */,
 				8291F620284E020F001B9017 /* HistTableViewCell.swift in Sources */,
+				8200B0DA286F4F67003510AB /* KeyValueViewModel.swift in Sources */,
 				8204A51A286F1A4D00207050 /* BaseViewModel.swift in Sources */,
+				8200B0DE286F4F93003510AB /* KeyValueView.swift in Sources */,
 				82944E462837A9F800343116 /* SheetView.swift in Sources */,
 				822AB5E3285093EE00E20B78 /* UIBezierPath+createCurve.swift in Sources */,
 				8291B9922850B4C30007E59B /* WaveTabBarPresenterBase.swift in Sources */,
 				826A44A42849F61A007C2206 /* History.swift in Sources */,
+				8200B0DC286F4F84003510AB /* KeyValueViewController.swift in Sources */,
 				82CEBF65283BC97000CC02A5 /* ResponseViewController.swift in Sources */,
 				824EF9902869CCAD00C92967 /* StackCellBase.swift in Sources */,
 				82B2DA822869B1F7000B1700 /* Child1.swift in Sources */,
@@ -399,7 +407,7 @@
 				63E28AD11B99C32400FBF6E0 /* AppDelegate.swift in Sources */,
 				82D3DEF6284F8D9800B942D2 /* SettingsSwiftUIView.swift in Sources */,
 				8230A6872869D152008470F9 /* HeaderStackCell.swift in Sources */,
-				829D63B0286F121F00A04FD0 /* KeyValueView.swift in Sources */,
+				8200B0E2286F54F4003510AB /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,7 +58,6 @@ open class MainViewController: UIViewController{
 
     
      var StringTest: String!
-	 let customSeg = CustomSegmentedControl()
 
 
 	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
