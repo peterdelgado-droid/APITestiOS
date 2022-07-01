@@ -14,8 +14,7 @@ final class ButtonStackCell: StackCellBase {
 	var paramsKey = String()
 
 
-	private var keyValue: KeyValue
-	weak var delegate: KeyValueViewDelegate?
+
 
 	init(buttonTitle: String) {
     super.init()
@@ -27,7 +26,6 @@ final class ButtonStackCell: StackCellBase {
 	  )
 	  textfieldParamsKey.textColor = UIColor.white
 
-		paramsKey.append(textfieldParamsKey.text!)
 
 	  addSubview(textfieldParamsKey)
 	  textfieldParamsKey <- Edges(UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16))
@@ -82,33 +80,9 @@ final class ButtonStackCell: StackCellBase {
 	//	textfield.placeholder = "Key,Value"
 	}
 
-	struct KeyValue {
-		let identifier = UUID().uuidString
-		var key: String
-		var value: String
 
-		static var empty: KeyValue {
-			KeyValue(key: "", value: "")
-		}
 
-		var isEmpty: Bool {
-			key.isEmpty && value.isEmpty
-		}
-
-		var isNotEmpty: Bool {
-			!isEmpty
-		}
-	}
-
-	@objc private func textFieldDidChange() {
-		guard let key = textfieldParamsKey.text, let value = textfieldParamsValue.text else {
-			return
-		}
-		keyValue.key = key
-		keyValue.value = value
-		delegate?.keyValueUpdated(keyValue)
-	}
-
+	
 
 
 

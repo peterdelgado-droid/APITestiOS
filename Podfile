@@ -22,6 +22,8 @@ target 'APItest' do
 pod 'ScrollingStackViewController'
 pod 'Reveal-SDK'
   pod 'EasyPeasy'
+pod 'MGKeyboardAccessory', '0.5'
+pod 'StackScrollView'
    
 
 pod 'WaveTab'
