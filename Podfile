@@ -24,7 +24,9 @@ pod 'Reveal-SDK'
   pod 'EasyPeasy'
 pod 'MGKeyboardAccessory', '0.5'
 pod 'StackScrollView'
-   
+pod 'NVActivityIndicatorView', '= 4.8.0'
+pod 'SwipeBack'   
+pod 'RxBinding'
 
 pod 'WaveTab'
 end

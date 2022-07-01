@@ -75,7 +75,7 @@ open class MainViewController: UIViewController{
     open override func viewDidLoad() {
         super.viewDidLoad()
 
-
+		
 
 		var views: [UIView] = []
 
@@ -491,4 +491,25 @@ open class MainViewController: UIViewController{
 
 private func fullSeparator() -> SeparatorStackCell {
 	return SeparatorStackCell(leftMargin: 1, rightMargin: 1, backgroundColor: .blue, separatorColor: UIColor(white: 0.90, alpha: 1))
+}
+
+
+
+@nonobjc extension UIViewController {
+	func add(_ child: KeyValueViewController, frame: CGRect? = nil) {
+		addChild(child)
+
+		if let frame = frame {
+			child.view.frame = frame
+		}
+
+		view.addSubview(child.view)
+		child.didMove(toParent: self)
+	}
+
+	func remove() {
+		willMove(toParent: nil)
+		view.removeFromSuperview()
+		removeFromParent()
+	}
 }

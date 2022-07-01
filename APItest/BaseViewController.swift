@@ -12,6 +12,7 @@ import RxAlertViewable
 import RxSwift
 import RxCocoa
 import RxController
+import RxBinding
 
 class BaseViewController<ViewModel: BaseViewModel>: RxViewController<ViewModel> {
 
@@ -42,14 +43,13 @@ class BaseViewController<ViewModel: BaseViewModel>: RxViewController<ViewModel> 
 		disposeBag ~ [
 			viewModel.alert ~> rx.alert,
 			viewModel.actionSheet ~> rx.actionSheet,
-			viewModel.loading ~> rx.nvActivityIndicatorAnimating
 		]
 
 		if let navigationController = navigationController {
 			navigationController.swipeBackEnabled = true
 
 			if let index = navigationController.viewControllers.firstIndex(of: self), index > 0 {
-				navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.back(), style: .plain, target: self, action: #selector(back))
+				navigationItem.leftBarButtonItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: #selector(back))
 			} else {
 				navigationItem.leftBarButtonItem = nil
 			}
@@ -68,7 +68,6 @@ class BaseViewController<ViewModel: BaseViewModel>: RxViewController<ViewModel> 
 		}
 
 		if let color = currentBarColor {
-			navigationController.navigationBar.barColor = color
 		}
 	}
 
@@ -76,7 +75,6 @@ class BaseViewController<ViewModel: BaseViewModel>: RxViewController<ViewModel> 
 		super.viewWillDisappear(animated)
 
 		if let color = lastBarTintColor, let navigationController = navigationController, !isChild  {
-			navigationController.navigationBar.barColor = nil
 			navigationController.navigationBar.barTintColor = color
 		}
 	}
@@ -87,6 +85,5 @@ class BaseViewController<ViewModel: BaseViewModel>: RxViewController<ViewModel> 
 
 }
 
-extension BaseViewController: NVActivityIndicatorViewable {}
 
 extension BaseViewController: RxAlertViewable {}
