@@ -15,8 +15,16 @@ import ScrollingStackViewController
 import EasyPeasy
 import StackScrollView
 
+
+let notificationKey = "co.peter.finish"
+
+
 @available(iOS 15.0, *)
 open class MainViewController: UIViewController{
+	var passedValue:String!
+
+
+
 
 	private let stackScrollView = StackScrollView()
 
@@ -25,7 +33,7 @@ open class MainViewController: UIViewController{
 	var valueP:String!
 
 
-	var passedValue:String!
+//	var passedValue:String!
 	var passedValue2:String!
 
 	@IBOutlet var reqLabel: UILabel!
@@ -62,25 +70,22 @@ open class MainViewController: UIViewController{
 
 	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-	open override func viewDidAppear(_ animated: Bool){
-		super.viewDidAppear(animated)
-		
-
-	}
 
 
 
 
+	let controller = ButtonStackCell(buttonTitle: "")
 
-    open override func viewDidLoad() {
+	open override func viewDidLoad() {
         super.viewDidLoad()
+
+		controller.delegate = self
 
 		
 
 		var views: [UIView] = []
 
 
-		//views.append(HeaderStackCell(title: "ButtonStackCell", backgroundColor: UIColor.blue))
 
 
 
@@ -104,21 +109,7 @@ open class MainViewController: UIViewController{
 		}
 
 
-//		views.append(contentsOf: { () -> [UIView] in
-//			let s = fullSeparator()
-//			let v = ButtonStackCell(buttonTitle: "Insert Before")
-//			v.tapped = { [unowned stackScrollView, unowned s] in
-//				let views = (0 ... .random(in: 1 ... 2)).flatMap { _ in makeRemovableButton() }
-//				stackScrollView.insert(views: views, before: s, animated: true)
-//			}
-//			return [s, v]
-//		}())
 
-//		views.append({
-//			let v = TextFieldStackCell()
-//			v.set(placeholder: "Detail")
-//			return v
-//		}())
 
 		views.append(contentsOf: { () -> [UIView] in
 			let v = ButtonStackCell(buttonTitle: "")
@@ -173,6 +164,14 @@ open class MainViewController: UIViewController{
 //
 //
     }
+
+
+
+	let noti = Notification.Name(rawValue: notificationKey)
+
+
+	func createObservers()
+
 
 
 	private func fullSeparator() -> SeparatorStackCell {
@@ -313,10 +312,12 @@ open class MainViewController: UIViewController{
 		if reqLabel.text == "GET"{
 			//cityName.insert(contentsOf: "get", at: cityName.endIndex)
 
-			let v = ButtonStackCell(buttonTitle: "")
-			view.addSubview(v)
-			let keyParam = v.paramsKey
-			let valueParam = v.textfieldParamsValue.text!
+
+
+
+
+			let keyParam = "test"
+			let valueParam = "test"
 			let params : [String: String] = [keyParam: valueParam]
 
 
@@ -356,7 +357,7 @@ open class MainViewController: UIViewController{
              If the server uses consumer key and consumer secret, uncomment the follow lines
              */
           //  cityName.insert(contentsOf: "post", at: cityName.endIndex)
-            let keyParam = sendParamsKeyTextField.text!
+			let keyParam = passedValue as String
             let valueParam = sendParamsValueTextField.text!
             let params : [String: String] = [keyParam: valueParam]
             
@@ -494,22 +495,11 @@ private func fullSeparator() -> SeparatorStackCell {
 }
 
 
+extension MainViewController : ButtonStackDelegate{
 
-@nonobjc extension UIViewController {
-	func add(_ child: KeyValueViewController, frame: CGRect? = nil) {
-		addChild(child)
-
-		if let frame = frame {
-			child.view.frame = frame
-		}
-
-		view.addSubview(child.view)
-		child.didMove(toParent: self)
+	func paramKeyEditChange(prmKey : String) {
+		passedValue = prmKey
 	}
 
-	func remove() {
-		willMove(toParent: nil)
-		view.removeFromSuperview()
-		removeFromParent()
-	}
 }
+

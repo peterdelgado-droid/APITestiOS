@@ -4,6 +4,11 @@ import UIKit
 
 import EasyPeasy
 
+
+protocol ButtonStackDelegate: AnyObject {
+	func paramKeyEditChange(prmKey: String)
+}
+
 final class ButtonStackCell: StackCellBase {
   
   var tapped: () -> Void = {}
@@ -13,7 +18,7 @@ final class ButtonStackCell: StackCellBase {
   let textfieldParamsValue = UITextField()
 	var paramsKey = String()
 
-
+	weak var delegate: ButtonStackDelegate?
 
 
 	init(buttonTitle: String) {
@@ -26,7 +31,7 @@ final class ButtonStackCell: StackCellBase {
 	  )
 	  textfieldParamsKey.textColor = UIColor.white
 
-
+		textfieldParamsKey.text = paramsKey
 	  addSubview(textfieldParamsKey)
 	  textfieldParamsKey <- Edges(UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16))
 
@@ -54,10 +59,16 @@ final class ButtonStackCell: StackCellBase {
 	  self.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
     
-    button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-    addSubview(button)
-	  self.layer.cornerRadius = 3
-    button <- [
+   button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+
+
+		textfieldParamsKey.addTarget(self, action: #selector(paramsKeyEdit), for: .editingDidEnd)
+
+		addSubview(button)
+	    self.layer.cornerRadius = 3
+
+
+		button <- [
       Trailing(),
       Top(12),
       Bottom(12),
@@ -73,8 +84,16 @@ final class ButtonStackCell: StackCellBase {
   }
   
   @objc private func buttonTapped() {
-    tapped()
+	  tapped()
   }
+
+
+	@objc private func paramsKeyEdit() {
+		paramsKey = "textfieldParamsKey.text!"
+		delegate?.paramKeyEditChange(prmKey: paramsKey)
+		let name = Notification.Name(rawValue: notificationKey)
+		NotificationCenter.default.post(name: name, object: paramsKey)
+		}
 
 	func set(placeholder: String) {
 	//	textfield.placeholder = "Key,Value"

@@ -11,12 +11,9 @@
 		63E28AF71B99C36100FBF6E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AF31B99C36100FBF6E0 /* Images.xcassets */; };
 		63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E28AF51B99C36100FBF6E0 /* MainViewController.swift */; };
 		63E28AFF1B99C3B300FBF6E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */; };
-		8200B0DA286F4F67003510AB /* KeyValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8200B0D9286F4F67003510AB /* KeyValueViewModel.swift */; };
-		8200B0DE286F4F93003510AB /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8200B0DD286F4F93003510AB /* KeyValueView.swift */; };
 		8200B0E2286F54F4003510AB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8200B0E1286F54F4003510AB /* BaseViewController.swift */; };
 		8204A51A286F1A4D00207050 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8204A519286F1A4D00207050 /* BaseViewModel.swift */; };
 		8204A51C286F1E3400207050 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8204A51B286F1E3400207050 /* UserManager.swift */; };
-		8211D379286F61DF002EF04A /* KeyValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8211D378286F61DF002EF04A /* KeyValueViewController.swift */; };
 		822AB5E3285093EE00E20B78 /* UIBezierPath+createCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AB5E2285093EE00E20B78 /* UIBezierPath+createCurve.swift */; };
 		822AB5E52850963000E20B78 /* WaveTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AB5E42850963000E20B78 /* WaveTabBarController.swift */; };
 		8230A6872869D152008470F9 /* HeaderStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8230A6862869D152008470F9 /* HeaderStackCell.swift */; };
@@ -52,14 +49,11 @@
 		63E28AF31B99C36100FBF6E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		63E28AF51B99C36100FBF6E0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		8200B0D9286F4F67003510AB /* KeyValueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyValueViewModel.swift; path = ../../../.Trash/KeyValueViewModel.swift; sourceTree = "<group>"; };
-		8200B0DD286F4F93003510AB /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyValueView.swift; path = ../../../.Trash/KeyValueView.swift; sourceTree = "<group>"; };
 		8200B0E1286F54F4003510AB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8201734D2869D9000014B140 /* StackScrollView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StackScrollView; path = ../StackScrollView/StackScrollView; sourceTree = "<group>"; };
 		8201738A2869DBA30014B140 /* StackScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StackScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8204A519286F1A4D00207050 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		8204A51B286F1E3400207050 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = "../../../Downloads/Httper-iOS-master 3/Httper/Manager/UserManager.swift"; sourceTree = "<group>"; };
-		8211D378286F61DF002EF04A /* KeyValueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueViewController.swift; sourceTree = "<group>"; };
 		822AB5E2285093EE00E20B78 /* UIBezierPath+createCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+createCurve.swift"; sourceTree = "<group>"; };
 		822AB5E42850963000E20B78 /* WaveTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarController.swift; sourceTree = "<group>"; };
 		8230A6862869D152008470F9 /* HeaderStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderStackCell.swift; sourceTree = "<group>"; };
@@ -165,8 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				63E28AF51B99C36100FBF6E0 /* MainViewController.swift */,
-				8200B0D9286F4F67003510AB /* KeyValueViewModel.swift */,
-				8200B0DD286F4F93003510AB /* KeyValueView.swift */,
 				8200B0E1286F54F4003510AB /* BaseViewController.swift */,
 				8204A519286F1A4D00207050 /* BaseViewModel.swift */,
 				8230A6882869D19F008470F9 /* SeparatorStackCell.swift */,
@@ -182,7 +174,6 @@
 				8291F621284E1F97001B9017 /* SettingsViewController.swift */,
 				82B2DA812869B1F7000B1700 /* Child1.swift */,
 				82B2DA832869B278000B1700 /* Child2.swift */,
-				8211D378286F61DF002EF04A /* KeyValueViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -387,9 +378,7 @@
 				8204A51C286F1E3400207050 /* UserManager.swift in Sources */,
 				82910DF12869C76600B837D9 /* ButtonStackCell.swift in Sources */,
 				8291F620284E020F001B9017 /* HistTableViewCell.swift in Sources */,
-				8200B0DA286F4F67003510AB /* KeyValueViewModel.swift in Sources */,
 				8204A51A286F1A4D00207050 /* BaseViewModel.swift in Sources */,
-				8200B0DE286F4F93003510AB /* KeyValueView.swift in Sources */,
 				82944E462837A9F800343116 /* SheetView.swift in Sources */,
 				822AB5E3285093EE00E20B78 /* UIBezierPath+createCurve.swift in Sources */,
 				8291B9922850B4C30007E59B /* WaveTabBarPresenterBase.swift in Sources */,
@@ -402,7 +391,6 @@
 				822AB5E52850963000E20B78 /* WaveTabBarController.swift in Sources */,
 				82B2DA842869B278000B1700 /* Child2.swift in Sources */,
 				8291B9902850B4B20007E59B /* WaveTabBarPresenter.swift in Sources */,
-				8211D379286F61DF002EF04A /* KeyValueViewController.swift in Sources */,
 				8291B98E2850B3ED0007E59B /* WaveTabBarProtocol.swift in Sources */,
 				8230A6892869D19F008470F9 /* SeparatorStackCell.swift in Sources */,
 				8256E975286B07AC0001E2F5 /* TextFieldStackCell.swift in Sources */,
