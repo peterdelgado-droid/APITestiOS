@@ -6,16 +6,6 @@
 //  Copyright © 2022 London App Brewery. All rights reserved.
 //
 import Combine
-class ContentViewDelegate: ObservableObject {
-
-	var didChange = PassthroughSubject<ContentViewDelegate, Never>()
-
-	var name: String = "" {
-		didSet {
-			self.didChange.send(self)
-		}
-	}
-}
 
 
 import SwiftUI
@@ -23,12 +13,16 @@ import SwiftUI
 struct SheetView: View {
 
 	var externalSwitch: UILabel
+	var reqLabel: UILabel?
 
+	
 
     @State private var isPresented = false
     @State var reqMethod: String?
     @State var buttonText = "GET"
     @State private var showSheet = false
+	@State private var settingsDetent = PresentationDetent.medium
+
     
 
 var body: some View {
@@ -41,48 +35,63 @@ var body: some View {
 			}label: {
 				ZStack {
 					Image("custom.plus")
+						.resizable()
+						.frame(width: 35.0, height: 35.0)
 					Text("")
 				}
 			}
 
-			.foregroundColor(.white) .background(Color.teal).padding(.top, -5).padding(.horizontal, 170).sheet(isPresented: $isPresented) {
+			.sheet(isPresented: $isPresented){
+				Spacer().presentationDetents([.medium, .large], selection: $settingsDetent)
 
-						Color.teal
+				Color.clear
                                 .overlay(
                             VStack(spacing: 0)
                             {
-                                Text("GET").onTapGesture {
+								Text("GET").foregroundColor(.green).onTapGesture {
 
 									externalSwitch.text = "GET"
-									self.buttonText = "GET"
 									self.isPresented = false
 
 								}.padding(.top, 50).font(.largeTitle)
                                 
                                 Text("POST").onTapGesture {
-                                    self.buttonText = "POST"
+									externalSwitch.text = "POST"
                                     self.isPresented = false
                                     }.font(.largeTitle)
-                                Text("PUT").onTapGesture {
-									self.buttonText = "PUT"
+								Text("PUT").foregroundColor(.orange).onTapGesture {
+									externalSwitch.text = "PUT"
+
 									self.isPresented = false
 
 								}.font(.largeTitle)
                                 
-                                Text("DELETE").onTapGesture { print("One")
-									self.buttonText = "DELETE"
+								Text("DELETE").foregroundColor(.red).onTapGesture { print("One")
+									externalSwitch.text = "DELETE"
 									self.isPresented = false
 
 
 								}.font(.largeTitle)
-                                Text("PATCH").onTapGesture {
-									self.buttonText = "PATCH"
+								Text("PATCH").foregroundColor(.brown).onTapGesture {
+									externalSwitch.text = "PATCH"
 									self.isPresented = false
 
 									 }.font(.largeTitle)
                                 Spacer()
-                                
-                                
+								Text("").foregroundColor(.pink).onTapGesture {
+									externalSwitch.text = "PATCH"
+									self.isPresented = false
+
+								}.font(.largeTitle)
+									ZStack {
+										Image("graphql-icon")
+											.resizable()
+											.frame(width: 35.0, height: 35.0)
+
+
+									}
+
+								Text("GraphQL")
 							})}
                             }
 
@@ -104,11 +113,12 @@ var body: some View {
 
 
 //struct SheetView_Previews: PreviewProvider {
-//    
+//	var reqLabel: UILabel?
 //    @available(iOS 13.0, *)
 //    static var previews: some View {
 //        if #available(iOS 15.0, *) {
-//            SheetView(e)
+//
+//			SheetView(externalSwitch:reqLabel ?? "test")
 //        } else {
 //            // Fallback on earlier versions
 //        }

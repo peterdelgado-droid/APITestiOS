@@ -9,7 +9,6 @@ target 'APItest' do
     pod 'SwiftyJSON'
     pod ‘Alamofire’, ‘4.7.3’
     pod 'SVProgressHUD'
-    pod 'FloatingPanel'
     pod 'BottomSheetSwiftUI'
     pod 'MGSelector'
     pod 'RxSwift'
@@ -20,8 +19,14 @@ target 'APItest' do
     pod 'RxBinding'
     pod 'RxFlow'
     pod 'RxKeyboard'
-    pod 'PagingKit'
-	pod 'MGKeyboardAccessory'
-pod 'MightyTabBar'
+pod 'ScrollingStackViewController'
+pod 'Reveal-SDK'
+  pod 'EasyPeasy'
+pod 'MGKeyboardAccessory', '0.5'
+pod 'StackScrollView'
+pod 'NVActivityIndicatorView', '= 4.8.0'
+pod 'SwipeBack'   
+pod 'RxBinding'
 
+pod 'WaveTab'
 end

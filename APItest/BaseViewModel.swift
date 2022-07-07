@@ -1,9 +1,9 @@
 //
-//  BaseViewMode.swift
-//  Rinrin
+//  BaseViewModel.swift
+//  APItest
 //
-//  Created by Meng Li on 2018/10/30.
-//  Copyright © 2018 MuShare. All rights reserved.
+//  Created by Peter Delgado on 1/7/22.
+//  Copyright © 2022 London App Brewery. All rights reserved.
 //
 
 import RxSwift
@@ -11,9 +11,9 @@ import RxAlertViewable
 import RxController
 
 class BaseViewModel: RxViewModel {
-    
-    let alert = PublishSubject<RxAlert>()
-    let actionSheet = PublishSubject<RxActionSheet>()
-    let loading = PublishSubject<Bool>()
-    
+
+	let alert = PublishSubject<RxAlert>()
+	let actionSheet = PublishSubject<RxActionSheet>()
+	let loading = PublishSubject<Bool>()
+
 }
