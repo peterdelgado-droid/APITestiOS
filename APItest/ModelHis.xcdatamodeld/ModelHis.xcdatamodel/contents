@@ -4,7 +4,12 @@
         <attribute name="reqMethod" optional="YES" attributeType="String" customClassName="[String]"/>
         <attribute name="url" optional="YES" attributeType="String" customClassName="[String]"/>
     </entity>
+    <entity name="Parms" representedClassName="Parms" syncable="YES" codeGenerationType="class">
+        <attribute name="key" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Entity" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="Parms" positionX="-63" positionY="0" width="128" height="59"/>
     </elements>
 </model>

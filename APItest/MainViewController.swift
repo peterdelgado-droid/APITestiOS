@@ -17,6 +17,7 @@ import StackScrollView
 
 
 let notificationKey = "co.peter.finish"
+let notificationValue = "co.peter.hello"
 
 
 @available(iOS 15.0, *)
@@ -24,7 +25,9 @@ open class MainViewController: UIViewController{
 	var passedValue:String!
 
 
-
+//	var ParamsKey:String?
+	var ParamsValue:String?
+	var ParamsKey: [String] = []
 
 	private let stackScrollView = StackScrollView()
 
@@ -70,23 +73,16 @@ open class MainViewController: UIViewController{
 
 	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-
-
-
-
-	let controller = ButtonStackCell(buttonTitle: "")
-
 	open override func viewDidLoad() {
         super.viewDidLoad()
 
-		controller.delegate = self
+
+		createObservers()
+
 
 		
 
-		var views: [UIView] = []
-
-
-
+	var views: [UIView] = []
 
 
 		let makeRemovableButton: () -> [UIView] = {
@@ -127,20 +123,7 @@ open class MainViewController: UIViewController{
 
 
 		view.addSubview(stackScrollView)
-//		stackScrollView.translatesAutoresizingMaskIntoConstraints = false
-//		stackScrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10).isActive = true
-//		stackScrollView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 10).isActive = true
 
-//if(passedValue == nil){
-//			closeIcon?.isHidden = true
-//
-//		}
-//		changeCityTextField?.text = passedValue
-//
-//
-//		scrollView?.contentSize = (CGSize(width: 500, height: 500))
-//
-//
 		let swiftUIToggler = SheetView(externalSwitch: reqLabel)
 		let content = UIHostingController(rootView:swiftUIToggler)
 
@@ -168,10 +151,21 @@ open class MainViewController: UIViewController{
 
 
 	let noti = Notification.Name(rawValue: notificationKey)
+	let notiValue = Notification.Name(rawValue: notificationValue)
 
+	func createObservers(){
+		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsKey(notification:)), name: noti, object: "")
 
-	func createObservers()
+		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsValue(notification:)), name: notiValue, object: "")
+	}
 
+	@objc func updateParamsKey(notification: NSNotification){
+		ParamsKey = (notification.object as? [String])!
+	}
+
+	@objc func updateParamsValue(notification: NSNotification){
+		ParamsValue = notification.object as? String
+	}
 
 
 	private func fullSeparator() -> SeparatorStackCell {
@@ -179,134 +173,7 @@ open class MainViewController: UIViewController{
 	}
 
 	
-
-
-
-	func moveDown() {
-		UIView.animate(withDuration: 0.5, delay: 0.0, options:[], animations: {
-			let screenSize = UIScreen.main.bounds.size
-			self.Headers.transform = CGAffineTransform(translationX: 0, y: screenSize.height * 0.1)
-
-			self.addHeaders.transform = CGAffineTransform(translationX: 0, y: screenSize.height * 0.1)
-		}, completion: nil)
-	}
-    
-    @IBAction func addParams(_ sender: UIButton) {
-
-		moveDown()
-
-		if yPos == 0{
-
-			yPos = 300
-
-			yPos += 50
-
-			print(yPos)
-			let pf = UISwitch()
-
-			let tf = UITextField()
-			tf.frame = CGRect(x: 15, y: yPos, width: 120, height: 30)
-			tf.backgroundColor = UIColor.white
-			tf.layer.cornerRadius = 5
-			tf.text = "Key"
-			tf.textColor = UIColor.lightGray
-			tf.textAlignment = .center
-			self.view.addSubview(tf)
-			pf.backgroundColor = UIColor.systemTeal
-			pf.layer.cornerRadius = 5
-			pf.layer.borderWidth = 1
-			pf.frame = CGRect(x: 320, y: yPos, width: 50, height: 30)
-			self.view.addSubview(pf)
-
-			addSecondTV()
-			
-
-		}
-
-
-
-
-
-
-
-    }
-
-	func addSecondTV() {
-
-		if yPos2 == 0{
-
-			yPos2 = 300
-
-		}
-
-		yPos2 += 50
-
-		print(yPos2)
-		let tf2 = UITextField()
-		tf2.frame = CGRect(x: 180, y: yPos, width: 120, height: 30)
-		tf2.backgroundColor = UIColor.white
-		tf2.layer.cornerRadius = 5
-		tf2.text = "Value"
-		tf2.textColor = UIColor.lightGray
-		tf2.textAlignment = .center
-		self.view.addSubview(tf2)
-
-	}
-
-	func addSecondTV1() {
-
-		if yPos4 == 0{
-
-			yPos4 = 400
-
-		}
-
-		yPos4 += 50
-
-		print(yPos2)
-		let tf2 = UITextField()
-		tf2.frame = CGRect(x: 180, y: yPos4, width: 120, height: 30)
-		tf2.backgroundColor = UIColor.white
-		tf2.layer.cornerRadius = 5
-		tf2.text = "Value"
-		tf2.textColor = UIColor.lightGray
-		tf2.textAlignment = .center
-		self.view.addSubview(tf2)
-
-	}
-
-
-	@IBAction func addHeaders(_ sender: UIButton) {
-			if yPos3 == 0{
-
-			yPos3 = 400
-
-			yPos3 += 50
-
-			print(yPos)
-			let pf = UISwitch()
-
-			let tf = UITextField()
-			tf.frame = CGRect(x: 15, y: yPos3, width: 120, height: 30)
-			tf.backgroundColor = UIColor.white
-			tf.layer.cornerRadius = 5
-			tf.text = "Key"
-			tf.textColor = UIColor.lightGray
-			tf.textAlignment = .center
-			self.view.addSubview(tf)
-			pf.backgroundColor = UIColor.systemTeal
-			pf.layer.cornerRadius = 5
-			pf.layer.borderWidth = 1
-			pf.frame = CGRect(x: 320, y: yPos3, width: 50, height: 30)
-			self.view.addSubview(pf)
-
-			addSecondTV1()
-
-		}
-
-	}
-    
-    func getData(url: String) {
+	func getData(url: String) {
         var cityName = changeCityTextField.text!
 		let reqName = reqLabel.text!
 		if reqLabel.text == "GET"{
@@ -316,9 +183,9 @@ open class MainViewController: UIViewController{
 
 
 
-			let keyParam = "test"
-			let valueParam = "test"
-			let params : [String: String] = [keyParam: valueParam]
+			let keyParam = ParamsKey.first
+			let valueParam = ParamsValue ?? ""
+			let params : [String: String] = [valueParam: valueParam]
 
 
 
@@ -495,11 +362,7 @@ private func fullSeparator() -> SeparatorStackCell {
 }
 
 
-extension MainViewController : ButtonStackDelegate{
 
-	func paramKeyEditChange(prmKey : String) {
-		passedValue = prmKey
-	}
 
-}
+
 
