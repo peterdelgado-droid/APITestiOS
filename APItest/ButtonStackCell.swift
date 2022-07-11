@@ -13,7 +13,7 @@ final class ButtonStackCell: StackCellBase {
   private let button = UIButton(type: .system)
   let textfieldParamsKey = UITextField()
   let textfieldParamsValue = UITextField()
-	var paramsKey = String()
+	var paramsKey = [AnyHashable : Any]()
 	var paramsValue = String()
 
 	
@@ -104,9 +104,34 @@ final class ButtonStackCell: StackCellBase {
 	@objc private func paramsKeyEdit() {
 
 
-		paramsKey = textfieldParamsKey.text!
-		let name = Notification.Name(rawValue: notificationKey)
-		NotificationCenter.default.post(name: name, object: paramsKey)
+
+		let paramskeyData = textfieldParamsKey.text!
+		// retrieve from UserDefault if none create an empty array
+
+		var paramskeyDataList: [String:String] = UserDefaults.standard.object(forKey: "paramsKeyDataList") as? [String:String] ?? [:]
+
+
+	//	var paramskeyDataList = UserDefaults.standard.dictionary(forKey: "paramsKeyDataList")
+
+		// store in UserDefault
+		paramskeyDataList[paramskeyData] = "Four"
+		UserDefaults.standard.set(paramskeyDataList, forKey: "paramsKeyDataList")
+
+
+			//UserDefaults.standard.removePersistentDomain(forName: "paramskeyDataList")
+
+
+
+
+				let name = Notification.Name(rawValue: notificationKey)
+		NotificationCenter.default.post(name: name, object: nil, userInfo: paramskeyDataList)
+
+
+
+
+
+
+
 		}
 
 	func set(placeholder: String) {

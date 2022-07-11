@@ -26,8 +26,8 @@ open class MainViewController: UIViewController{
 
 
 //	var ParamsKey:String?
-	var ParamsValue:String?
-	var ParamsKey: String?
+	var ParamsValue : String?
+	var ParamsKey = [AnyHashable : Any]()
 
 	private let stackScrollView = StackScrollView()
 
@@ -154,13 +154,16 @@ open class MainViewController: UIViewController{
 	let notiValue = Notification.Name(rawValue: notificationValue)
 
 	func createObservers(){
-		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsKey(notification:)), name: noti, object: "")
+		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsKey(notification:)), name: noti, object: nil)
 
-		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsValue(notification:)), name: notiValue, object: "")
+		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsValue(notification:)), name: notiValue, object: nil)
 	}
 
 	@objc func updateParamsKey(notification: NSNotification){
-		ParamsKey = notification.object as? String
+
+
+
+		ParamsKey = notification.userInfo ?? [ "name": noti, "age":noti, "email":noti]
 	}
 
 	@objc func updateParamsValue(notification: NSNotification){
@@ -182,10 +185,11 @@ open class MainViewController: UIViewController{
 
 
 
+			let keyArray = ParamsKey.map { Array(arrayLiteral: $0.key) }
 
-			let keyParam = ParamsKey ?? ""
+			let keyParam = ParamsKey.keys
 			let valueParam = ParamsValue ?? ""
-			let params : [String: String] = [valueParam: valueParam]
+			let params : [Any: String] = [keyArray: valueParam]
 
 
 
