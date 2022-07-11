@@ -5,9 +5,6 @@ import UIKit
 import EasyPeasy
 
 
-protocol ButtonStackDelegate: AnyObject {
-	func paramKeyEditChange(prmKey: String)
-}
 
 final class ButtonStackCell: StackCellBase {
   
@@ -16,9 +13,10 @@ final class ButtonStackCell: StackCellBase {
   private let button = UIButton(type: .system)
   let textfieldParamsKey = UITextField()
   let textfieldParamsValue = UITextField()
-	var paramsKey = String()
+	var paramsKey = [String]()
+	var paramsValue = String()
 
-	weak var delegate: ButtonStackDelegate?
+	
 
 
 	init(buttonTitle: String) {
@@ -31,7 +29,7 @@ final class ButtonStackCell: StackCellBase {
 	  )
 	  textfieldParamsKey.textColor = UIColor.white
 
-		textfieldParamsKey.text = paramsKey
+		//textfieldParamsKey.text = paramsKey
 	  addSubview(textfieldParamsKey)
 	  textfieldParamsKey <- Edges(UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16))
 
@@ -63,7 +61,9 @@ final class ButtonStackCell: StackCellBase {
 
 
 		textfieldParamsKey.addTarget(self, action: #selector(paramsKeyEdit), for: .editingDidEnd)
-
+		textfieldParamsValue.addTarget(self, action: #selector(paramsValueEdit), for: .primaryActionTriggered)
+		textfieldParamsKey.autocapitalizationType = UITextAutocapitalizationType.none
+		textfieldParamsValue.autocapitalizationType = UITextAutocapitalizationType.none
 		addSubview(button)
 	    self.layer.cornerRadius = 3
 
@@ -88,11 +88,34 @@ final class ButtonStackCell: StackCellBase {
   }
 
 
+	@objc private func paramsValueEdit() {
+		paramsValue = textfieldParamsValue.text!
+		let name = Notification.Name(rawValue: notificationValue)
+		NotificationCenter.default.post(name: name, object: paramsValue)
+	}
+	///var item = [String:String]()
+	var someInts: [String] = []
+
 	@objc private func paramsKeyEdit() {
-		paramsKey = "textfieldParamsKey.text!"
-		delegate?.paramKeyEditChange(prmKey: paramsKey)
+
+
+		someInts.append(textfieldParamsKey.text!)
+	//	item[textfieldParamsValue.text!] = textfieldParamsValue.text!
+
+		let paramskeyData = textfieldParamsKey.text!
+			// retrieve from UserDefault if none create an empty array
+			var paramskeyDataList = UserDefaults.standard.array(forKey: "paramskeyDataList") as? [String] ?? [String]()
+
+			// store in UserDefault
+		paramskeyDataList.append(paramskeyData)
+			UserDefaults.standard.set(paramskeyDataList, forKey: "paramskeyDataList")
+
+
+
+
+
 		let name = Notification.Name(rawValue: notificationKey)
-		NotificationCenter.default.post(name: name, object: paramsKey)
+		NotificationCenter.default.post(name: name, object: [someInts])
 		}
 
 	func set(placeholder: String) {
