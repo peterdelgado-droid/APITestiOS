@@ -13,7 +13,7 @@ final class ButtonStackCell: StackCellBase {
   private let button = UIButton(type: .system)
   let textfieldParamsKey = UITextField()
   let textfieldParamsValue = UITextField()
-	var paramsKey = [String]()
+	var paramsKey = String()
 	var paramsValue = String()
 
 	
@@ -61,7 +61,7 @@ final class ButtonStackCell: StackCellBase {
 
 
 		textfieldParamsKey.addTarget(self, action: #selector(paramsKeyEdit), for: .editingDidEnd)
-		textfieldParamsValue.addTarget(self, action: #selector(paramsValueEdit), for: .primaryActionTriggered)
+		textfieldParamsValue.addTarget(self, action: #selector(paramsValueEdit), for: .editingDidEnd)
 		textfieldParamsKey.autocapitalizationType = UITextAutocapitalizationType.none
 		textfieldParamsValue.autocapitalizationType = UITextAutocapitalizationType.none
 		addSubview(button)
@@ -93,29 +93,20 @@ final class ButtonStackCell: StackCellBase {
 		let name = Notification.Name(rawValue: notificationValue)
 		NotificationCenter.default.post(name: name, object: paramsValue)
 	}
+
+
+
+
+
 	///var item = [String:String]()
 	var someInts: [String] = []
 
 	@objc private func paramsKeyEdit() {
 
 
-		someInts.append(textfieldParamsKey.text!)
-	//	item[textfieldParamsValue.text!] = textfieldParamsValue.text!
-
-		let paramskeyData = textfieldParamsKey.text!
-			// retrieve from UserDefault if none create an empty array
-			var paramskeyDataList = UserDefaults.standard.array(forKey: "paramskeyDataList") as? [String] ?? [String]()
-
-			// store in UserDefault
-		paramskeyDataList.append(paramskeyData)
-			UserDefaults.standard.set(paramskeyDataList, forKey: "paramskeyDataList")
-
-
-
-
-
+		paramsKey = textfieldParamsKey.text!
 		let name = Notification.Name(rawValue: notificationKey)
-		NotificationCenter.default.post(name: name, object: [someInts])
+		NotificationCenter.default.post(name: name, object: paramsKey)
 		}
 
 	func set(placeholder: String) {

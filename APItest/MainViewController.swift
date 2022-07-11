@@ -27,7 +27,7 @@ open class MainViewController: UIViewController{
 
 //	var ParamsKey:String?
 	var ParamsValue:String?
-	var ParamsKey: [String] = []
+	var ParamsKey: String?
 
 	private let stackScrollView = StackScrollView()
 
@@ -160,7 +160,7 @@ open class MainViewController: UIViewController{
 	}
 
 	@objc func updateParamsKey(notification: NSNotification){
-		ParamsKey = (notification.object as? [String])!
+		ParamsKey = notification.object as? String
 	}
 
 	@objc func updateParamsValue(notification: NSNotification){
@@ -183,7 +183,7 @@ open class MainViewController: UIViewController{
 
 
 
-			let keyParam = ParamsKey.first
+			let keyParam = ParamsKey ?? ""
 			let valueParam = ParamsValue ?? ""
 			let params : [String: String] = [valueParam: valueParam]
 
