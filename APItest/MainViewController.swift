@@ -16,8 +16,28 @@ import EasyPeasy
 import StackScrollView
 
 
-let notificationKey = "co.peter.finish"
-let notificationValue = "co.peter.hello"
+let notificationKey = "co.peter.key"
+let notificationValue = "co.peter.value"
+
+
+struct KeyValue {
+	let identifier = UUID().uuidString
+	var key: String
+	var value: String
+
+	static var empty: KeyValue {
+		KeyValue(key: "", value: "")
+	}
+
+	var isEmpty: Bool {
+		key.isEmpty && value.isEmpty
+	}
+
+	var isNotEmpty: Bool {
+		!isEmpty
+	}
+}
+
 
 
 @available(iOS 15.0, *)
@@ -26,7 +46,7 @@ open class MainViewController: UIViewController{
 
 
 //	var ParamsKey:String?
-	var ParamsValue : String?
+	var ParamsValue = [AnyHashable : Any]()
 	var ParamsKey = [AnyHashable : Any]()
 
 	private let stackScrollView = StackScrollView()
@@ -161,13 +181,11 @@ open class MainViewController: UIViewController{
 
 	@objc func updateParamsKey(notification: NSNotification){
 
-
-
-		ParamsKey = notification.userInfo ?? [ "name": noti, "age":noti, "email":noti]
+	ParamsKey = notification.userInfo ?? [ "name": noti, "age":noti, "email":noti]
 	}
 
 	@objc func updateParamsValue(notification: NSNotification){
-		ParamsValue = notification.object as? String
+		ParamsValue = notification.userInfo ?? [ "name": notiValue, "age":notiValue, "email":notiValue]
 	}
 
 
@@ -185,16 +203,27 @@ open class MainViewController: UIViewController{
 
 
 
-			let keyArray = ParamsKey.map { Array(arrayLiteral: $0.key) }
-
-			let keyParam = ParamsKey.keys
-			let valueParam = ParamsValue ?? ""
-			let params : [Any: String] = [keyArray: valueParam]
 
 
 
 
-			Alamofire.request(url, method: .get, parameters: params).responseJSON { [self]
+
+		let keyArray = ParamsKey.map { Array(arrayLiteral: $0.key) }
+			let valueArray = ParamsValue.map { Array(arrayLiteral: $0.value) }
+
+
+			let keyParam = keyArray
+			let valueParam = valueArray
+		//	let params : [String: String] = [valueParam: valueParam]
+
+			//let parameters: Parameters = [keyParam: valueParam]
+			let parameters: [String: Any] = [
+				valueArray: valueArray
+
+			]
+
+
+			Alamofire.request(url, method: .get, parameters: KeyValue,encoding: JSONEncoding.default).responseJSON { [self]
                         response in
                        if response.result.isSuccess {
                             print("Success")

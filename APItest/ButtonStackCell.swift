@@ -89,9 +89,28 @@ final class ButtonStackCell: StackCellBase {
 
 
 	@objc private func paramsValueEdit() {
-		paramsValue = textfieldParamsValue.text!
+		let paramskeyData = textfieldParamsValue.text!
+		// retrieve from UserDefault if none create an empty array
+
+		var paramsvalueDataList: [String:String] = UserDefaults.standard.object(forKey: "paramsvalueDataList") as? [String:String] ?? [:]
+
+
+		//	var paramskeyDataList = UserDefaults.standard.dictionary(forKey: "paramsKeyDataList")
+
+		// store in UserDefault
+		paramsvalueDataList[paramskeyData] = "Four"
+		UserDefaults.standard.set(paramsvalueDataList, forKey: "paramsvalueDataList")
+
+
+		//UserDefaults.standard.removePersistentDomain(forName: "paramskeyDataList")
+
+
+
+
 		let name = Notification.Name(rawValue: notificationValue)
-		NotificationCenter.default.post(name: name, object: paramsValue)
+		NotificationCenter.default.post(name: name, object: nil, userInfo: paramsvalueDataList)
+
+
 	}
 
 
