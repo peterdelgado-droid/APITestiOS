@@ -47,7 +47,7 @@ open class MainViewController: UIViewController{
 
 //	var ParamsKey:String?
 	var ParamsValue = [AnyHashable : Any]()
-	var ParamsKey = [AnyHashable : Any]()
+	var ParamsKey = [String : Any]()
 
 	private let stackScrollView = StackScrollView()
 
@@ -181,7 +181,12 @@ open class MainViewController: UIViewController{
 
 	@objc func updateParamsKey(notification: NSNotification){
 
-	ParamsKey = notification.userInfo ?? [ "name": noti, "age":noti, "email":noti]
+
+		guard let userInfo = notification.userInfo as NSDictionary? as? [String: Any] else {return}
+
+
+
+	ParamsKey = userInfo
 	}
 
 	@objc func updateParamsValue(notification: NSNotification){
@@ -204,26 +209,29 @@ open class MainViewController: UIViewController{
 
 
 
+			 var keyValue: KeyValue
 
 
 
-
-		let keyArray = ParamsKey.map { Array(arrayLiteral: $0.key) }
-			let valueArray = ParamsValue.map { Array(arrayLiteral: $0.value) }
+		    let keyArray = ParamsKey.map { Array(arrayLiteral: $0.key) }
+			let valueArray = ParamsKey.map { Array(arrayLiteral: $0.value) }
 
 
 			let keyParam = keyArray
 			let valueParam = valueArray
 		//	let params : [String: String] = [valueParam: valueParam]
 
-			//let parameters: Parameters = [keyParam: valueParam]
-			let parameters: [String: Any] = [
-				valueArray: valueArray
 
-			]
+			var singleParameters: [String: Any] = [:]
+
+			
 
 
-			Alamofire.request(url, method: .get, parameters: KeyValue,encoding: JSONEncoding.default).responseJSON { [self]
+
+
+
+
+			Alamofire.request(url, method: .get, parameters: ParamsKey ,encoding: JSONEncoding.default).responseJSON { [self]
                         response in
                        if response.result.isSuccess {
                             print("Success")

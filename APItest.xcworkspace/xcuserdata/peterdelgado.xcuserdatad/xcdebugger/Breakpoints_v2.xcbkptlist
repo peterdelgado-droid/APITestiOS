@@ -78,9 +78,88 @@
             filePath = "APItest/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "getData(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A685D14E-1261-49DC-BCB7-28830F9F6134 - ec0d0c443c679c8c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "APItest.MainViewController.getData(url: Swift.String) -&gt; ()"
+                  moduleName = "APItest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peterdelgado/Desktop/APItest/APItest/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "2176">
+               </Location>
+               <Location
+                  uuid = "A685D14E-1261-49DC-BCB7-28830F9F6134 - ec0d0c443c679c8c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "APItest.MainViewController.getData(url: Swift.String) -&gt; ()"
+                  moduleName = "APItest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peterdelgado/Desktop/APItest/APItest/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "2348">
+               </Location>
+               <Location
+                  uuid = "A685D14E-1261-49DC-BCB7-28830F9F6134 - 6bbcab94d477a9ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[2] = Value Promoted from Box&gt; of closure #3 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in APItest.MainViewController.getData(url: Swift.String) -&gt; ()"
+                  moduleName = "APItest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peterdelgado/Desktop/APItest/APItest/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "236"
+                  endingLineNumber = "236"
+                  offsetFromSymbolStart = "276">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F987F8CC-1090-4920-8A26-77EFF75B1CA9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "APItest/ButtonStackCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "paramsKeyEdit()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A562358-3D6E-4810-A5BD-7DAC29C602A2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "APItest/ButtonStackCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "paramsKeyEdit()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
