@@ -16,8 +16,28 @@ import EasyPeasy
 import StackScrollView
 
 
-let notificationKey = "co.peter.finish"
-let notificationValue = "co.peter.hello"
+let notificationKey = "co.peter.key"
+let notificationValue = "co.peter.value"
+
+
+struct KeyValue {
+	let identifier = UUID().uuidString
+	var key: String
+	var value: String
+
+	static var empty: KeyValue {
+		KeyValue(key: "", value: "")
+	}
+
+	var isEmpty: Bool {
+		key.isEmpty && value.isEmpty
+	}
+
+	var isNotEmpty: Bool {
+		!isEmpty
+	}
+}
+
 
 
 @available(iOS 15.0, *)
@@ -26,8 +46,8 @@ open class MainViewController: UIViewController{
 
 
 //	var ParamsKey:String?
-	var ParamsValue:String?
-	var ParamsKey: [String] = []
+	var ParamsValue = [AnyHashable : Any]()
+	var ParamsKey = [String : Any]()
 
 	private let stackScrollView = StackScrollView()
 
@@ -154,17 +174,23 @@ open class MainViewController: UIViewController{
 	let notiValue = Notification.Name(rawValue: notificationValue)
 
 	func createObservers(){
-		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsKey(notification:)), name: noti, object: "")
+		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsKey(notification:)), name: noti, object: nil)
 
-		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsValue(notification:)), name: notiValue, object: "")
+		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsValue(notification:)), name: notiValue, object: nil)
 	}
 
 	@objc func updateParamsKey(notification: NSNotification){
-		ParamsKey = (notification.object as? [String])!
+
+
+		guard let userInfo = notification.userInfo as NSDictionary? as? [String: Any] else {return}
+
+
+
+	ParamsKey = userInfo
 	}
 
 	@objc func updateParamsValue(notification: NSNotification){
-		ParamsValue = notification.object as? String
+		ParamsValue = notification.userInfo ?? [ "name": notiValue, "age":notiValue, "email":notiValue]
 	}
 
 
@@ -183,14 +209,29 @@ open class MainViewController: UIViewController{
 
 
 
-			let keyParam = ParamsKey.first
-			let valueParam = ParamsValue ?? ""
-			let params : [String: String] = [valueParam: valueParam]
+			 var keyValue: KeyValue
+
+
+
+		    let keyArray = ParamsKey.map { Array(arrayLiteral: $0.key) }
+			let valueArray = ParamsKey.map { Array(arrayLiteral: $0.value) }
+
+
+			let keyParam = keyArray
+			let valueParam = valueArray
+		//	let params : [String: String] = [valueParam: valueParam]
+
+
+			var singleParameters: [String: Any] = [:]
+
+			
 
 
 
 
-			Alamofire.request(url, method: .get, parameters: params).responseJSON { [self]
+
+
+			Alamofire.request(url, method: .get, parameters: ParamsKey ,encoding: JSONEncoding.default).responseJSON { [self]
                         response in
                        if response.result.isSuccess {
                             print("Success")

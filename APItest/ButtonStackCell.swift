@@ -13,7 +13,7 @@ final class ButtonStackCell: StackCellBase {
   private let button = UIButton(type: .system)
   let textfieldParamsKey = UITextField()
   let textfieldParamsValue = UITextField()
-	var paramsKey = [String]()
+	var paramsKey = [AnyHashable : Any]()
 	var paramsValue = String()
 
 	
@@ -60,8 +60,8 @@ final class ButtonStackCell: StackCellBase {
    button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
 
 
-		textfieldParamsKey.addTarget(self, action: #selector(paramsKeyEdit), for: .editingDidEnd)
-		textfieldParamsValue.addTarget(self, action: #selector(paramsValueEdit), for: .primaryActionTriggered)
+		textfieldParamsKey.addTarget(self, action: #selector(paramsKeyEdit), for: .primaryActionTriggered)
+		textfieldParamsValue.addTarget(self, action: #selector(paramsKeyEdit), for: .editingDidEnd)
 		textfieldParamsKey.autocapitalizationType = UITextAutocapitalizationType.none
 		textfieldParamsValue.autocapitalizationType = UITextAutocapitalizationType.none
 		addSubview(button)
@@ -88,34 +88,74 @@ final class ButtonStackCell: StackCellBase {
   }
 
 
-	@objc private func paramsValueEdit() {
-		paramsValue = textfieldParamsValue.text!
-		let name = Notification.Name(rawValue: notificationValue)
-		NotificationCenter.default.post(name: name, object: paramsValue)
-	}
+//	@objc private func paramsValueEdit() {
+//		let paramskeyData = textfieldParamsValue.text!
+//		// retrieve from UserDefault if none create an empty array
+//
+//		var paramsvalueDataList: [String:String] = UserDefaults.standard.object(forKey: "paramsvalueDataList") as? [String:String] ?? [:]
+//
+//
+//
+//		//	var paramskeyDataList = UserDefaults.standard.dictionary(forKey: "paramsKeyDataList")
+//
+//		// store in UserDefault
+//		paramsvalueDataList[paramskeyData] = "Four"
+//		UserDefaults.standard.set(paramsvalueDataList, forKey: "paramsvalueDataList")
+//
+//
+//
+//
+//
+//		let name = Notification.Name(rawValue: notificationValue)
+//		NotificationCenter.default.post(name: name, object: nil, userInfo: paramsvalueDataList)
+//
+//
+//	}
+
+
+
+
+
 	///var item = [String:String]()
 	var someInts: [String] = []
 
 	@objc private func paramsKeyEdit() {
 
 
-		someInts.append(textfieldParamsKey.text!)
-	//	item[textfieldParamsValue.text!] = textfieldParamsValue.text!
 
 		let paramskeyData = textfieldParamsKey.text!
-			// retrieve from UserDefault if none create an empty array
-			var paramskeyDataList = UserDefaults.standard.array(forKey: "paramskeyDataList") as? [String] ?? [String]()
+		let paramsvalueData = textfieldParamsValue.text!
+		// retrieve from UserDefault if none create an empty array
 
-			// store in UserDefault
-		paramskeyDataList.append(paramskeyData)
-			UserDefaults.standard.set(paramskeyDataList, forKey: "paramskeyDataList")
+		var paramskeyDataList: [String:String] = UserDefaults.standard.object(forKey: "paramskeyDataList") as? [String:String] ?? [:]
 
 
+		// store in UserDefault
+		paramskeyDataList[paramskeyData] = paramsvalueData
+
+		UserDefaults.standard.setValue(paramskeyDataList, forKey: "paramskeyDataList")
+
+		let countcheck = paramskeyDataList.count
+
+		if (countcheck > 2){
+
+			UserDefaults.standard.removePersistentDomain(forName: "paramskeyDataList")
+
+		}
+		//	UserDefaults.standard.removePersistentDomain(forName: "paramskeyDataList")
 
 
 
-		let name = Notification.Name(rawValue: notificationKey)
-		NotificationCenter.default.post(name: name, object: [someInts])
+
+				let name = Notification.Name(rawValue: notificationKey)
+		NotificationCenter.default.post(name: name, object: nil, userInfo: paramskeyDataList)
+
+
+
+
+
+
+
 		}
 
 	func set(placeholder: String) {
