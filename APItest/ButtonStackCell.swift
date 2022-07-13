@@ -4,7 +4,23 @@ import UIKit
 
 import EasyPeasy
 
+struct KeyValue {
+	let identifier = UUID().uuidString
+	var key: String
+	var value: String
 
+	static var empty: KeyValue {
+		KeyValue(key: "", value: "")
+	}
+
+	var isEmpty: Bool {
+		key.isEmpty && value.isEmpty
+	}
+
+	var isNotEmpty: Bool {
+		!isEmpty
+	}
+}
 
 final class ButtonStackCell: StackCellBase {
   
@@ -16,7 +32,7 @@ final class ButtonStackCell: StackCellBase {
 	var paramsKey = [AnyHashable : Any]()
 	var paramsValue = String()
 
-	
+
 
 
 	init(buttonTitle: String) {
@@ -135,13 +151,11 @@ final class ButtonStackCell: StackCellBase {
 
 		UserDefaults.standard.setValue(paramskeyDataList, forKey: "paramskeyDataList")
 
-		let countcheck = paramskeyDataList.count
 
-		if (countcheck > 2){
 
-			UserDefaults.standard.removePersistentDomain(forName: "paramskeyDataList")
+			
 
-		}
+
 		//	UserDefaults.standard.removePersistentDomain(forName: "paramskeyDataList")
 
 
@@ -152,8 +166,7 @@ final class ButtonStackCell: StackCellBase {
 
 
 
-
-
+		
 
 
 		}

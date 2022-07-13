@@ -20,23 +20,7 @@ let notificationKey = "co.peter.key"
 let notificationValue = "co.peter.value"
 
 
-struct KeyValue {
-	let identifier = UUID().uuidString
-	var key: String
-	var value: String
 
-	static var empty: KeyValue {
-		KeyValue(key: "", value: "")
-	}
-
-	var isEmpty: Bool {
-		key.isEmpty && value.isEmpty
-	}
-
-	var isNotEmpty: Bool {
-		!isEmpty
-	}
-}
 
 
 
@@ -182,11 +166,11 @@ open class MainViewController: UIViewController{
 	@objc func updateParamsKey(notification: NSNotification){
 
 
-		guard let userInfo = notification.userInfo as NSDictionary? as? [String: Any] else {return}
-
-
-
-	ParamsKey = userInfo
+//		guard let userInfo = notification.userInfo as NSDictionary? as? [String: Any] else {return}
+//
+//
+//
+//	ParamsKey = userInfo
 	}
 
 	@objc func updateParamsValue(notification: NSNotification){
