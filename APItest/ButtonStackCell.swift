@@ -4,23 +4,7 @@ import UIKit
 
 import EasyPeasy
 
-struct KeyValue {
-	let identifier = UUID().uuidString
-	var key: String
-	var value: String
 
-	static var empty: KeyValue {
-		KeyValue(key: "", value: "")
-	}
-
-	var isEmpty: Bool {
-		key.isEmpty && value.isEmpty
-	}
-
-	var isNotEmpty: Bool {
-		!isEmpty
-	}
-}
 
 final class ButtonStackCell: StackCellBase {
   
@@ -104,30 +88,11 @@ final class ButtonStackCell: StackCellBase {
   }
 
 
-//	@objc private func paramsValueEdit() {
-//		let paramskeyData = textfieldParamsValue.text!
-//		// retrieve from UserDefault if none create an empty array
-//
-//		var paramsvalueDataList: [String:String] = UserDefaults.standard.object(forKey: "paramsvalueDataList") as? [String:String] ?? [:]
-//
-//
-//
-//		//	var paramskeyDataList = UserDefaults.standard.dictionary(forKey: "paramsKeyDataList")
-//
-//		// store in UserDefault
-//		paramsvalueDataList[paramskeyData] = "Four"
-//		UserDefaults.standard.set(paramsvalueDataList, forKey: "paramsvalueDataList")
-//
-//
-//
-//
-//
-//		let name = Notification.Name(rawValue: notificationValue)
-//		NotificationCenter.default.post(name: name, object: nil, userInfo: paramsvalueDataList)
-//
-//
-//	}
 
+	 func removeImage() {
+		button.setImage(UIImage(named: ""), for: .normal)
+
+	}
 
 
 

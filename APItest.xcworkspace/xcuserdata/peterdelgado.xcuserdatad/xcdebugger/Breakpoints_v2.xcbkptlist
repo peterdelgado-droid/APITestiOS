@@ -96,7 +96,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "218"
                   endingLineNumber = "218"
-                  offsetFromSymbolStart = "2176">
+                  offsetFromSymbolStart = "2144">
                </Location>
                <Location
                   uuid = "A685D14E-1261-49DC-BCB7-28830F9F6134 - ec0d0c443c67929c"
@@ -111,7 +111,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "218"
                   endingLineNumber = "218"
-                  offsetFromSymbolStart = "2348">
+                  offsetFromSymbolStart = "2316">
                </Location>
                <Location
                   uuid = "A685D14E-1261-49DC-BCB7-28830F9F6134 - 6bbcab94d477a7fe"
@@ -129,22 +129,6 @@
                   offsetFromSymbolStart = "276">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "74E7D8AB-9A50-4A70-A021-BD95CCED518E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "APItest/ButtonStackCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "paramsKeyEdit()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

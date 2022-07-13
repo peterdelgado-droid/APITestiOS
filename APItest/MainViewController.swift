@@ -91,17 +91,18 @@ open class MainViewController: UIViewController{
 
 		let makeRemovableButton: () -> [UIView] = {
 
-			let s = self.fullSeparator()
+			//let s = self.fullSeparator()
 
 			var views: [UIView] = []
-			views.append(s)
+		//	views.append(s)
 
 			views.append({
 				let v = ButtonStackCell(buttonTitle: "Remove")
+				v.self.removeImage()
 				
 				v.tapped = { [unowned v] in
 					v.remove()
-					s.remove()
+			//		s.remove()
 				}
 				return v
 			}())
@@ -193,7 +194,6 @@ open class MainViewController: UIViewController{
 
 
 
-			 var keyValue: KeyValue
 
 
 
