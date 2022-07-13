@@ -16,13 +16,18 @@ final class ButtonStackCell: StackCellBase {
 	var paramsKey = [AnyHashable : Any]()
 	var paramsValue = String()
 
-	
+
+
 
 
 	init(buttonTitle: String) {
     super.init()
 
-	  textfieldParamsKey.font = UIFont.preferredFont(forTextStyle: .body)
+
+
+
+
+		textfieldParamsKey.font = UIFont.preferredFont(forTextStyle: .body)
 	  textfieldParamsKey.attributedPlaceholder = NSAttributedString(
 		string: "Key",
 		attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
@@ -60,8 +65,8 @@ final class ButtonStackCell: StackCellBase {
    button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
 
 
-		textfieldParamsKey.addTarget(self, action: #selector(paramsKeyEdit), for: .primaryActionTriggered)
-		textfieldParamsValue.addTarget(self, action: #selector(paramsKeyEdit), for: .editingDidEnd)
+		textfieldParamsKey.addTarget(self, action: #selector(paramsKeyEdit), for: .allEditingEvents)
+		textfieldParamsValue.addTarget(self, action: #selector(paramsKeyEdit), for: .allEditingEvents)
 		textfieldParamsKey.autocapitalizationType = UITextAutocapitalizationType.none
 		textfieldParamsValue.autocapitalizationType = UITextAutocapitalizationType.none
 		addSubview(button)
@@ -88,30 +93,11 @@ final class ButtonStackCell: StackCellBase {
   }
 
 
-//	@objc private func paramsValueEdit() {
-//		let paramskeyData = textfieldParamsValue.text!
-//		// retrieve from UserDefault if none create an empty array
-//
-//		var paramsvalueDataList: [String:String] = UserDefaults.standard.object(forKey: "paramsvalueDataList") as? [String:String] ?? [:]
-//
-//
-//
-//		//	var paramskeyDataList = UserDefaults.standard.dictionary(forKey: "paramsKeyDataList")
-//
-//		// store in UserDefault
-//		paramsvalueDataList[paramskeyData] = "Four"
-//		UserDefaults.standard.set(paramsvalueDataList, forKey: "paramsvalueDataList")
-//
-//
-//
-//
-//
-//		let name = Notification.Name(rawValue: notificationValue)
-//		NotificationCenter.default.post(name: name, object: nil, userInfo: paramsvalueDataList)
-//
-//
-//	}
 
+	 func removeImage() {
+		button.setImage(UIImage(named: ""), for: .normal)
+
+	}
 
 
 
@@ -135,13 +121,11 @@ final class ButtonStackCell: StackCellBase {
 
 		UserDefaults.standard.setValue(paramskeyDataList, forKey: "paramskeyDataList")
 
-		let countcheck = paramskeyDataList.count
 
-		if (countcheck > 2){
 
-			UserDefaults.standard.removePersistentDomain(forName: "paramskeyDataList")
+			
 
-		}
+
 		//	UserDefaults.standard.removePersistentDomain(forName: "paramskeyDataList")
 
 
@@ -152,8 +136,7 @@ final class ButtonStackCell: StackCellBase {
 
 
 
-
-
+		
 
 
 		}

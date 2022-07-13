@@ -112,7 +112,7 @@ class ResponseViewController: UIViewController{
 
 	@IBAction func CloseModal(_ sender: Any) {
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let view = storyboard.instantiateViewController(withIdentifier: "Request") as! MainViewController
+		let view = storyboard.instantiateViewController(withIdentifier: "Wave") as! WaveTabBarController
 		let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 		//show window

@@ -20,23 +20,7 @@ let notificationKey = "co.peter.key"
 let notificationValue = "co.peter.value"
 
 
-struct KeyValue {
-	let identifier = UUID().uuidString
-	var key: String
-	var value: String
 
-	static var empty: KeyValue {
-		KeyValue(key: "", value: "")
-	}
-
-	var isEmpty: Bool {
-		key.isEmpty && value.isEmpty
-	}
-
-	var isNotEmpty: Bool {
-		!isEmpty
-	}
-}
 
 
 
@@ -73,7 +57,7 @@ open class MainViewController: UIViewController{
 	let xPos4 : CGFloat = 0
 	var yPos4 : CGFloat = 0
 
-	let rect = CGRect(x: 5, y: 300, width: 350, height: 300)
+	let rect = CGRect(x: 5, y: 300, width: 350, height: 900)
 
     @IBOutlet weak var segControl: UISegmentedControl!
     @IBOutlet weak var changeCityTextField: UITextField!
@@ -96,45 +80,69 @@ open class MainViewController: UIViewController{
 	open override func viewDidLoad() {
         super.viewDidLoad()
 
-
 		createObservers()
 
 
-		
 
-	var views: [UIView] = []
-
-
+		var views: [UIView] = []
 		let makeRemovableButton: () -> [UIView] = {
 
 			let s = self.fullSeparator()
 
 			var views: [UIView] = []
-			views.append(s)
 
 			views.append({
 				let v = ButtonStackCell(buttonTitle: "Remove")
+				v.self.removeImage()
 				
 				v.tapped = { [unowned v] in
 					v.remove()
-					s.remove()
+			//		s.remove()
 				}
 				return v
 			}())
+			views.append(s)
 			return views
 		}
 
 
 
+		views.append(contentsOf: { () -> [UIView] in
+			let v = ButtonStackCell(buttonTitle: "")
+			let s = self.fullSeparator()
+			v.tapped = { [unowned stackScrollView, unowned s] in
+				var views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
+				stackScrollView.insert(views: views, before: s, animated: true)
+				views.append(s)
+			}
+			return [v, s]
+		}())
+
+		views.append(LabelStackCell(title: "Headers"))
 
 		views.append(contentsOf: { () -> [UIView] in
 			let v = ButtonStackCell(buttonTitle: "")
-			v.tapped = { [unowned stackScrollView, unowned v] in
-				let views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
-				stackScrollView.insert(views: views, after: v, animated: true)
+			let s = self.fullSeparator()
+			v.tapped = { [unowned stackScrollView, unowned s] in
+				var views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
+				stackScrollView.insert(views: views, before: s, animated: true)
+				views.append(s)
 			}
-			return [v]
+			return [v, s]
 		}())
+
+		views.append(LabelStackCell(title: "Body"))
+
+		views.append({
+			let v = TextViewStackCell()
+			
+			return v
+		}())
+
+		let s = self.fullSeparator()
+		views.append(s)
+
+		views.append(LabelStackCell(title: "Auth"))
 
 		stackScrollView.append(views: views)
 
@@ -144,6 +152,11 @@ open class MainViewController: UIViewController{
 
 		view.addSubview(stackScrollView)
 
+
+
+
+
+
 		let swiftUIToggler = SheetView(externalSwitch: reqLabel)
 		let content = UIHostingController(rootView:swiftUIToggler)
 
@@ -152,7 +165,7 @@ open class MainViewController: UIViewController{
 		view.addSubview(content.view)
         content.view.translatesAutoresizingMaskIntoConstraints = false
         content.view.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -10).isActive = true
-        content.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        content.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
         content.view.heightAnchor.constraint(equalToConstant: 100).isActive = true
         content.view.widthAnchor.constraint(equalToConstant: 110).isActive = true
 		content.view.backgroundColor = .clear
@@ -209,20 +222,19 @@ open class MainViewController: UIViewController{
 
 
 
-			 var keyValue: KeyValue
 
 
 
-		    let keyArray = ParamsKey.map { Array(arrayLiteral: $0.key) }
-			let valueArray = ParamsKey.map { Array(arrayLiteral: $0.value) }
-
-
-			let keyParam = keyArray
-			let valueParam = valueArray
-		//	let params : [String: String] = [valueParam: valueParam]
-
-
-			var singleParameters: [String: Any] = [:]
+//		    let keyArray = ParamsKey.map { Array(arrayLiteral: $0.key) }
+//			let valueArray = ParamsKey.map { Array(arrayLiteral: $0.value) }
+//
+//
+//			let keyParam = keyArray
+//			let valueParam = valueArray
+//		//	let params : [String: String] = [valueParam: valueParam]
+//
+//
+			//var singleParameters: [String: Any] = [:]
 
 			
 
@@ -231,7 +243,7 @@ open class MainViewController: UIViewController{
 
 
 
-			Alamofire.request(url, method: .get, parameters: ParamsKey ,encoding: JSONEncoding.default).responseJSON { [self]
+			Alamofire.request(url, method: .get, parameters: ParamsKey).responseJSON { [self]
                         response in
                        if response.result.isSuccess {
                             print("Success")
