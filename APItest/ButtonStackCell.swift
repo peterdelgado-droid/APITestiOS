@@ -19,10 +19,15 @@ final class ButtonStackCell: StackCellBase {
 
 
 
+
 	init(buttonTitle: String) {
     super.init()
 
-	  textfieldParamsKey.font = UIFont.preferredFont(forTextStyle: .body)
+
+
+
+
+		textfieldParamsKey.font = UIFont.preferredFont(forTextStyle: .body)
 	  textfieldParamsKey.attributedPlaceholder = NSAttributedString(
 		string: "Key",
 		attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]

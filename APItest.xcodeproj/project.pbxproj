@@ -21,6 +21,7 @@
 		824EF9902869CCAD00C92967 /* StackCellBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824EF98F2869CCAD00C92967 /* StackCellBase.swift */; };
 		8256E975286B07AC0001E2F5 /* TextFieldStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */; };
 		8259C5182848FAEF0045047D /* ModelHis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8259C5162848FAEF0045047D /* ModelHis.xcdatamodeld */; };
+		8263F245287EC7960009023E /* LabelStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263F244287EC7960009023E /* LabelStackCell.swift */; };
 		826A44A42849F61A007C2206 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A44A32849F61A007C2206 /* History.swift */; };
 		82910DF12869C76600B837D9 /* ButtonStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82910DF02869C76600B837D9 /* ButtonStackCell.swift */; };
 		8291B98E2850B3ED0007E59B /* WaveTabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291B98D2850B3ED0007E59B /* WaveTabBarProtocol.swift */; };
@@ -61,6 +62,7 @@
 		824EF98F2869CCAD00C92967 /* StackCellBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCellBase.swift; sourceTree = "<group>"; };
 		8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldStackCell.swift; path = "../../../Downloads/StackScrollView-master/StackScrollView-Demo/TextFieldStackCell.swift"; sourceTree = "<group>"; };
 		8259C5172848FAEF0045047D /* ModelHis.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelHis.xcdatamodel; sourceTree = "<group>"; };
+		8263F244287EC7960009023E /* LabelStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelStackCell.swift; path = "../../../Downloads/StackScrollView-master/StackScrollView-Demo/LabelStackCell.swift"; sourceTree = "<group>"; };
 		826A44A32849F61A007C2206 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		82910DF02869C76600B837D9 /* ButtonStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStackCell.swift; sourceTree = "<group>"; };
 		8291B98D2850B3ED0007E59B /* WaveTabBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarProtocol.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				8230A6862869D152008470F9 /* HeaderStackCell.swift */,
 				824EF98F2869CCAD00C92967 /* StackCellBase.swift */,
 				82910DF02869C76600B837D9 /* ButtonStackCell.swift */,
+				8263F244287EC7960009023E /* LabelStackCell.swift */,
 				8204A51B286F1E3400207050 /* UserManager.swift */,
 				8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */,
 				82944E452837A9F800343116 /* SheetView.swift */,
@@ -379,6 +382,7 @@
 				82910DF12869C76600B837D9 /* ButtonStackCell.swift in Sources */,
 				8291F620284E020F001B9017 /* HistTableViewCell.swift in Sources */,
 				8204A51A286F1A4D00207050 /* BaseViewModel.swift in Sources */,
+				8263F245287EC7960009023E /* LabelStackCell.swift in Sources */,
 				82944E462837A9F800343116 /* SheetView.swift in Sources */,
 				822AB5E3285093EE00E20B78 /* UIBezierPath+createCurve.swift in Sources */,
 				8291B9922850B4C30007E59B /* WaveTabBarPresenterBase.swift in Sources */,
