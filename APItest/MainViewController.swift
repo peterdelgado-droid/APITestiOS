@@ -131,13 +131,18 @@ open class MainViewController: UIViewController{
 			return [v, s]
 		}())
 
-		views.append(LabelStackCell(title: "Headers"))
+		views.append(LabelStackCell(title: "Body"))
 
 		views.append({
-			let v = TextFieldStackCell()
-			v.set(placeholder: "Detail")
+			let v = TextViewStackCell()
+			
 			return v
 		}())
+
+		let s = self.fullSeparator()
+		views.append(s)
+
+		views.append(LabelStackCell(title: "Auth"))
 
 		stackScrollView.append(views: views)
 
@@ -190,11 +195,11 @@ open class MainViewController: UIViewController{
 	@objc func updateParamsKey(notification: NSNotification){
 
 
-//		guard let userInfo = notification.userInfo as NSDictionary? as? [String: Any] else {return}
-//
-//
-//
-//	ParamsKey = userInfo
+		guard let userInfo = notification.userInfo as NSDictionary? as? [String: Any] else {return}
+
+
+
+	ParamsKey = userInfo
 	}
 
 	@objc func updateParamsValue(notification: NSNotification){
@@ -229,7 +234,7 @@ open class MainViewController: UIViewController{
 //		//	let params : [String: String] = [valueParam: valueParam]
 //
 //
-//			var singleParameters: [String: Any] = [:]
+			//var singleParameters: [String: Any] = [:]
 
 			
 
@@ -238,7 +243,7 @@ open class MainViewController: UIViewController{
 
 
 
-			Alamofire.request(url, method: .get, parameters: ParamsKey ,encoding: JSONEncoding.default).responseJSON { [self]
+			Alamofire.request(url, method: .get, parameters: ParamsKey).responseJSON { [self]
                         response in
                        if response.result.isSuccess {
                             print("Success")

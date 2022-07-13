@@ -22,6 +22,7 @@
 		8256E975286B07AC0001E2F5 /* TextFieldStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */; };
 		8259C5182848FAEF0045047D /* ModelHis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8259C5162848FAEF0045047D /* ModelHis.xcdatamodeld */; };
 		8263F245287EC7960009023E /* LabelStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263F244287EC7960009023E /* LabelStackCell.swift */; };
+		8263F247287ED51B0009023E /* TextViewStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263F246287ED51B0009023E /* TextViewStackCell.swift */; };
 		826A44A42849F61A007C2206 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A44A32849F61A007C2206 /* History.swift */; };
 		82910DF12869C76600B837D9 /* ButtonStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82910DF02869C76600B837D9 /* ButtonStackCell.swift */; };
 		8291B98E2850B3ED0007E59B /* WaveTabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291B98D2850B3ED0007E59B /* WaveTabBarProtocol.swift */; };
@@ -63,6 +64,7 @@
 		8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldStackCell.swift; path = "../../../Downloads/StackScrollView-master/StackScrollView-Demo/TextFieldStackCell.swift"; sourceTree = "<group>"; };
 		8259C5172848FAEF0045047D /* ModelHis.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelHis.xcdatamodel; sourceTree = "<group>"; };
 		8263F244287EC7960009023E /* LabelStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelStackCell.swift; path = "../../../Downloads/StackScrollView-master/StackScrollView-Demo/LabelStackCell.swift"; sourceTree = "<group>"; };
+		8263F246287ED51B0009023E /* TextViewStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextViewStackCell.swift; path = "../../../Downloads/StackScrollView-master/StackScrollView-Demo/TextViewStackCell.swift"; sourceTree = "<group>"; };
 		826A44A32849F61A007C2206 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		82910DF02869C76600B837D9 /* ButtonStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStackCell.swift; sourceTree = "<group>"; };
 		8291B98D2850B3ED0007E59B /* WaveTabBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarProtocol.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				8263F244287EC7960009023E /* LabelStackCell.swift */,
 				8204A51B286F1E3400207050 /* UserManager.swift */,
 				8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */,
+				8263F246287ED51B0009023E /* TextViewStackCell.swift */,
 				82944E452837A9F800343116 /* SheetView.swift */,
 				63E28AD01B99C32400FBF6E0 /* AppDelegate.swift */,
 				82CEBF64283BC97000CC02A5 /* ResponseViewController.swift */,
@@ -377,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8263F247287ED51B0009023E /* TextViewStackCell.swift in Sources */,
 				63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */,
 				8204A51C286F1E3400207050 /* UserManager.swift in Sources */,
 				82910DF12869C76600B837D9 /* ButtonStackCell.swift in Sources */,
