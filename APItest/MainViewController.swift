@@ -17,7 +17,7 @@ import StackScrollView
 
 
 let notificationKey = "co.peter.key"
-let notificationValue = "co.peter.value"
+let notificationKeyHeaders = "co.peter.key.headers"
 
 
 
@@ -30,7 +30,7 @@ open class MainViewController: UIViewController{
 
 
 //	var ParamsKey:String?
-	var ParamsValue = [AnyHashable : Any]()
+	var Headers = [String : String]()
 	var ParamsKey = [String : Any]()
 
 	private let stackScrollView = StackScrollView()
@@ -65,7 +65,7 @@ open class MainViewController: UIViewController{
     @IBOutlet weak var sendParamsValueTextField: UITextField!
 	@IBOutlet weak var addParams: UIButton!
 	@IBOutlet weak var addHeaders: UIButton!
-	@IBOutlet weak var Headers: UILabel!
+
 
 
 
@@ -121,7 +121,7 @@ open class MainViewController: UIViewController{
 		views.append(LabelStackCell(title: "Headers"))
 
 		views.append(contentsOf: { () -> [UIView] in
-			let v = ButtonStackCell(buttonTitle: "")
+			let v = HeadersStackCell(buttonTitle: "")
 			let s = self.fullSeparator()
 			v.tapped = { [unowned stackScrollView, unowned s] in
 				var views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
@@ -184,26 +184,24 @@ open class MainViewController: UIViewController{
 
 
 	let noti = Notification.Name(rawValue: notificationKey)
-	let notiValue = Notification.Name(rawValue: notificationValue)
+	let notiHeaders = Notification.Name(rawValue: notificationKeyHeaders)
 
 	func createObservers(){
 		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsKey(notification:)), name: noti, object: nil)
 
-		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsValue(notification:)), name: notiValue, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateHeaders(notification:)), name: notiHeaders, object: nil)
 	}
+
 
 	@objc func updateParamsKey(notification: NSNotification){
-
-
 		guard let userInfo = notification.userInfo as NSDictionary? as? [String: Any] else {return}
-
-
-
-	ParamsKey = userInfo
+		ParamsKey = userInfo
 	}
 
-	@objc func updateParamsValue(notification: NSNotification){
-		ParamsValue = notification.userInfo ?? [ "name": notiValue, "age":notiValue, "email":notiValue]
+
+	@objc func updateHeaders(notification: NSNotification){
+		guard let userInfo = notification.userInfo as NSDictionary? as? [String: String] else {return}
+		Headers = userInfo
 	}
 
 
@@ -218,32 +216,12 @@ open class MainViewController: UIViewController{
 		if reqLabel.text == "GET"{
 			//cityName.insert(contentsOf: "get", at: cityName.endIndex)
 
+//			let httpHeaders: HTTPHeaders = [
+//				"Authorization": "Bearer d003a27408f777983ced2aefc523239924b3f6d52f0e93b8d9a03412270e3ef3"
+//			]
 
 
-
-
-
-
-
-//		    let keyArray = ParamsKey.map { Array(arrayLiteral: $0.key) }
-//			let valueArray = ParamsKey.map { Array(arrayLiteral: $0.value) }
-//
-//
-//			let keyParam = keyArray
-//			let valueParam = valueArray
-//		//	let params : [String: String] = [valueParam: valueParam]
-//
-//
-			//var singleParameters: [String: Any] = [:]
-
-			
-
-
-
-
-
-
-			Alamofire.request(url, method: .get, parameters: ParamsKey).responseJSON { [self]
+			Alamofire.request(url, method: .get, parameters: ParamsKey, headers: Headers).responseJSON { [self]
                         response in
                        if response.result.isSuccess {
                             print("Success")

@@ -31,13 +31,13 @@
 		8291F620284E020F001B9017 /* HistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291F61F284E020F001B9017 /* HistTableViewCell.swift */; };
 		8291F622284E1F97001B9017 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291F621284E1F97001B9017 /* SettingsViewController.swift */; };
 		82944E462837A9F800343116 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82944E452837A9F800343116 /* SheetView.swift */; };
-		82B2DA822869B1F7000B1700 /* Child1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B2DA812869B1F7000B1700 /* Child1.swift */; };
-		82B2DA842869B278000B1700 /* Child2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B2DA832869B278000B1700 /* Child2.swift */; };
 		82BE05822857773600DA053C /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BE05812857773600DA053C /* ResponseModel.swift */; };
 		82CEBF65283BC97000CC02A5 /* ResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CEBF64283BC97000CC02A5 /* ResponseViewController.swift */; };
 		82D0366D284649FA0083A41E /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D0366C284649FA0083A41E /* Manager.swift */; };
 		82D3DEF6284F8D9800B942D2 /* SettingsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D3DEF5284F8D9800B942D2 /* SettingsSwiftUIView.swift */; };
+		82E16A2D287EED5C00E174C7 /* HeadersStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E16A2C287EED5C00E174C7 /* HeadersStackCell.swift */; };
 		82ECEFA8282A5D6800A2916F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82ECEFA7282A5D6800A2916F /* Main.storyboard */; };
+		82F333F428818D5200A9BEA2 /* SwitchStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F333F328818D5200A9BEA2 /* SwitchStackCell.swift */; };
 		FC42EAA260F97F759425B852 /* Pods_APItest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CA9FEF3644598C743D7061 /* Pods_APItest.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,13 +73,13 @@
 		8291F61F284E020F001B9017 /* HistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistTableViewCell.swift; sourceTree = "<group>"; };
 		8291F621284E1F97001B9017 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		82944E452837A9F800343116 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
-		82B2DA812869B1F7000B1700 /* Child1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child1.swift; sourceTree = "<group>"; };
-		82B2DA832869B278000B1700 /* Child2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child2.swift; sourceTree = "<group>"; };
 		82BE05812857773600DA053C /* ResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		82CEBF64283BC97000CC02A5 /* ResponseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseViewController.swift; sourceTree = "<group>"; };
 		82D0366C284649FA0083A41E /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		82D3DEF5284F8D9800B942D2 /* SettingsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSwiftUIView.swift; sourceTree = "<group>"; };
+		82E16A2C287EED5C00E174C7 /* HeadersStackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadersStackCell.swift; sourceTree = "<group>"; };
 		82ECEFA7282A5D6800A2916F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		82F333F328818D5200A9BEA2 /* SwitchStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchStackCell.swift; path = "../../../Downloads/StackScrollView-master/StackScrollView-Demo/SwitchStackCell.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +169,9 @@
 				8230A6862869D152008470F9 /* HeaderStackCell.swift */,
 				824EF98F2869CCAD00C92967 /* StackCellBase.swift */,
 				82910DF02869C76600B837D9 /* ButtonStackCell.swift */,
+				82E16A2C287EED5C00E174C7 /* HeadersStackCell.swift */,
 				8263F244287EC7960009023E /* LabelStackCell.swift */,
+				82F333F328818D5200A9BEA2 /* SwitchStackCell.swift */,
 				8204A51B286F1E3400207050 /* UserManager.swift */,
 				8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */,
 				8263F246287ED51B0009023E /* TextViewStackCell.swift */,
@@ -178,8 +180,6 @@
 				82CEBF64283BC97000CC02A5 /* ResponseViewController.swift */,
 				826A44A32849F61A007C2206 /* History.swift */,
 				8291F621284E1F97001B9017 /* SettingsViewController.swift */,
-				82B2DA812869B1F7000B1700 /* Child1.swift */,
-				82B2DA832869B278000B1700 /* Child2.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -393,12 +393,12 @@
 				826A44A42849F61A007C2206 /* History.swift in Sources */,
 				82CEBF65283BC97000CC02A5 /* ResponseViewController.swift in Sources */,
 				824EF9902869CCAD00C92967 /* StackCellBase.swift in Sources */,
-				82B2DA822869B1F7000B1700 /* Child1.swift in Sources */,
 				82D0366D284649FA0083A41E /* Manager.swift in Sources */,
 				8259C5182848FAEF0045047D /* ModelHis.xcdatamodeld in Sources */,
 				822AB5E52850963000E20B78 /* WaveTabBarController.swift in Sources */,
-				82B2DA842869B278000B1700 /* Child2.swift in Sources */,
+				82F333F428818D5200A9BEA2 /* SwitchStackCell.swift in Sources */,
 				8291B9902850B4B20007E59B /* WaveTabBarPresenter.swift in Sources */,
+				82E16A2D287EED5C00E174C7 /* HeadersStackCell.swift in Sources */,
 				8291B98E2850B3ED0007E59B /* WaveTabBarProtocol.swift in Sources */,
 				8230A6892869D19F008470F9 /* SeparatorStackCell.swift in Sources */,
 				8256E975286B07AC0001E2F5 /* TextFieldStackCell.swift in Sources */,
