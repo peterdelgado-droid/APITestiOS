@@ -57,7 +57,7 @@ open class MainViewController: UIViewController{
 	let xPos4 : CGFloat = 0
 	var yPos4 : CGFloat = 0
 
-	let rect = CGRect(x: 5, y: 300, width: 350, height: 900)
+	let rect = CGRect(x: 5, y: 255, width: 350, height: 450)
 
     @IBOutlet weak var segControl: UISegmentedControl!
     @IBOutlet weak var changeCityTextField: UITextField!
@@ -142,18 +142,42 @@ open class MainViewController: UIViewController{
 		let s = self.fullSeparator()
 		views.append(s)
 
-		views.append(LabelStackCell(title: "Auth"))
+		views.append(LabelStackCell(title: "Basic Auth"))
+
+		views.append(contentsOf: { () -> [UIView] in
+			let v = BasicAuthStackCell(buttonTitle: "")
+			let s = self.fullSeparator()
+			v.tapped = { [unowned stackScrollView, unowned s] in
+				var views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
+				stackScrollView.insert(views: views, before: s, animated: true)
+				views.append(s)
+			}
+			return [v, s]
+		}())
+
+		let p = self.fullSeparator()
+		views.append(p)
+
+		views.append(LabelStackCell(title: "OAuth"))
+		views.append(contentsOf: { () -> [UIView] in
+			let v = OAuthStackCell(buttonTitle: "")
+			let s = self.fullSeparator()
+			v.tapped = { [unowned stackScrollView, unowned s] in
+				var views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
+				stackScrollView.insert(views: views, before: s, animated: true)
+				views.append(s)
+			}
+			return [v, s]
+		}())
 
 		stackScrollView.append(views: views)
 
-		stackScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+
+		//stackScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		stackScrollView.frame = rect
 
-
 		view.addSubview(stackScrollView)
-
-
-
 
 
 
@@ -170,6 +194,7 @@ open class MainViewController: UIViewController{
         content.view.widthAnchor.constraint(equalToConstant: 110).isActive = true
 		content.view.backgroundColor = .clear
         content.view.layer.cornerRadius = 5
+
 //
 ////		if(passedValue2 == nil){
 ////			reqLabel?.text = "GET"
@@ -178,6 +203,10 @@ open class MainViewController: UIViewController{
 ////			reqLabel?.text = passedValue2
 ////		}
 //
+
+
+
+
 //
     }
 
