@@ -18,6 +18,7 @@ import StackScrollView
 
 let notificationKey = "co.peter.key"
 let notificationKeyHeaders = "co.peter.key.headers"
+let notiBasicAuth = "co.peter.basic.auth"
 
 
 
@@ -32,6 +33,7 @@ open class MainViewController: UIViewController{
 //	var ParamsKey:String?
 	var Headers = [String : String]()
 	var ParamsKey = [String : Any]()
+	var BasicAuth = [String : String]()
 
 	private let stackScrollView = StackScrollView()
 
@@ -48,14 +50,7 @@ open class MainViewController: UIViewController{
 
 //	@IBOutlet weak private var stackView: UIStackView!
 
-	let xPos : CGFloat = 0
-	var yPos : CGFloat = 0
-	let xPos2 : CGFloat = 0
-	var yPos2 : CGFloat = 0
-	let xPos3 : CGFloat = 0
-	var yPos3 : CGFloat = 0
-	let xPos4 : CGFloat = 0
-	var yPos4 : CGFloat = 0
+
 
 	let rect = CGRect(x: 5, y: 255, width: 350, height: 450)
 
@@ -214,23 +209,49 @@ open class MainViewController: UIViewController{
 
 	let noti = Notification.Name(rawValue: notificationKey)
 	let notiHeaders = Notification.Name(rawValue: notificationKeyHeaders)
+	let notificationBasicAuth = Notification.Name(rawValue: notiBasicAuth)
 
 	func createObservers(){
 		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsKey(notification:)), name: noti, object: nil)
 
 		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateHeaders(notification:)), name: notiHeaders, object: nil)
+
+		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.basicAuth(notification:)), name: notificationBasicAuth, object: nil)
 	}
 
 
 	@objc func updateParamsKey(notification: NSNotification){
 		guard let userInfo = notification.userInfo as NSDictionary? as? [String: Any] else {return}
 		ParamsKey = userInfo
+
+
 	}
 
 
 	@objc func updateHeaders(notification: NSNotification){
 		guard let userInfo = notification.userInfo as NSDictionary? as? [String: String] else {return}
 		Headers = userInfo
+
+	}
+
+	@objc func basicAuth(notification: NSNotification){
+		guard let userInfo = notification.userInfo as NSDictionary? as? [String: String] else {return}
+		BasicAuth = userInfo
+
+		let utf8str = BasicAuth.description.data(using: .utf8)
+
+		if let base64Encoded = utf8str?.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0)) {
+			print("Encoded: \(base64Encoded)")
+
+
+
+			Headers = [
+				"Authorization" : base64Encoded
+				]
+
+
+
+		}
 	}
 
 
@@ -250,7 +271,7 @@ open class MainViewController: UIViewController{
 //			]
 
 
-			Alamofire.request(url, method: .get, parameters: ParamsKey, headers: Headers).responseJSON { [self]
+				Alamofire.request(url, method: .get, parameters: ParamsKey, headers: Headers).responseJSON { [self]
                         response in
                        if response.result.isSuccess {
                             print("Success")

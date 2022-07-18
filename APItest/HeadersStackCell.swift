@@ -113,16 +113,16 @@ final class HeadersStackCell: StackCellBase {
 		let paramsvalueData = textfieldParamsValue.text!
 		// retrieve from UserDefault if none create an empty array
 
-		var paramskeyDataList: [String:String] = UserDefaults.standard.object(forKey: "paramskeyDataList") as? [String:String] ?? [:]
+		var headerskeyDataList: [String:String] = UserDefaults.standard.object(forKey: "headerskeyDataList") as? [String:String] ?? [:]
 
 
 		// store in UserDefault
-		paramskeyDataList[paramskeyData] = paramsvalueData
+		headerskeyDataList[paramskeyData] = paramsvalueData
 
-		UserDefaults.standard.setValue(paramskeyDataList, forKey: "paramskeyDataList")
+		UserDefaults.standard.setValue(headerskeyDataList, forKey: "headerskeyDataList")
 
 		let name = Notification.Name(rawValue: notificationKeyHeaders)
-		NotificationCenter.default.post(name: name, object: nil, userInfo: paramskeyDataList)
+		NotificationCenter.default.post(name: name, object: nil, userInfo: headerskeyDataList)
 
 
 	}

@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let prefs = UserDefaults.standard
 
 		prefs.removeObject(forKey: "paramskeyDataList")
+		prefs.removeObject(forKey: "headerskeyDataList")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -42,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let prefs = UserDefaults.standard
 
 		prefs.removeObject(forKey: "paramskeyDataList")
+		prefs.removeObject(forKey: "headerskeyDataList")
     }
 	// MARK: - Core Data stack
 

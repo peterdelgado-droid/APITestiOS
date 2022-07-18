@@ -121,7 +121,7 @@ final class BasicAuthStackCell: StackCellBase {
 
 		UserDefaults.standard.setValue(paramskeyDataList, forKey: "paramskeyDataList")
 
-		let name = Notification.Name(rawValue: notificationKeyHeaders)
+		let name = Notification.Name(rawValue: notiBasicAuth)
 		NotificationCenter.default.post(name: name, object: nil, userInfo: paramskeyDataList)
 
 
