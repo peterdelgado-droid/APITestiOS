@@ -65,8 +65,8 @@ final class HeadersStackCell: StackCellBase {
 		button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
 
 
-		textfieldParamsKey.addTarget(self, action: #selector(paramsKeyEdit), for: .allEditingEvents)
-		textfieldParamsValue.addTarget(self, action: #selector(paramsKeyEdit), for: .allEditingEvents)
+		textfieldParamsKey.addTarget(self, action: #selector(paramsKeyEdit), for: .editingDidEnd)
+		textfieldParamsValue.addTarget(self, action: #selector(paramsKeyEdit), for: .editingDidEnd)
 		textfieldParamsKey.autocapitalizationType = UITextAutocapitalizationType.none
 		textfieldParamsValue.autocapitalizationType = UITextAutocapitalizationType.none
 		addSubview(button)

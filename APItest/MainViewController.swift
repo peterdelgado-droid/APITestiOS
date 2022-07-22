@@ -56,10 +56,7 @@ open class MainViewController: UIViewController{
 
     @IBOutlet weak var segControl: UISegmentedControl!
     @IBOutlet weak var changeCityTextField: UITextField!
-    @IBOutlet weak var sendParamsKeyTextField: UITextField!
-    @IBOutlet weak var sendParamsValueTextField: UITextField!
-	@IBOutlet weak var addParams: UIButton!
-	@IBOutlet weak var addHeaders: UIButton!
+
 
 
 
@@ -221,8 +218,8 @@ open class MainViewController: UIViewController{
 
 
 	@objc func updateParamsKey(notification: NSNotification){
-		guard let userInfo = notification.userInfo as NSDictionary? as? [String: Any] else {return}
-		ParamsKey = userInfo
+		guard let userParams = notification.userInfo as NSDictionary? as? [String: Any] else {return}
+		ParamsKey = userParams
 
 
 	}
@@ -230,6 +227,7 @@ open class MainViewController: UIViewController{
 
 	@objc func updateHeaders(notification: NSNotification){
 		guard let userInfo = notification.userInfo as NSDictionary? as? [String: String] else {return}
+
 		Headers = userInfo
 
 	}
@@ -266,15 +264,23 @@ open class MainViewController: UIViewController{
 		if reqLabel.text == "GET"{
 			//cityName.insert(contentsOf: "get", at: cityName.endIndex)
 
-//			let httpHeaders: HTTPHeaders = [
-//				"Authorization": "Bearer d003a27408f777983ced2aefc523239924b3f6d52f0e93b8d9a03412270e3ef3"
-//			]
+			let httpHeaders: HTTPHeaders = [
+				"Authorization": "Basic dXNlcjpwYXNzd2Q="
+			]
 
 
-				Alamofire.request(url, method: .get, parameters: ParamsKey, headers: Headers).responseJSON { [self]
+
+			Headers = [
+				"Authorization" : "Basic dXNlcjpwYXNzd2Q="
+			]
+
+
+			Alamofire.request(url, method: .get, parameters: ParamsKey, headers: Headers).responseData { [self]
                         response in
                        if response.result.isSuccess {
                             print("Success")
+
+
 							let weatherJSON : JSON = JSON(response.result.value!)
 
 						   Manager.messageText.append(weatherJSON.rawString() ?? "ete")
@@ -306,9 +312,8 @@ open class MainViewController: UIViewController{
              */
           //  cityName.insert(contentsOf: "post", at: cityName.endIndex)
 			let keyParam = passedValue as String
-            let valueParam = sendParamsValueTextField.text!
-            let params : [String: String] = [keyParam: valueParam]
-            
+
+
             /*
              If you are using Basic Authentication uncomment the follow line and add your base64 string
              Replace 'nil' with 'httpHeaders' in headers
@@ -319,7 +324,7 @@ open class MainViewController: UIViewController{
             ]
 
 
-			Alamofire.request(url, method: .post,  parameters: params, headers: httpHeaders).responseJSON { [self]
+			Alamofire.request(url, method: .post,  parameters: ParamsKey, headers: httpHeaders).responseJSON { [self]
                         response in
                         if response.result.isSuccess {
                             print("Success")
@@ -366,12 +371,11 @@ open class MainViewController: UIViewController{
         }
         else if reqLabel.text == "PUT"{
             cityName.insert(contentsOf: "post", at: cityName.endIndex)
-            let keyParam = sendParamsKeyTextField.text!
-            let valueParam = sendParamsValueTextField.text!
-            let params : [String: String] = [keyParam: valueParam]
+
+
             
             
-            Alamofire.request(url, method: .put, parameters: params).responseJSON { [self]
+            Alamofire.request(url, method: .put, parameters: ParamsKey).responseJSON { [self]
                     response in
                     if response.result.isSuccess {
                         print("Success")

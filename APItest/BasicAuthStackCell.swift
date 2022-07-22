@@ -65,8 +65,8 @@ final class BasicAuthStackCell: StackCellBase {
 		button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
 
 
-		textfieldParamsKey.addTarget(self, action: #selector(paramsKeyEdit), for: .allEditingEvents)
-		textfieldParamsValue.addTarget(self, action: #selector(paramsKeyEdit), for: .allEditingEvents)
+		textfieldParamsKey.addTarget(self, action: #selector(paramsKeyEdit), for: .editingDidEnd)
+		textfieldParamsValue.addTarget(self, action: #selector(paramsKeyEdit), for: .editingDidEnd)
 		textfieldParamsKey.autocapitalizationType = UITextAutocapitalizationType.none
 		textfieldParamsValue.autocapitalizationType = UITextAutocapitalizationType.none
 		addSubview(button)
@@ -113,16 +113,16 @@ final class BasicAuthStackCell: StackCellBase {
 		let paramsvalueData = textfieldParamsValue.text!
 		// retrieve from UserDefault if none create an empty array
 
-		var paramskeyDataList: [String:String] = UserDefaults.standard.object(forKey: "paramskeyDataList") as? [String:String] ?? [:]
+		var basicAuthDataList: [String:String] = UserDefaults.standard.object(forKey: "basicAuthDataList") as? [String:String] ?? [:]
 
 
 		// store in UserDefault
-		paramskeyDataList[paramskeyData] = paramsvalueData
+		basicAuthDataList[paramskeyData] = paramsvalueData
 
-		UserDefaults.standard.setValue(paramskeyDataList, forKey: "paramskeyDataList")
+		UserDefaults.standard.setValue(basicAuthDataList, forKey: "basicAuthDataList")
 
 		let name = Notification.Name(rawValue: notiBasicAuth)
-		NotificationCenter.default.post(name: name, object: nil, userInfo: paramskeyDataList)
+		NotificationCenter.default.post(name: name, object: nil, userInfo: basicAuthDataList)
 
 
 	}

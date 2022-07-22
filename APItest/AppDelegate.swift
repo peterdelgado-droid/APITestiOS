@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		prefs.removeObject(forKey: "paramskeyDataList")
 		prefs.removeObject(forKey: "headerskeyDataList")
+		
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -40,10 +41,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-		let prefs = UserDefaults.standard
+		let prefsP = UserDefaults.standard
+		let prefsH = UserDefaults.standard
+		let prefsB = UserDefaults.standard
 
-		prefs.removeObject(forKey: "paramskeyDataList")
-		prefs.removeObject(forKey: "headerskeyDataList")
+
+		prefsP.removeObject(forKey: "paramskeyDataList")
+		prefsH.removeObject(forKey: "headerskeyDataList")
+		prefsB.removeObject(forKey: "basicAuthDataList")
     }
 	// MARK: - Core Data stack
 
