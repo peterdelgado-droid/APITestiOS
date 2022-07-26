@@ -17,7 +17,8 @@ import StackScrollView
 
 
 let notificationKey = "co.peter.key"
-let notificationValue = "co.peter.value"
+let notificationKeyHeaders = "co.peter.key.headers"
+let notiBasicAuth = "co.peter.basic.auth"
 
 
 
@@ -30,8 +31,9 @@ open class MainViewController: UIViewController{
 
 
 //	var ParamsKey:String?
-	var ParamsValue = [AnyHashable : Any]()
+	var Headers = [String : String]()
 	var ParamsKey = [String : Any]()
+	var BasicAuth = [String : String]()
 
 	private let stackScrollView = StackScrollView()
 
@@ -48,24 +50,14 @@ open class MainViewController: UIViewController{
 
 //	@IBOutlet weak private var stackView: UIStackView!
 
-	let xPos : CGFloat = 0
-	var yPos : CGFloat = 0
-	let xPos2 : CGFloat = 0
-	var yPos2 : CGFloat = 0
-	let xPos3 : CGFloat = 0
-	var yPos3 : CGFloat = 0
-	let xPos4 : CGFloat = 0
-	var yPos4 : CGFloat = 0
 
-	let rect = CGRect(x: 5, y: 300, width: 350, height: 900)
+
+	let rect = CGRect(x: 5, y: 255, width: 350, height: 450)
 
     @IBOutlet weak var segControl: UISegmentedControl!
     @IBOutlet weak var changeCityTextField: UITextField!
-    @IBOutlet weak var sendParamsKeyTextField: UITextField!
-    @IBOutlet weak var sendParamsValueTextField: UITextField!
-	@IBOutlet weak var addParams: UIButton!
-	@IBOutlet weak var addHeaders: UIButton!
-	@IBOutlet weak var Headers: UILabel!
+
+
 
 
 
@@ -121,7 +113,7 @@ open class MainViewController: UIViewController{
 		views.append(LabelStackCell(title: "Headers"))
 
 		views.append(contentsOf: { () -> [UIView] in
-			let v = ButtonStackCell(buttonTitle: "")
+			let v = HeadersStackCell(buttonTitle: "")
 			let s = self.fullSeparator()
 			v.tapped = { [unowned stackScrollView, unowned s] in
 				var views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
@@ -142,18 +134,42 @@ open class MainViewController: UIViewController{
 		let s = self.fullSeparator()
 		views.append(s)
 
-		views.append(LabelStackCell(title: "Auth"))
+		views.append(LabelStackCell(title: "Basic Auth"))
+
+		views.append(contentsOf: { () -> [UIView] in
+			let v = BasicAuthStackCell(buttonTitle: "")
+			let s = self.fullSeparator()
+			v.tapped = { [unowned stackScrollView, unowned s] in
+				var views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
+				stackScrollView.insert(views: views, before: s, animated: true)
+				views.append(s)
+			}
+			return [v, s]
+		}())
+
+		let p = self.fullSeparator()
+		views.append(p)
+
+		views.append(LabelStackCell(title: "OAuth"))
+		views.append(contentsOf: { () -> [UIView] in
+			let v = OAuthStackCell(buttonTitle: "")
+			let s = self.fullSeparator()
+			v.tapped = { [unowned stackScrollView, unowned s] in
+				var views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
+				stackScrollView.insert(views: views, before: s, animated: true)
+				views.append(s)
+			}
+			return [v, s]
+		}())
 
 		stackScrollView.append(views: views)
 
-		stackScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+
+		//stackScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		stackScrollView.frame = rect
 
-
 		view.addSubview(stackScrollView)
-
-
-
 
 
 
@@ -170,6 +186,7 @@ open class MainViewController: UIViewController{
         content.view.widthAnchor.constraint(equalToConstant: 110).isActive = true
 		content.view.backgroundColor = .clear
         content.view.layer.cornerRadius = 5
+
 //
 ////		if(passedValue2 == nil){
 ////			reqLabel?.text = "GET"
@@ -178,32 +195,61 @@ open class MainViewController: UIViewController{
 ////			reqLabel?.text = passedValue2
 ////		}
 //
+
+
+
+
 //
     }
 
 
 
 	let noti = Notification.Name(rawValue: notificationKey)
-	let notiValue = Notification.Name(rawValue: notificationValue)
+	let notiHeaders = Notification.Name(rawValue: notificationKeyHeaders)
+	let notificationBasicAuth = Notification.Name(rawValue: notiBasicAuth)
 
 	func createObservers(){
 		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsKey(notification:)), name: noti, object: nil)
 
-		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateParamsValue(notification:)), name: notiValue, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateHeaders(notification:)), name: notiHeaders, object: nil)
+
+		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.basicAuth(notification:)), name: notificationBasicAuth, object: nil)
 	}
+
 
 	@objc func updateParamsKey(notification: NSNotification){
+		guard let userParams = notification.userInfo as NSDictionary? as? [String: Any] else {return}
+		ParamsKey = userParams
 
 
-		guard let userInfo = notification.userInfo as NSDictionary? as? [String: Any] else {return}
-
-
-
-	ParamsKey = userInfo
 	}
 
-	@objc func updateParamsValue(notification: NSNotification){
-		ParamsValue = notification.userInfo ?? [ "name": notiValue, "age":notiValue, "email":notiValue]
+
+	@objc func updateHeaders(notification: NSNotification){
+		guard let userInfo = notification.userInfo as NSDictionary? as? [String: String] else {return}
+
+		Headers = userInfo
+
+	}
+
+	@objc func basicAuth(notification: NSNotification){
+		guard let userInfo = notification.userInfo as NSDictionary? as? [String: String] else {return}
+		BasicAuth = userInfo
+
+		let utf8str = BasicAuth.description.data(using: .utf8)
+
+		if let base64Encoded = utf8str?.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0)) {
+			print("Encoded: \(base64Encoded)")
+
+
+
+			Headers = [
+				"Authorization" : base64Encoded
+				]
+
+
+
+		}
 	}
 
 
@@ -218,35 +264,23 @@ open class MainViewController: UIViewController{
 		if reqLabel.text == "GET"{
 			//cityName.insert(contentsOf: "get", at: cityName.endIndex)
 
+			let httpHeaders: HTTPHeaders = [
+				"Authorization": "Basic dXNlcjpwYXNzd2Q="
+			]
 
 
 
+			Headers = [
+				"Authorization" : "Basic dXNlcjpwYXNzd2Q="
+			]
 
 
-
-
-//		    let keyArray = ParamsKey.map { Array(arrayLiteral: $0.key) }
-//			let valueArray = ParamsKey.map { Array(arrayLiteral: $0.value) }
-//
-//
-//			let keyParam = keyArray
-//			let valueParam = valueArray
-//		//	let params : [String: String] = [valueParam: valueParam]
-//
-//
-			//var singleParameters: [String: Any] = [:]
-
-			
-
-
-
-
-
-
-			Alamofire.request(url, method: .get, parameters: ParamsKey).responseJSON { [self]
+			Alamofire.request(url, method: .get, parameters: ParamsKey, headers: Headers).responseData { [self]
                         response in
                        if response.result.isSuccess {
                             print("Success")
+
+
 							let weatherJSON : JSON = JSON(response.result.value!)
 
 						   Manager.messageText.append(weatherJSON.rawString() ?? "ete")
@@ -277,10 +311,9 @@ open class MainViewController: UIViewController{
              If the server uses consumer key and consumer secret, uncomment the follow lines
              */
           //  cityName.insert(contentsOf: "post", at: cityName.endIndex)
-			let keyParam = passedValue as String
-            let valueParam = sendParamsValueTextField.text!
-            let params : [String: String] = [keyParam: valueParam]
-            
+	//		let keyParam = passedValue as String
+
+
             /*
              If you are using Basic Authentication uncomment the follow line and add your base64 string
              Replace 'nil' with 'httpHeaders' in headers
@@ -291,7 +324,13 @@ open class MainViewController: UIViewController{
             ]
 
 
-			Alamofire.request(url, method: .post,  parameters: params, headers: httpHeaders).responseJSON { [self]
+			Headers = [
+				"Authorization" : "Bearer {token}"
+			]
+
+
+
+			Alamofire.request(url, method: .post,  parameters: ParamsKey, headers: Headers).responseJSON { [self]
                         response in
                         if response.result.isSuccess {
                             print("Success")
@@ -300,7 +339,7 @@ open class MainViewController: UIViewController{
 
 
 							let storyboard = UIStoryboard(name: "Main", bundle: nil)
-							let destVC = storyboard.instantiateViewController(withIdentifier: "modu") as! ResponseViewController
+							let destVC = storyboard.instantiateViewController(withIdentifier: "Response") as! ResponseViewController
 							destVC.managedObjectContext = context
 							destVC.changeCityTextField?.text = cityName
 							destVC.reqLabel?.text = reqName
@@ -338,12 +377,11 @@ open class MainViewController: UIViewController{
         }
         else if reqLabel.text == "PUT"{
             cityName.insert(contentsOf: "post", at: cityName.endIndex)
-            let keyParam = sendParamsKeyTextField.text!
-            let valueParam = sendParamsValueTextField.text!
-            let params : [String: String] = [keyParam: valueParam]
+
+
             
             
-            Alamofire.request(url, method: .put, parameters: params).responseJSON { [self]
+            Alamofire.request(url, method: .put, parameters: ParamsKey).responseJSON { [self]
                     response in
                     if response.result.isSuccess {
                         print("Success")
