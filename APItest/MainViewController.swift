@@ -311,7 +311,7 @@ open class MainViewController: UIViewController{
              If the server uses consumer key and consumer secret, uncomment the follow lines
              */
           //  cityName.insert(contentsOf: "post", at: cityName.endIndex)
-			let keyParam = passedValue as String
+	//		let keyParam = passedValue as String
 
 
             /*
@@ -324,7 +324,13 @@ open class MainViewController: UIViewController{
             ]
 
 
-			Alamofire.request(url, method: .post,  parameters: ParamsKey, headers: httpHeaders).responseJSON { [self]
+			Headers = [
+				"Authorization" : "Bearer {token}"
+			]
+
+
+
+			Alamofire.request(url, method: .post,  parameters: ParamsKey, headers: Headers).responseJSON { [self]
                         response in
                         if response.result.isSuccess {
                             print("Success")
@@ -333,7 +339,7 @@ open class MainViewController: UIViewController{
 
 
 							let storyboard = UIStoryboard(name: "Main", bundle: nil)
-							let destVC = storyboard.instantiateViewController(withIdentifier: "modu") as! ResponseViewController
+							let destVC = storyboard.instantiateViewController(withIdentifier: "Response") as! ResponseViewController
 							destVC.managedObjectContext = context
 							destVC.changeCityTextField?.text = cityName
 							destVC.reqLabel?.text = reqName
