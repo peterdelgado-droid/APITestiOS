@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.039006564766168594" green="0.056539751589298248" blue="0.10257817059755325" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="GraphQL" image="uxwing-svg-icon-editor" selectedImage="uxwing-svg-icon-editor (2)" id="mz4-bA-KST">
+                    <tabBarItem key="tabBarItem" title="GraphQL" image="custom.cross.circle" selectedImage="custom.cross.circle" id="mz4-bA-KST">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="8"/>
                     </tabBarItem>
                 </viewController>
@@ -217,7 +216,7 @@
                                     <action selector="getPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="IxY-jy-5qA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYG-bW-CKQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="POST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYG-bW-CKQ">
                                 <rect key="frame" x="16" y="125" width="80" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -287,63 +286,6 @@
             </objects>
             <point key="canvasLocation" x="6071" y="-2445"/>
         </scene>
-        <!--Child1-->
-        <scene sceneID="GR7-BH-1et">
-            <objects>
-                <viewController storyboardIdentifier="Child1" title="Child1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vHG-HQ-hQw" customClass="Child1" customModule="APItest" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nvb-9c-GEh"/>
-                        <viewControllerLayoutGuide type="bottom" id="e82-j5-3Ce"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Mpd-Ln-3sy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INX-s9-i60">
-                                <rect key="frame" x="149" y="265" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <menu key="menu" id="Xwo-HJ-32f">
-                                    <children>
-                                        <command title="Item 1" id="B92-oU-aLz"/>
-                                        <command title="Item 2" id="FW5-Kq-iV1"/>
-                                    </children>
-                                </menu>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZJM-jZ-jYV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5774" y="-1791"/>
-        </scene>
-        <!--Child2-->
-        <scene sceneID="aX5-1B-LdQ">
-            <objects>
-                <viewController storyboardIdentifier="Child2" title="Child2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Q3S-Ec-ovI" customClass="Child2" customModule="APItest" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="soO-kv-uDS"/>
-                        <viewControllerLayoutGuide type="bottom" id="YKU-Ib-FmQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yTe-WW-Z6h">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Eh-Us-UTc">
-                                <rect key="frame" x="115" y="373" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wj4-bx-O2X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5102" y="-1866"/>
-        </scene>
         <!--KeyValueViewController-->
         <scene sceneID="7aA-59-bzC">
             <objects>
@@ -364,11 +306,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="custom.cross.circle" width="20" height="20"/>
         <image name="icloud.and.arrow.down.fill" width="24.5" height="23.5"/>
         <image name="icloud.and.arrow.up.fill" width="24.5" height="22"/>
         <image name="play.fill" width="15" height="16.5"/>
-        <image name="uxwing-svg-icon-editor" width="800" height="600"/>
-        <image name="uxwing-svg-icon-editor (2)" width="800" height="600"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
