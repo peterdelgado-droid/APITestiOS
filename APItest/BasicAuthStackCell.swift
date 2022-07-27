@@ -50,7 +50,7 @@ final class BasicAuthStackCell: StackCellBase {
 		)
 		addSubview(textfieldParamsValue)
 
-		textfieldParamsValue <- Edges(UIEdgeInsets(top: 8, left: 150, bottom: 8, right: 16))
+		textfieldParamsValue <- Edges(UIEdgeInsets(top: 8, left: 180, bottom: 8, right: 16))
 
 		self <- Height(>=40)
 
@@ -65,7 +65,8 @@ final class BasicAuthStackCell: StackCellBase {
 		button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
 
 
-		textfieldParamsKey.addTarget(self, action: #selector(paramsKeyEdit), for: .editingDidEnd)
+	//	textfieldParamsKey.addTarget(self, action: #selector(paramsKeyEdit), for: .editingDidEnd)
+
 		textfieldParamsValue.addTarget(self, action: #selector(paramsKeyEdit), for: .editingDidEnd)
 		textfieldParamsKey.autocapitalizationType = UITextAutocapitalizationType.none
 		textfieldParamsValue.autocapitalizationType = UITextAutocapitalizationType.none
@@ -118,7 +119,7 @@ final class BasicAuthStackCell: StackCellBase {
 
 		// store in UserDefault
 		basicAuthDataList[paramskeyData] = paramsvalueData
-
+		
 		UserDefaults.standard.setValue(basicAuthDataList, forKey: "basicAuthDataList")
 
 		let name = Notification.Name(rawValue: notiBasicAuth)

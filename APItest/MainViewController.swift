@@ -248,7 +248,7 @@ open class MainViewController: UIViewController{
 
 
 			Headers = [
-				"Authorization" : base64Encoded
+				"Authorization" : "Basic " + base64Encoded + "="
 				]
 
 
@@ -356,7 +356,7 @@ open class MainViewController: UIViewController{
 
 
 
-			Alamofire.request(url, method: .post,  parameters: ParamsKey, encoding: JSONEncoding.default).responseJSON { [self]
+			Alamofire.request(url, method: .post,  parameters: ParamsKey, encoding: JSONEncoding.default, headers: Headers).responseJSON { [self]
                         response in
                         if response.result.isSuccess {
                             print("Success")
