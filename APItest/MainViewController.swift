@@ -248,7 +248,7 @@ open class MainViewController: UIViewController{
 
 
 			Headers = [
-				"Authorization" : "Basic " + base64Encoded + "="
+				"Authorization" : "Basic " + base64Encoded
 				]
 
 
@@ -259,10 +259,10 @@ open class MainViewController: UIViewController{
 	@objc func bodyData(notification: NSNotification){
 		guard let userInfo = notification.object as? String else {return}
 
-
+	var testing = convertToDictionary(text: userInfo)
 
 		ParamsKey = [
-			"Body" : userInfo
+			"name" : testing ?? "ete"
 		]
 
 	}
@@ -350,9 +350,9 @@ open class MainViewController: UIViewController{
             ]
 
 
-//			Headers = [
-//				"Authorization" : "Bearer {token}"
-//			]
+			Headers = [
+				"Authorization" : "Basic cGV0ZXJkZWxnYWRvLWRyb2lkOmdocF91OXNhVmRLTlZtMXV0UE1WQ09QYTVuRHlHNEdxN2QwNjVaMkw="
+			]
 
 
 
