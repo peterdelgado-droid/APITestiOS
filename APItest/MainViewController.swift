@@ -237,39 +237,36 @@ open class MainViewController: UIViewController{
 		guard let userInfo = notification.userInfo as NSDictionary? as? [String: String] else {return}
 		BasicAuth = userInfo
 
-		var valueP:String!
 
-
-		valueP = BasicAuth.description
 
 
 		let cookieHeader = (BasicAuth.compactMap({ (key, value) -> String in
-			return "\(key)=\(value)"
+			return "\(key)\(value)"
 		}) as Array).joined(separator: "")
 
 		print(cookieHeader) // key2=value2;key1=value1
 
-		let credentialData = valueP.description.data(using: .utf8)
-		let base64Credentials = credentialData?.base64EncodedString()
-		Headers = ["Authorization": "Basic \(base64Credentials)="]
+//		let credentialData = cookieHeader.description.data(using: .utf8)
+//		let base64Credentials = credentialData?.base64EncodedData()
+//		Headers = ["Authorization": "Basic \(String(describing: base64Credentials))="]
 
 
 
 
-//		let utf8str = BasicAuth.description.data(using: .utf8)
-//
-//		if let base64Encoded = utf8str?.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0)) {
-//			print("Encoded: \(base64Encoded)")
-//
-//
-//
-//			Headers = [
-//				"Authorization" : "Basic " + base64Encoded
-//				]
-//
-//
-//
-//		}
+		let utf8str = cookieHeader.description.data(using: .utf8)
+
+		if let base64Encoded = utf8str?.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0)) {
+			print("Encoded: \(base64Encoded)")
+
+
+
+			Headers = [
+				"Authorization" : "Basic " + base64Encoded
+				]
+
+
+
+		}
 	}
 
 	@objc func bodyData(notification: NSNotification){
