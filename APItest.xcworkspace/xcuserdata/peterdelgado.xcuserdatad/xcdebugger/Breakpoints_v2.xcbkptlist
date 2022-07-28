@@ -71,64 +71,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E46FC855-98C5-4A49-B1D8-8B9F68D968C2"
+            uuid = "34E04E66-89F4-4161-9D49-6116B13DAFFB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APItest/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "359"
-            endingLineNumber = "359"
-            landmarkName = "getData(url:)"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "basicAuth(notification:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E46FC855-98C5-4A49-B1D8-8B9F68D968C2 - ec0d0c443c67ec69"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "APItest.MainViewController.getData(url: Swift.String) -&gt; ()"
-                  moduleName = "APItest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/peterdelgado/Desktop/APItest/APItest/MainViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "359"
-                  endingLineNumber = "359"
-                  offsetFromSymbolStart = "3080">
-               </Location>
-               <Location
-                  uuid = "E46FC855-98C5-4A49-B1D8-8B9F68D968C2 - ec0d0c443c67ec69"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "APItest.MainViewController.getData(url: Swift.String) -&gt; ()"
-                  moduleName = "APItest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/peterdelgado/Desktop/APItest/APItest/MainViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "359"
-                  endingLineNumber = "359"
-                  offsetFromSymbolStart = "3292">
-               </Location>
-               <Location
-                  uuid = "E46FC855-98C5-4A49-B1D8-8B9F68D968C2 - e6e77075661b9182"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[2] = Value Promoted from Box&gt; of closure #2 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in APItest.MainViewController.getData(url: Swift.String) -&gt; ()"
-                  moduleName = "APItest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/peterdelgado/Desktop/APItest/APItest/MainViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "361"
-                  endingLineNumber = "361"
-                  offsetFromSymbolStart = "280">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
