@@ -16,10 +16,12 @@ import EasyPeasy
 import StackScrollView
 
 
-let notificationKey = "co.peter.key"
-let notificationKeyHeaders = "co.peter.key.headers"
-let notiBasicAuth = "co.peter.basic.auth"
-let bodyKey = "co.peter.body"
+
+
+let notificationKey = "peter.key"
+let notificationKeyHeaders = "peter.key.headers"
+let notiBasicAuth = "peter.basic.auth"
+let bodyKey = "peter.body"
 
 
 
@@ -29,6 +31,7 @@ let bodyKey = "co.peter.body"
 open class MainViewController: UIViewController{
 	var passedValue:String!
 
+	
 
 //	var ParamsKey:String?
 	var Headers = [String : String]()

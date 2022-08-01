@@ -11,9 +11,15 @@ import SwiftUI
 struct SettingsSwiftUIView: View {
 	@State private var searchText = "Enter GraphQL Endpoint"
 
+
+
 	var body: some View {
 
-
+//		do {
+//			try <#throwing expression#>
+//		} catch <#pattern#> {
+//			<#statements#>
+//		}
 
 
 		VStack {
