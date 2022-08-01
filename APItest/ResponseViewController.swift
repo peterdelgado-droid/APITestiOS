@@ -100,7 +100,22 @@ class ResponseViewController: UIViewController{
 		//Manager.messageText.append("now")
 		if Manager.messageText.indices.contains(0){
 			print(Manager.messageText[0])
-			texTry?.text = Manager.messageText.last
+			print(Manager.body)
+
+			var allValues = ""
+
+
+			for (x, y) in Manager.body {
+				allValues += "(\(x): \(y))\n"
+			}
+
+
+			if allValues == ""{
+				texTry?.text = Manager.messageText.last
+			}else{
+				texTry?.text = allValues
+			}
+
 
 		}
 
