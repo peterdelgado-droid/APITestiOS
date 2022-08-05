@@ -2,7 +2,7 @@ PODS:
   - Alamofire (4.7.3)
   - BottomSheetSwiftUI (2.8.0)
   - Differentiator (5.0.0)
-  - EasyPeasy (1.10.0)
+  - EasyPeasy (1.8.0)
   - MGKeyboardAccessory (0.5):
     - MGKeyboardAccessory/Core (= 0.5)
   - MGKeyboardAccessory/Core (0.5)
@@ -58,7 +58,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (= 4.7.3)
   - BottomSheetSwiftUI
-  - EasyPeasy
+  - EasyPeasy (= 1.8.0)
   - MGKeyboardAccessory (= 0.5)
   - MGSelector
   - NVActivityIndicatorView (= 4.8.0)
@@ -109,7 +109,7 @@ SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   BottomSheetSwiftUI: e7b24c6dc003ef8ca550438ca0aaf31624d11f1c
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
-  EasyPeasy: b9b1bae024d21a7dfa9bad26d6826d88348cc6f1
+  EasyPeasy: bfffe5d47bbaaef3e32888c250a196768484b43a
   MGKeyboardAccessory: a9f30a9c1fd158b1895aada9aab905a3c4b93581
   MGSelector: e6dd39fb0dac1a577d9644f7766579cf9b9b18ad
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
@@ -132,6 +132,6 @@ SPEC CHECKSUMS:
   SwipeBack: d6759601b40da1f4161033feb30ab475d7d04322
   WaveTab: ae1db4f50d09513107bfb223cdd06131eb9befd7
 
-PODFILE CHECKSUM: 66192be90256710c99e04da9b0a9be3a2a5d1fe1
+PODFILE CHECKSUM: 90e280977045650d3bd02a596fe900a7571d7db8
 
 COCOAPODS: 1.11.3

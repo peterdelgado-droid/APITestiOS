@@ -113,7 +113,7 @@ open class MainViewController: UIViewController{
 			return [v, s]
 		}())
 
-		views.append(LabelStackCell(title: "Headers"))
+		views.append(NewLabelStackCell(title: "Headers"))
 
 		views.append(contentsOf: { () -> [UIView] in
 			let v = HeadersStackCell(buttonTitle: "")
@@ -126,7 +126,7 @@ open class MainViewController: UIViewController{
 			return [v, s]
 		}())
 
-		views.append(LabelStackCell(title: "Body"))
+		views.append(NewLabelStackCell(title: "Body"))
 
 		views.append({
 			let v = NewTextViewStackCell()
@@ -137,7 +137,7 @@ open class MainViewController: UIViewController{
 		let s = self.fullSeparator()
 		views.append(s)
 
-		views.append(LabelStackCell(title: "Basic Auth"))
+		views.append(NewLabelStackCell(title: "Basic Auth"))
 
 		views.append(contentsOf: { () -> [UIView] in
 			let v = BasicAuthStackCell(buttonTitle: "")
@@ -153,9 +153,9 @@ open class MainViewController: UIViewController{
 		let p = self.fullSeparator()
 		views.append(p)
 
-		views.append(LabelStackCell(title: "OAuth"))
+		views.append(NewLabelStackCell(title: "OAuth"))
 		views.append(contentsOf: { () -> [UIView] in
-			let v = OAuthStackCell(buttonTitle: "")
+			let v = NewOAuthStackCell(buttonTitle: "")
 			let s = self.fullSeparator()
 			v.tapped = { [unowned stackScrollView, unowned s] in
 				var views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }

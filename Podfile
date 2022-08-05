@@ -20,7 +20,7 @@ target 'APItest' do
     pod 'RxFlow'
     pod 'RxKeyboard'
     pod 'ScrollingStackViewController'
-	pod 'EasyPeasy'
+	pod 'EasyPeasy', '= 1.8.0'
    
 pod 'MGKeyboardAccessory', '0.5'
 pod 'StackScrollView'
