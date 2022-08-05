@@ -31,7 +31,7 @@ let bodyKey = "peter.body"
 open class MainViewController: UIViewController{
 	var passedValue:String!
 
-	
+
 
 //	var ParamsKey:String?
 	var Headers = [String : String]()
@@ -66,7 +66,7 @@ open class MainViewController: UIViewController{
 
 	@IBOutlet weak var closeIcon: UIButton!
 
-    
+
      var StringTest: String!
 
 
@@ -87,9 +87,9 @@ open class MainViewController: UIViewController{
 			var views: [UIView] = []
 
 			views.append({
-				let v = ButtonStackCell(buttonTitle: "Remove")
+				let v = NewButtonStackCell(buttonTitle: "Remove")
 				v.self.removeImage()
-				
+
 				v.tapped = { [unowned v] in
 					v.remove()
 			//		s.remove()
@@ -103,7 +103,7 @@ open class MainViewController: UIViewController{
 
 
 		views.append(contentsOf: { () -> [UIView] in
-			let v = ButtonStackCell(buttonTitle: "")
+			let v = NewButtonStackCell(buttonTitle: "")
 			let s = self.fullSeparator()
 			v.tapped = { [unowned stackScrollView, unowned s] in
 				var views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
@@ -129,8 +129,8 @@ open class MainViewController: UIViewController{
 		views.append(LabelStackCell(title: "Body"))
 
 		views.append({
-			let v = TextViewStackCell()
-			
+			let v = NewTextViewStackCell()
+
 			return v
 		}())
 
@@ -299,7 +299,7 @@ open class MainViewController: UIViewController{
 		}
 		return nil
 	}
-	
+
 	func getData(url: String) {
         var cityName = changeCityTextField.text!
 		let reqName = reqLabel.text!
@@ -337,7 +337,7 @@ open class MainViewController: UIViewController{
 							Manager.reqMessage.append(reqName)
 							Manager.url.append(cityName)
 						    self.present(destVC, animated: true, completion: nil)
-							
+
 
                         }
                         else {
@@ -346,9 +346,9 @@ open class MainViewController: UIViewController{
                         }
                     }
 
-        
+
         }else if reqLabel.text == "POST" {
-        
+
             /*
              If the server uses consumer key and consumer secret, uncomment the follow lines
              */
@@ -360,7 +360,7 @@ open class MainViewController: UIViewController{
              If you are using Basic Authentication uncomment the follow line and add your base64 string
              Replace 'nil' with 'httpHeaders' in headers
              */
-            
+
             let httpHeaders: HTTPHeaders = [
                 "Authorization": "Bearer d003a27408f777983ced2aefc523239924b3f6d52f0e93b8d9a03412270e3ef3"
             ]
@@ -399,10 +399,10 @@ open class MainViewController: UIViewController{
 							Manager.messageText.append(reqName)
 							Manager.messageText.append(cityName)
 							self.present(destVC, animated: true, completion: nil)
-                            
+
                         }
                         else {
-                           
+
                             print("Error \(String(describing: response.result.error))")
 
                         }
@@ -413,72 +413,72 @@ open class MainViewController: UIViewController{
                     response in
                     if response.result.isSuccess {
                         print("Success")
-                        
+
                         let weatherJSON : JSON = JSON(response.result.value!)
                      //   self.texTry.text = weatherJSON.rawString()
-                        
+
                     }
                     else {
-                       
+
                         print("Error \(String(describing: response.result.error))")
                      //   self.cityLabel.text = "Issue in connection"
                     }
-        
-        
+
+
         }
-   
+
         }
         else if reqLabel.text == "PUT"{
             cityName.insert(contentsOf: "post", at: cityName.endIndex)
 
 
-            
-            
+
+
             Alamofire.request(url, method: .put, parameters: ParamsKey).responseJSON { [self]
                     response in
                     if response.result.isSuccess {
                         print("Success")
-                        
+
                         let weatherJSON : JSON = JSON(response.result.value!)
                     //    self.texTry.text = weatherJSON.rawString()
-                        
+
                     }
                     else {
-                       
+
                         print("Error \(String(describing: response.result.error))")
                      //   self.cityLabel.text = "Issue in connection"
                     }
-        
-        
+
+
         }
-   
+
         }
-    
-    
+
+
     }
-    
+
 
     //1
     @IBAction func getPressed(_ sender: UIButton) {
 //1 Get the city name the user entered in the text field
 
-		
+
 		let cityName = changeCityTextField.text!
-		
-       
+
+
         //2 If we have a delegate set, call the method userEnteredANewCityName
         getData(url: cityName)
-        
+
         //3 dismiss the Change City View Controller to go back to the WeatherViewController
         self.dismiss(animated: true, completion: nil)
-        
+
     }
 
-   
 
 
 
-    
+
+
 
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let viewController = segue.destination as? ResponseViewController {
@@ -487,9 +487,9 @@ open class MainViewController: UIViewController{
 			viewController.reqLabel.text = reqLabel.text
 		}
     }
-    
+
 	@IBAction func CloseModal(_ sender: Any) {
-		
+
 		self.dismiss(animated: true, completion: nil)
 	}
 
@@ -510,3 +510,4 @@ private func fullSeparator() -> SeparatorStackCell {
 
 
 
+import Foundation

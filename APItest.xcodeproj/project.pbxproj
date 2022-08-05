@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		63E28AD11B99C32400FBF6E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E28AD01B99C32400FBF6E0 /* AppDelegate.swift */; };
 		63E28AF71B99C36100FBF6E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AF31B99C36100FBF6E0 /* Images.xcassets */; };
-		63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E28AF51B99C36100FBF6E0 /* MainViewController.swift */; };
 		63E28AFF1B99C3B300FBF6E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */; };
 		8200B0E2286F54F4003510AB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8200B0E1286F54F4003510AB /* BaseViewController.swift */; };
 		8204A51A286F1A4D00207050 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8204A519286F1A4D00207050 /* BaseViewModel.swift */; };
@@ -17,11 +16,14 @@
 		822AB5E52850963000E20B78 /* WaveTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AB5E42850963000E20B78 /* WaveTabBarController.swift */; };
 		8230A6892869D19F008470F9 /* SeparatorStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8230A6882869D19F008470F9 /* SeparatorStackCell.swift */; };
 		824EF9902869CCAD00C92967 /* StackCellBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824EF98F2869CCAD00C92967 /* StackCellBase.swift */; };
+		82505B97289D05B900A25C79 /* NewTextViewStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505B96289D05B900A25C79 /* NewTextViewStackCell.swift */; };
 		8256E975286B07AC0001E2F5 /* TextFieldStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */; };
 		8259C5182848FAEF0045047D /* ModelHis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8259C5162848FAEF0045047D /* ModelHis.xcdatamodeld */; };
 		8263F245287EC7960009023E /* LabelStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263F244287EC7960009023E /* LabelStackCell.swift */; };
 		8263F247287ED51B0009023E /* TextViewStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263F246287ED51B0009023E /* TextViewStackCell.swift */; };
 		826A44A42849F61A007C2206 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A44A32849F61A007C2206 /* History.swift */; };
+		826B0548289D0B1C001B4EB2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B0547289D0B1C001B4EB2 /* MainViewController.swift */; };
+		826B054A289D0B72001B4EB2 /* NewButtonStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B0549289D0B72001B4EB2 /* NewButtonStackCell.swift */; };
 		82910DF12869C76600B837D9 /* ButtonStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82910DF02869C76600B837D9 /* ButtonStackCell.swift */; };
 		8291B98E2850B3ED0007E59B /* WaveTabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291B98D2850B3ED0007E59B /* WaveTabBarProtocol.swift */; };
 		8291B9902850B4B20007E59B /* WaveTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291B98F2850B4B20007E59B /* WaveTabBarPresenter.swift */; };
@@ -50,7 +52,6 @@
 		63E28ACF1B99C32400FBF6E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63E28AD01B99C32400FBF6E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63E28AF31B99C36100FBF6E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		63E28AF51B99C36100FBF6E0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		8200B0E1286F54F4003510AB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8201734D2869D9000014B140 /* StackScrollView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StackScrollView; path = ../StackScrollView/StackScrollView; sourceTree = "<group>"; };
@@ -60,11 +61,14 @@
 		822AB5E42850963000E20B78 /* WaveTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarController.swift; sourceTree = "<group>"; };
 		8230A6882869D19F008470F9 /* SeparatorStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorStackCell.swift; sourceTree = "<group>"; };
 		824EF98F2869CCAD00C92967 /* StackCellBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCellBase.swift; sourceTree = "<group>"; };
+		82505B96289D05B900A25C79 /* NewTextViewStackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTextViewStackCell.swift; sourceTree = "<group>"; };
 		8256E974286B07AC0001E2F5 /* TextFieldStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldStackCell.swift; path = "../../../Downloads/StackScrollView-master/StackScrollView-Demo/TextFieldStackCell.swift"; sourceTree = "<group>"; };
 		8259C5172848FAEF0045047D /* ModelHis.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelHis.xcdatamodel; sourceTree = "<group>"; };
 		8263F244287EC7960009023E /* LabelStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelStackCell.swift; path = "../../../Downloads/StackScrollView-master/StackScrollView-Demo/LabelStackCell.swift"; sourceTree = "<group>"; };
 		8263F246287ED51B0009023E /* TextViewStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextViewStackCell.swift; path = "../../../Downloads/StackScrollView-master/StackScrollView-Demo/TextViewStackCell.swift"; sourceTree = "<group>"; };
 		826A44A32849F61A007C2206 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		826B0547289D0B1C001B4EB2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		826B0549289D0B72001B4EB2 /* NewButtonStackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewButtonStackCell.swift; sourceTree = "<group>"; };
 		82910DF02869C76600B837D9 /* ButtonStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStackCell.swift; sourceTree = "<group>"; };
 		8291B98D2850B3ED0007E59B /* WaveTabBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarProtocol.swift; sourceTree = "<group>"; };
 		8291B98F2850B4B20007E59B /* WaveTabBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveTabBarPresenter.swift; sourceTree = "<group>"; };
@@ -164,7 +168,6 @@
 		63E28AFB1B99C37500FBF6E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				63E28AF51B99C36100FBF6E0 /* MainViewController.swift */,
 				8200B0E1286F54F4003510AB /* BaseViewController.swift */,
 				8204A519286F1A4D00207050 /* BaseViewModel.swift */,
 				8230A6882869D19F008470F9 /* SeparatorStackCell.swift */,
@@ -183,6 +186,9 @@
 				8291F621284E1F97001B9017 /* SettingsViewController.swift */,
 				82C5E11428853DC10075154C /* BasicAuthStackCell.swift */,
 				82C5E11628853F5D0075154C /* OAuthStackCell.swift */,
+				82505B96289D05B900A25C79 /* NewTextViewStackCell.swift */,
+				826B0547289D0B1C001B4EB2 /* MainViewController.swift */,
+				826B0549289D0B72001B4EB2 /* NewButtonStackCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -247,9 +253,9 @@
 				TargetAttributes = {
 					63E28ACA1B99C32400FBF6E0 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 4SGL398CCG;
+						DevelopmentTeam = 2MPX3NCR38;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -340,7 +346,6 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeBack/SwipeBack.framework",
 				"${BUILT_PRODUCTS_DIR}/WaveTab/WaveTab.framework",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Reveal-SDK/RevealServer.framework/RevealServer",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -369,7 +374,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeBack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WaveTab.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -384,7 +388,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8263F247287ED51B0009023E /* TextViewStackCell.swift in Sources */,
-				63E28AF91B99C36100FBF6E0 /* MainViewController.swift in Sources */,
 				82910DF12869C76600B837D9 /* ButtonStackCell.swift in Sources */,
 				8291F620284E020F001B9017 /* HistTableViewCell.swift in Sources */,
 				8204A51A286F1A4D00207050 /* BaseViewModel.swift in Sources */,
@@ -393,11 +396,14 @@
 				82944E462837A9F800343116 /* SheetView.swift in Sources */,
 				822AB5E3285093EE00E20B78 /* UIBezierPath+createCurve.swift in Sources */,
 				8291B9922850B4C30007E59B /* WaveTabBarPresenterBase.swift in Sources */,
+				826B0548289D0B1C001B4EB2 /* MainViewController.swift in Sources */,
 				826A44A42849F61A007C2206 /* History.swift in Sources */,
 				82CEBF65283BC97000CC02A5 /* ResponseViewController.swift in Sources */,
 				824EF9902869CCAD00C92967 /* StackCellBase.swift in Sources */,
+				82505B97289D05B900A25C79 /* NewTextViewStackCell.swift in Sources */,
 				82D0366D284649FA0083A41E /* Manager.swift in Sources */,
 				8259C5182848FAEF0045047D /* ModelHis.xcdatamodeld in Sources */,
+				826B054A289D0B72001B4EB2 /* NewButtonStackCell.swift in Sources */,
 				822AB5E52850963000E20B78 /* WaveTabBarController.swift in Sources */,
 				82F333F428818D5200A9BEA2 /* SwitchStackCell.swift in Sources */,
 				8291B9902850B4B20007E59B /* WaveTabBarPresenter.swift in Sources */,
@@ -418,61 +424,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		63E28AE81B99C32400FBF6E0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
 		63E28AE91B99C32400FBF6E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -513,7 +464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -521,43 +472,34 @@
 			};
 			name = Release;
 		};
-		63E28AEB1B99C32400FBF6E0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00A32D7FF364831B001CBA2D /* Pods-APItest.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 4SGL398CCG;
-				INFOPLIST_FILE = APItest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rest.peter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.2;
-			};
-			name = Debug;
-		};
 		63E28AEC1B99C32400FBF6E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C62D3FA02F5A8F2936A2FEF /* Pods-APItest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 4SGL398CCG;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2MPX3NCR38;
 				INFOPLIST_FILE = APItest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				INFOPLIST_KEY_CFBundleDisplayName = "API Caller";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rest.peter;
+				MARKETING_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apitest.peter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = PeterDelgado;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -567,7 +509,6 @@
 		63E28AC61B99C32400FBF6E0 /* Build configuration list for PBXProject "APItest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				63E28AE81B99C32400FBF6E0 /* Debug */,
 				63E28AE91B99C32400FBF6E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -576,7 +517,6 @@
 		63E28AEA1B99C32400FBF6E0 /* Build configuration list for PBXNativeTarget "APItest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				63E28AEB1B99C32400FBF6E0 /* Debug */,
 				63E28AEC1B99C32400FBF6E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

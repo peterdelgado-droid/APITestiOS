@@ -19,9 +19,9 @@ target 'APItest' do
     pod 'RxBinding'
     pod 'RxFlow'
     pod 'RxKeyboard'
-pod 'ScrollingStackViewController'
-pod 'Reveal-SDK'
-  pod 'EasyPeasy'
+    pod 'ScrollingStackViewController'
+	pod 'EasyPeasy'
+   
 pod 'MGKeyboardAccessory', '0.5'
 pod 'StackScrollView'
 pod 'NVActivityIndicatorView', '= 4.8.0'
