@@ -30,7 +30,19 @@ let notificationKeyHeaders = "peter.key.headers"
 let notiBasicAuth = "peter.basic.auth"
 let bodyKey = "peter.body"
 
+@propertyWrapper
+public struct UsesAutoLayout<T: UIView> {
+	public var wrappedValue: T {
+		didSet {
+			wrappedValue.translatesAutoresizingMaskIntoConstraints = false
+		}
+	}
 
+	public init(wrappedValue: T) {
+		self.wrappedValue = wrappedValue
+		wrappedValue.translatesAutoresizingMaskIntoConstraints = false
+	}
+}
 
 
 
@@ -40,12 +52,20 @@ open class MainViewController: UIViewController{
 
 
 
+
+
 //	var ParamsKey:String?
 	var Headers = [String : String]()
 	var ParamsKey = [String : Any]()
 	var BasicAuth = [String : String]()
 
-	private let stackScrollView = StackScrollView()
+	@UsesAutoLayout
+	private var stackScrollView = StackScrollView()
+
+	open override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+
+	}
 
 	var viewController1: UIViewController!
 	var viewController2: UIViewController!
@@ -62,7 +82,7 @@ open class MainViewController: UIViewController{
 
 
 
-	let rect = CGRect(x: 5, y: 255, width: 350, height: 450)
+	let rect = CGRect(x: 5, y: 220, width: 350, height: 450)
 
     @IBOutlet weak var segControl: UISegmentedControl!
     @IBOutlet weak var changeCityTextField: UITextField!
@@ -87,7 +107,12 @@ open class MainViewController: UIViewController{
 	open override func viewDidLoad() {
         super.viewDidLoad()
 
+//		let bottomOffset: CGFloat = (99) // this your tabbar height you can replace with static number eg. 44
+//		stackScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomOffset, right: 0)
+
+
 		createObservers()
+
 
 
 
@@ -177,7 +202,7 @@ open class MainViewController: UIViewController{
 			return [v, s]
 		}())
 
-
+		
 
 		stackScrollView.append(views: views)
 
@@ -201,6 +226,12 @@ open class MainViewController: UIViewController{
 
 		
 		view.addSubview(stackScrollView)
+		stackScrollView.translatesAutoresizingMaskIntoConstraints = false
+		stackScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 220).isActive = true
+		stackScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -100).isActive = true
+
+		stackScrollView.heightAnchor.constraint(equalToConstant: 5).isActive = true
+	    stackScrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
 
 		
 

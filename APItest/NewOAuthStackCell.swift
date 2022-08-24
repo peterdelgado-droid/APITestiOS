@@ -54,7 +54,7 @@ final class NewOAuthStackCell: StackCellBase {
 		)
 		addSubview(textfieldParamsValue)
 
-		textfieldParamsValue <- Edges(UIEdgeInsets(top: 8, left: 150, bottom: 8, right: 16))
+		textfieldParamsValue <- Edges(UIEdgeInsets(top: 8, left: 180, bottom: 8, right: 16))
 
 		self <- Height(>=40)
 
