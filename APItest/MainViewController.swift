@@ -15,7 +15,14 @@ import ScrollingStackViewController
 import EasyPeasy
 import StackScrollView
 
+class presentationSheet: UIViewController{
 
+	override func viewDidLoad(){
+		super.viewDidLoad()
+
+	}
+
+}
 
 
 let notificationKey = "peter.key"
@@ -31,7 +38,7 @@ let bodyKey = "peter.body"
 open class MainViewController: UIViewController{
 	var passedValue:String!
 
-	
+
 
 //	var ParamsKey:String?
 	var Headers = [String : String]()
@@ -65,12 +72,17 @@ open class MainViewController: UIViewController{
 
 
 	@IBOutlet weak var closeIcon: UIButton!
+	@IBOutlet weak var reqButton: UIButton!
 
-    
+
      var StringTest: String!
 
 
 	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+	let itemsVC = presentationSheet()
+
+
 
 	open override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,9 +99,9 @@ open class MainViewController: UIViewController{
 			var views: [UIView] = []
 
 			views.append({
-				let v = ButtonStackCell(buttonTitle: "Remove")
+				let v = NewButtonStackCell(buttonTitle: "Remove")
 				v.self.removeImage()
-				
+
 				v.tapped = { [unowned v] in
 					v.remove()
 			//		s.remove()
@@ -103,7 +115,7 @@ open class MainViewController: UIViewController{
 
 
 		views.append(contentsOf: { () -> [UIView] in
-			let v = ButtonStackCell(buttonTitle: "")
+			let v = NewButtonStackCell(buttonTitle: "")
 			let s = self.fullSeparator()
 			v.tapped = { [unowned stackScrollView, unowned s] in
 				var views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
@@ -113,7 +125,7 @@ open class MainViewController: UIViewController{
 			return [v, s]
 		}())
 
-		views.append(LabelStackCell(title: "Headers"))
+		views.append(NewLabelStackCell(title: "Headers"))
 
 		views.append(contentsOf: { () -> [UIView] in
 			let v = HeadersStackCell(buttonTitle: "")
@@ -126,18 +138,18 @@ open class MainViewController: UIViewController{
 			return [v, s]
 		}())
 
-		views.append(LabelStackCell(title: "Body"))
+		views.append(NewLabelStackCell(title: "Body"))
 
 		views.append({
-			let v = TextViewStackCell()
-			
+			let v = NewTextViewStackCell()
+
 			return v
 		}())
 
 		let s = self.fullSeparator()
 		views.append(s)
 
-		views.append(LabelStackCell(title: "Basic Auth"))
+		views.append(NewLabelStackCell(title: "Basic Auth"))
 
 		views.append(contentsOf: { () -> [UIView] in
 			let v = BasicAuthStackCell(buttonTitle: "")
@@ -153,9 +165,9 @@ open class MainViewController: UIViewController{
 		let p = self.fullSeparator()
 		views.append(p)
 
-		views.append(LabelStackCell(title: "OAuth"))
+		views.append(NewLabelStackCell(title: "OAuth"))
 		views.append(contentsOf: { () -> [UIView] in
-			let v = OAuthStackCell(buttonTitle: "")
+			let v = NewOAuthStackCell(buttonTitle: "")
 			let s = self.fullSeparator()
 			v.tapped = { [unowned stackScrollView, unowned s] in
 				var views = (0 ... .random(in: 0 ... 0)).flatMap { _ in makeRemovableButton() }
@@ -165,30 +177,46 @@ open class MainViewController: UIViewController{
 			return [v, s]
 		}())
 
+
+
 		stackScrollView.append(views: views)
+
+		var config = UIButton.Configuration.filled()
+		config.title = "show sheet"
+
+		let button = UIButton(configuration: config, primaryAction: UIAction(){ _ in
+
+			if let sheet = self.itemsVC.sheetPresentationController{
+				sheet.detents = [.medium(), .large()]
+			}
+
+			self.present(self.itemsVC, animated: true, completion: nil)
+
+		})
 
 
 
 		//stackScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		stackScrollView.frame = rect
 
+		
 		view.addSubview(stackScrollView)
 
+		
 
+		//let swiftUIToggler = SheetView(externalSwitch: reqLabel)
+	//	let content = UIHostingController(rootView:swiftUIToggler)
 
-		let swiftUIToggler = SheetView(externalSwitch: reqLabel)
-		let content = UIHostingController(rootView:swiftUIToggler)
-
-		addChild(content)
-
-		view.addSubview(content.view)
-        content.view.translatesAutoresizingMaskIntoConstraints = false
-        content.view.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -10).isActive = true
-        content.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-        content.view.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        content.view.widthAnchor.constraint(equalToConstant: 110).isActive = true
-		content.view.backgroundColor = .clear
-        content.view.layer.cornerRadius = 5
+//		addChild(content)
+//
+//		view.addSubview(content.view)
+//        content.view.translatesAutoresizingMaskIntoConstraints = false
+//        content.view.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -10).isActive = true
+//        content.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+//        content.view.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        content.view.widthAnchor.constraint(equalToConstant: 110).isActive = true
+//		content.view.backgroundColor = .clear
+//        content.view.layer.cornerRadius = 5
 
 //
 ////		if(passedValue2 == nil){
@@ -299,7 +327,7 @@ open class MainViewController: UIViewController{
 		}
 		return nil
 	}
-	
+
 	func getData(url: String) {
         var cityName = changeCityTextField.text!
 		let reqName = reqLabel.text!
@@ -337,7 +365,7 @@ open class MainViewController: UIViewController{
 							Manager.reqMessage.append(reqName)
 							Manager.url.append(cityName)
 						    self.present(destVC, animated: true, completion: nil)
-							
+
 
                         }
                         else {
@@ -346,9 +374,9 @@ open class MainViewController: UIViewController{
                         }
                     }
 
-        
+
         }else if reqLabel.text == "POST" {
-        
+
             /*
              If the server uses consumer key and consumer secret, uncomment the follow lines
              */
@@ -360,7 +388,7 @@ open class MainViewController: UIViewController{
              If you are using Basic Authentication uncomment the follow line and add your base64 string
              Replace 'nil' with 'httpHeaders' in headers
              */
-            
+
             let httpHeaders: HTTPHeaders = [
                 "Authorization": "Bearer d003a27408f777983ced2aefc523239924b3f6d52f0e93b8d9a03412270e3ef3"
             ]
@@ -399,10 +427,10 @@ open class MainViewController: UIViewController{
 							Manager.messageText.append(reqName)
 							Manager.messageText.append(cityName)
 							self.present(destVC, animated: true, completion: nil)
-                            
+
                         }
                         else {
-                           
+
                             print("Error \(String(describing: response.result.error))")
 
                         }
@@ -413,72 +441,91 @@ open class MainViewController: UIViewController{
                     response in
                     if response.result.isSuccess {
                         print("Success")
-                        
+
                         let weatherJSON : JSON = JSON(response.result.value!)
                      //   self.texTry.text = weatherJSON.rawString()
-                        
+
                     }
                     else {
-                       
+
                         print("Error \(String(describing: response.result.error))")
                      //   self.cityLabel.text = "Issue in connection"
                     }
-        
-        
+
+
         }
-   
+
         }
         else if reqLabel.text == "PUT"{
             cityName.insert(contentsOf: "post", at: cityName.endIndex)
 
 
-            
-            
+
+
             Alamofire.request(url, method: .put, parameters: ParamsKey).responseJSON { [self]
                     response in
                     if response.result.isSuccess {
                         print("Success")
-                        
+
                         let weatherJSON : JSON = JSON(response.result.value!)
                     //    self.texTry.text = weatherJSON.rawString()
-                        
+
                     }
                     else {
-                       
+
                         print("Error \(String(describing: response.result.error))")
                      //   self.cityLabel.text = "Issue in connection"
                     }
-        
-        
+
+
         }
-   
+
         }
-    
-    
+
+
     }
-    
+
+
+	@IBAction func selectRequest(_ sender: UIButton) {
+		//1 Get the city name the user entered in the text field
+
+		let optionsClosure = { (action: UIAction) in
+			self.reqLabel.text = action.title
+		}
+		reqButton.menu = UIMenu(children: [
+			UIAction(title: "GET", state: .on, handler: optionsClosure),
+			UIAction(title: "POST", handler: optionsClosure),
+			UIAction(title: "PUT", handler: optionsClosure),
+			UIAction(title: "DELETE", handler: optionsClosure),
+			UIAction(title: "PATCH", handler: optionsClosure)
+		])
+
+		reqButton.showsMenuAsPrimaryAction = true
+
+	}
+
 
     //1
     @IBAction func getPressed(_ sender: UIButton) {
 //1 Get the city name the user entered in the text field
 
-		
+
 		let cityName = changeCityTextField.text!
-		
-       
+
+
         //2 If we have a delegate set, call the method userEnteredANewCityName
         getData(url: cityName)
-        
+
         //3 dismiss the Change City View Controller to go back to the WeatherViewController
         self.dismiss(animated: true, completion: nil)
-        
+
     }
 
-   
 
 
 
-    
+
+
 
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let viewController = segue.destination as? ResponseViewController {
@@ -487,9 +534,9 @@ open class MainViewController: UIViewController{
 			viewController.reqLabel.text = reqLabel.text
 		}
     }
-    
+
 	@IBAction func CloseModal(_ sender: Any) {
-		
+
 		self.dismiss(animated: true, completion: nil)
 	}
 
@@ -510,3 +557,4 @@ private func fullSeparator() -> SeparatorStackCell {
 
 
 
+import Foundation

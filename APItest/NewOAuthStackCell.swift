@@ -1,12 +1,16 @@
+//
+//  NewOAuthStackCell.swift
+//  APItest
+//
+//  Created by Peter Delgado on 5/8/22.
+//  Copyright © 2022 London App Brewery. All rights reserved.
+//
 
-
+import Foundation
 import UIKit
-
 import EasyPeasy
 
-
-
-final class OAuthStackCell: StackCellBase {
+final class NewOAuthStackCell: StackCellBase {
 
 	var tapped: () -> Void = {}
 

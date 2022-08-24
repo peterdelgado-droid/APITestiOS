@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21179.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rlg-rE-IL4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rlg-rE-IL4">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,7 +41,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aYi-HI-WZ4">
-                                <rect key="frame" x="116" y="103" width="109" height="32"/>
+                                <rect key="frame" x="119" y="175" width="109" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Raw"/>
@@ -49,28 +49,28 @@
                                 </segments>
                             </segmentedControl>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="L" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Gd-ay-Pq5" userLabel="FinalText">
-                                <rect key="frame" x="31" y="155" width="318" height="432"/>
+                                <rect key="frame" x="31" y="241" width="318" height="291"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7u-sv-Kj4">
-                                <rect key="frame" x="108" y="64" width="117" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add to History"/>
-                                <connections>
-                                    <action selector="addRequest:" destination="275-0N-UC5" eventType="touchUpInside" id="jUP-Iu-57k"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWL-Z4-ooX">
                                 <rect key="frame" x="31" y="52" width="41" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
                                     <action selector="CloseModal:" destination="275-0N-UC5" eventType="touchUpInside" id="H3e-2c-keG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7u-sv-Kj4">
+                                <rect key="frame" x="112" y="95" width="123" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add to History"/>
+                                <connections>
+                                    <action selector="addRequest:" destination="275-0N-UC5" eventType="touchUpInside" id="jUP-Iu-57k"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vQr-O1-9Wa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6930" y="-1004"/>
+            <point key="canvasLocation" x="6928.8000000000002" y="-1004.3478260869566"/>
         </scene>
         <!--History-->
         <scene sceneID="wCq-4Y-Kaj">
@@ -108,7 +108,7 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoryCell" id="ynW-dD-zT0" customClass="HistTableViewCell" customModule="APItest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="343" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="343" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ynW-dD-zT0" id="wux-q0-Ffv">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
@@ -147,8 +147,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3c4-ya-VBf">
+                                <rect key="frame" x="26" y="54" width="41" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="CloseModal:" destination="kGB-Lj-YNL" eventType="touchUpInside" id="HQm-yn-MN6"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NY-Ss-BFn">
-                                <rect key="frame" x="109" y="601" width="197" height="31"/>
+                                <rect key="frame" x="89" y="557" width="197" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Delete History">
@@ -156,14 +164,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="deleteHistory:" destination="kGB-Lj-YNL" eventType="touchUpInside" id="2gp-es-8Ie"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3c4-ya-VBf">
-                                <rect key="frame" x="26" y="54" width="41" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
-                                <connections>
-                                    <action selector="CloseModal:" destination="kGB-Lj-YNL" eventType="touchUpInside" id="HQm-yn-MN6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -230,6 +230,15 @@
                                 <color key="textColor" systemColor="linkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R64-tl-ne0">
+                                <rect key="frame" x="102" y="25" width="136" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="custom.plus"/>
+                                <connections>
+                                    <action selector="selectRequest:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KMa-fJ-C2q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.039006564766168594" green="0.056539751589298248" blue="0.10257817059755325" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -238,6 +247,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="changeCityTextField" destination="raA-D4-2Rp" id="nLt-AJ-7yy"/>
+                        <outlet property="reqButton" destination="R64-tl-ne0" id="Hi7-IX-70d"/>
                         <outlet property="reqLabel" destination="xYG-bW-CKQ" id="pMp-5v-FoN"/>
                     </connections>
                 </viewController>
@@ -307,11 +317,12 @@
     </scenes>
     <resources>
         <image name="custom.cross.circle" width="20" height="20"/>
+        <image name="custom.plus" width="16" height="16"/>
         <image name="icloud.and.arrow.down.fill" width="24.5" height="23.5"/>
         <image name="icloud.and.arrow.up.fill" width="24.5" height="22"/>
         <image name="play.fill" width="15" height="16.5"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
