@@ -6,14 +6,14 @@
 //  Copyright © 2022 London App Brewery. All rights reserved.
 //
 
-//import RxSwift
-//import RxAlertViewable
-//import RxController
-//
-//class BaseViewModel: RxViewModel {
-//
-//	let alert = PublishSubject<RxAlert>()
-//	let actionSheet = PublishSubject<RxActionSheet>()
-//	let loading = PublishSubject<Bool>()
-//
-//}
+import RxSwift
+import RxAlertViewable
+import RxController
+
+class BaseViewModel: RxViewModel {
+
+	let alert = PublishSubject<RxAlert>()
+	let actionSheet = PublishSubject<RxActionSheet>()
+	let loading = PublishSubject<Bool>()
+
+}

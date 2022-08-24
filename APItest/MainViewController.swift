@@ -15,7 +15,14 @@ import ScrollingStackViewController
 import EasyPeasy
 import StackScrollView
 
+class presentationSheet: UIViewController{
 
+	override func viewDidLoad(){
+		super.viewDidLoad()
+
+	}
+
+}
 
 
 let notificationKey = "peter.key"
@@ -65,12 +72,17 @@ open class MainViewController: UIViewController{
 
 
 	@IBOutlet weak var closeIcon: UIButton!
+	@IBOutlet weak var reqButton: UIButton!
 
 
      var StringTest: String!
 
 
 	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+	let itemsVC = presentationSheet()
+
+
 
 	open override func viewDidLoad() {
         super.viewDidLoad()
@@ -165,30 +177,46 @@ open class MainViewController: UIViewController{
 			return [v, s]
 		}())
 
+
+
 		stackScrollView.append(views: views)
+
+		var config = UIButton.Configuration.filled()
+		config.title = "show sheet"
+
+		let button = UIButton(configuration: config, primaryAction: UIAction(){ _ in
+
+			if let sheet = self.itemsVC.sheetPresentationController{
+				sheet.detents = [.medium(), .large()]
+			}
+
+			self.present(self.itemsVC, animated: true, completion: nil)
+
+		})
 
 
 
 		//stackScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		stackScrollView.frame = rect
 
+		
 		view.addSubview(stackScrollView)
 
+		
 
+		//let swiftUIToggler = SheetView(externalSwitch: reqLabel)
+	//	let content = UIHostingController(rootView:swiftUIToggler)
 
-		let swiftUIToggler = SheetView(externalSwitch: reqLabel)
-		let content = UIHostingController(rootView:swiftUIToggler)
-
-		addChild(content)
-
-		view.addSubview(content.view)
-        content.view.translatesAutoresizingMaskIntoConstraints = false
-        content.view.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -10).isActive = true
-        content.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-        content.view.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        content.view.widthAnchor.constraint(equalToConstant: 110).isActive = true
-		content.view.backgroundColor = .clear
-        content.view.layer.cornerRadius = 5
+//		addChild(content)
+//
+//		view.addSubview(content.view)
+//        content.view.translatesAutoresizingMaskIntoConstraints = false
+//        content.view.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -10).isActive = true
+//        content.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+//        content.view.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        content.view.widthAnchor.constraint(equalToConstant: 110).isActive = true
+//		content.view.backgroundColor = .clear
+//        content.view.layer.cornerRadius = 5
 
 //
 ////		if(passedValue2 == nil){
@@ -456,6 +484,25 @@ open class MainViewController: UIViewController{
 
 
     }
+
+
+	@IBAction func selectRequest(_ sender: UIButton) {
+		//1 Get the city name the user entered in the text field
+
+		let optionsClosure = { (action: UIAction) in
+			self.reqLabel.text = action.title
+		}
+		reqButton.menu = UIMenu(children: [
+			UIAction(title: "GET", state: .on, handler: optionsClosure),
+			UIAction(title: "POST", handler: optionsClosure),
+			UIAction(title: "PUT", handler: optionsClosure),
+			UIAction(title: "DELETE", handler: optionsClosure),
+			UIAction(title: "PATCH", handler: optionsClosure)
+		])
+
+		reqButton.showsMenuAsPrimaryAction = true
+
+	}
 
 
     //1
