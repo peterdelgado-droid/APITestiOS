@@ -226,6 +226,7 @@ open class MainViewController: UIViewController{
 
 		
 		view.addSubview(stackScrollView)
+		//for responsive ui
 		stackScrollView.translatesAutoresizingMaskIntoConstraints = false
 		stackScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 220).isActive = true
 		stackScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -100).isActive = true
