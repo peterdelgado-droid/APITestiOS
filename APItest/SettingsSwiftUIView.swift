@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SettingsSwiftUIView: View {
-	@State private var searchText = ""
+	
 
 
 
